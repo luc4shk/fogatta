@@ -17,7 +17,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image:linear-gradient(45deg, rgba(0,0,0,0.45675770308123254) 0%, rgba(0,0,0,0.7) 100%),url(https://i.postimg.cc/8cCbwfqw/header.jpg); 
+    background-image:linear-gradient(45deg, rgba(0,0,0,0.45675770308123254) 0%, rgba(0,0,0,0.7) 100%),url(https://i.postimg.cc/LX8DSVnp/header.jpg); 
 
 }
 
@@ -40,12 +40,13 @@
 }
 
 .nav_logo{
-    width: 50px;
+    width: 180px;
     height: 50px;
-    background-image: url(https://i.postimg.cc/kXBcb8Ng/logo.png);
+    background-image: url(https://i.postimg.cc/GhbbP88y/logotrans.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: pointer;
 }
 
 .nav_text{
@@ -134,7 +135,7 @@
 
 }
 .a_image{
-    background-image: url(https://i.postimg.cc/Wp7KnMJm/a.jpg);
+    background-image: url(https://i.postimg.cc/HkbB9xff/secciona.jpg);
     width: 26vw;
     height: 72vh;
     background-position: center;
@@ -157,7 +158,7 @@
 
 .b{
     color: white;
-    background-image: linear-gradient(45deg, rgba(0,0,0,0.45675770308123254) 0%, rgba(0,0,0,0.7) 100%),url(https://i.postimg.cc/Dzq5zTrQ/rodeo-project-management-software-PYqz-Yh-TNjho-unsplash.jpg);
+    background-image: linear-gradient(45deg, rgba(0,0,0,0.45675770308123254) 0%, rgba(0,0,0,0.7) 100%),url(https://i.postimg.cc/vT1vgHr2/seccionb.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -218,7 +219,7 @@
     
 }
 .c_image{
-    background-image: url(https://i.postimg.cc/fb4BZL9T/c.jpg);
+    background-image: url(https://i.postimg.cc/0NxZWvvr/seccionc.jpg);
     width: 26vw;
     height: 72vh;
     background-position: center;
@@ -297,7 +298,7 @@ input[type=submit]{
         flex-direction: column;
     }
     .menu{
-        background-image: url(https://i.postimg.cc/sDNLXh65/Menu-icon-icon-icons-com-71858.png);
+        background-image: url("https://i.postimg.cc/PJNSWMj4/menu-icon.png");
         position:absolute;
         background-size: contain;
         width: 50px;

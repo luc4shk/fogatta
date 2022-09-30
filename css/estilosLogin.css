@@ -16,52 +16,6 @@ body{
     backdrop-filter: blur(0.2rem);
 }   
 
-.nav{
-    width: 100%;
-    height: 200px;
-    background-color: red;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image:linear-gradient(45deg, rgba(0,0,0,0.45675770308123254) 0%, rgba(0,0,0,0.7) 100%),url(https://i.postimg.cc/8cCbwfqw/header.jpg); 
-
-}
-
-.nav_cont{
-    display: flex;
-    align-items: center;
-    height: 200px;    
-    width: 100%;
-    justify-content: space-between;
-    position: fixed;
-}
-
-
-.nav_cont_l{
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    width: 100vw;
-    justify-content: center;
-}
-
-.nav_logo{
-    width: 50px;
-    height: 50px;
-    background-image: url(https://i.postimg.cc/kXBcb8Ng/logo.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.nav_text{
-    color: white;
-    font-family: 'Comfortaa';
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 20px;
-}
-
 .main{
     width: 100vw;
     height: 100vh;
@@ -71,8 +25,8 @@ body{
 }
 .form{
     display: flex;
-    width: 410px;
-    height: 410px;
+    width: 450px;
+    height: 450px;
     flex-direction: column;
     background-color: white;
     align-items: center;
@@ -83,42 +37,41 @@ body{
 }
 
 .logo{
-    margin-bottom: 20px;
-    width: 50px;
+    margin-bottom: 10px;
+    width: 180px;
     height: 50px;
-    background-image: url(https://i.postimg.cc/kXBcb8Ng/logo.png);
+    background-image: url(https://i.postimg.cc/HsqWcYDJ/logotransblack.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 input{
-    width: 300px;
-    padding: 8px;
+    width:350px;
+    padding: 10px;
     margin: 15px 0 15px 0;
     border-radius: 15px;
     outline: none;
     border: 1px solid black;
        
 }
+
+
 .olvidar{
-    margin-top: 10px;
-    margin-bottom: 5px;
-    text-decoration: none;
-    color: black;
-    font-size: 14px;
-    width: 300px;
+    color:black;
+    text-decoration:none;
+    font-size:14px;
+    margin-bottom: 8px;
     text-align: center;
 }
-
 .registro, .p_reg{
-    margin-top: 10px;
-    margin-bottom: 5px;
     text-decoration: none;
     color: black;
     font-size: 14px;
-    width: 300px;
+    width: 350px;
     text-align: center;
+    margin-top:10px;
+    margin-bottom:5px;
 }
 
 .registro{
@@ -130,7 +83,7 @@ input[type=submit]{
 }
 
 .google{
-    width: 300px;
+    width: 350px;
     height: 70px;
     margin: 0 auto;
     display: block;
@@ -156,7 +109,14 @@ input[type=submit]{
     
 }
 
-
+.loginAdmin{
+    color:black;
+    text-decoration:none;
+    font-size:14px;
+    border:0;
+    text-align:center;
+    margin-top:10px;
+}
 
 
 /*Media */
