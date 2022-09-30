@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Lobster&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Comfortaa';
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(https://i.postimg.cc/x1dtZ70p/p1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(0.2rem);
+}   
+
+.nav{
+    width: 100%;
+    height: 200px;
+    background-color: red;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image:linear-gradient(45deg, rgba(0,0,0,0.45675770308123254) 0%, rgba(0,0,0,0.7) 100%),url(https://i.postimg.cc/8cCbwfqw/header.jpg); 
+
+}
+
+.nav_cont{
+    display: flex;
+    align-items: center;
+    height: 200px;    
+    width: 100%;
+    justify-content: space-between;
+    position: fixed;
+}
+
+
+.nav_cont_l{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    width: 100vw;
+    justify-content: center;
+}
+
+.nav_logo{
+    width: 50px;
+    height: 50px;
+    background-image: url(https://i.postimg.cc/kXBcb8Ng/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nav_text{
+    color: white;
+    font-family: 'Comfortaa';
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    display: flex;
+    width: 410px;
+    height: 410px;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0, 0.4);
+
+}
+
+.logo{
+    margin-bottom: 20px;
+    width: 50px;
+    height: 50px;
+    background-image: url(https://i.postimg.cc/kXBcb8Ng/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input{
+    width: 300px;
+    padding: 8px;
+    margin: 15px 0 15px 0;
+    border-radius: 15px;
+    outline: none;
+    border: 1px solid black;
+       
+}
+.olvidar{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    width: 300px;
+    text-align: center;
+}
+
+.registro, .p_reg{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    width: 300px;
+    text-align: center;
+}
+
+.registro{
+    color: #198ad7;
+}
+input[type=submit]{
+    margin: 0 0 20px 0;
+    cursor: pointer;
+}
+
+.google{
+    width: 300px;
+    height: 70px;
+    margin: 0 auto;
+    display: block;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    gap: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.google_logo{
+    background-image: url(https://i.postimg.cc/0y1BHZzL/google.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    
+}
+
+
+
+
+/*Media */
+
+@media screen and (max-width:955px) {
+    .nav_cont{
+        display: flex;
+        flex-direction: column;
+    }
+    .menu{
+        background-image: url(https://i.postimg.cc/sDNLXh65/Menu-icon-icon-icons-com-71858.png);
+        position:absolute;
+        background-size: contain;
+        width: 50px;
+        height: 50px;
+        top: 155px;
+        left: 0;
+    }
+
+    .desp{
+        background-color: rgba(0, 0, 0, 1);
+        width: 0;
+        height: 0;
+        position: fixed;
+        transition: all 0.1s;
+        }
+
+    .mostrar{
+        width: 100vw;
+        height: 450px;
+    }
+    .nav_btn_user, .nav_btn_login, .nav_btn_reg{
+        display: none;
+    }
+    
+
+    .mostrar2{
+        display: flex;
+    }
+
+    .nav_cont_l{
+        display: flex;
+        /* text-align: center; */
+        justify-content: center;
+        width: 100vw;
+        height: 200px;
+        margin: 0;
+        
+    }
+}
+
+
