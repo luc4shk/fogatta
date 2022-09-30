@@ -46,6 +46,14 @@ body{
     background-size: cover;
 }
 
+
+
+input[type=number]
+{
+-webkit-appearance: none;
+-moz-appearance:textfield;
+}
+
 input{
     width:350px;
     padding: 10px;
@@ -55,7 +63,6 @@ input{
     border: 1px solid black;
        
 }
-
 
 .olvidar{
     color:black;
@@ -114,6 +121,14 @@ input[type=submit]{
     text-decoration:none;
     font-size:14px;
     border:0;
+    text-align:center;
+    margin-top:10px;
+}
+
+.loginCliente{
+    color:black;
+    text-decoration:none;
+    font-size:14px;
     text-align:center;
     margin-top:10px;
 }
