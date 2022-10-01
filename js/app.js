@@ -28,68 +28,44 @@ window.addEventListener('scroll', function(event) {
         nav.style.height = "100px";
         nav.style.transition = "all 0.5s"
         sec.style.transition = "all 0.5s"
-        sec.style.padding = "50px 0 0 0"
         menu.style.transition = "all 0.5s"
         menu.style.top="28px"
         sec3.style.transition = "all 0.5s"
-        sec3.style.padding = "70px 0 0 0"
         desp.style.margin="-100px 0 0 0"
     }
 });
 
-menu.addEventListener('click', function(event){
+function mostrar(){
     desp.classList.toggle('mostrar')
     a.classList.toggle('mostrar2')
     b.classList.toggle('mostrar2')
     c.classList.toggle('mostrar2')
     d.classList.toggle('mostrar2')
     e.classList.toggle('mostrar2')
+}
+menu.addEventListener('click', function(event){
+    mostrar()
 
 })
 
 a.addEventListener('click', function(event){
-    desp.classList.toggle('mostrar')
-    a.classList.toggle('mostrar2')
-    b.classList.toggle('mostrar2')
-    c.classList.toggle('mostrar2')
-    d.classList.toggle('mostrar2')
-    e.classList.toggle('mostrar2')
+    mostrar() 
 })
 
 b.addEventListener('click', function(event){
-    desp.classList.toggle('mostrar')
-    a.classList.toggle('mostrar2')
-    b.classList.toggle('mostrar2')
-    c.classList.toggle('mostrar2')
-    d.classList.toggle('mostrar2')
-    e.classList.toggle('mostrar2')
+    mostrar()    
 })
 
 c.addEventListener('click', function(event){
-    desp.classList.toggle('mostrar')
-    a.classList.toggle('mostrar2')
-    b.classList.toggle('mostrar2')
-    c.classList.toggle('mostrar2')
-    d.classList.toggle('mostrar2')
-    e.classList.toggle('mostrar2')
+    mostrar()    
 })
 
 d.addEventListener('click', function(event){
-    desp.classList.toggle('mostrar')
-    a.classList.toggle('mostrar2')
-    b.classList.toggle('mostrar2')
-    c.classList.toggle('mostrar2')
-    d.classList.toggle('mostrar2')
-    e.classList.toggle('mostrar2')
+    mostrar()    
 })
 
 e.addEventListener('click', function(event){
-    desp.classList.toggle('mostrar')
-    a.classList.toggle('mostrar2')
-    b.classList.toggle('mostrar2')
-    c.classList.toggle('mostrar2')
-    d.classList.toggle('mostrar2')
-    e.classList.toggle('mostrar2')
+    mostrar()    
 })
 
 
