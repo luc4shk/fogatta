@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
+
 <body>
-    <nav class="nav" >
+    <nav class="nav">
         <div class="nav_cont" id="nav2">
             <div class="nav_cont_l">
                 <a href="index.html" class="nav_logo"></a>
@@ -24,36 +27,85 @@
             </div>
             <div class="menu"></div>
         </div>
-        
+
     </nav>
     <div class="desp">
         <a class="nav_btn_user2 uno" href="#seccion_a">¿Quiénes Somos?</a>
         <a class="nav_btn_user2 dos" href="#seccion_b">Nuestros Servicios</a>
-        <a class="nav_btn_user2 tres"  href="#seccion_c">Contacto</a>
-        <a class="nav_btn_user2 cuatro" href="loginCliente.html" >Iniciar Sesion</a>
+        <a class="nav_btn_user2 tres" href="#seccion_c">Contacto</a>
+        <a class="nav_btn_user2 cuatro" href="loginCliente.html">Iniciar Sesion</a>
         <a class="nav_btn_user2 cinco" href="registroCliente.html">Registrarse</a>
     </div>
     <main class="main">
         <div class="main_cont">
-            <div class="seccion a" id="seccion_a" >
-                <div class="a_cont" >
+            <div class="seccion a" id="seccion_a">
+                <div class="a_cont">
                     <div class="a_image"></div>
                     <div class="a_info">
                         <h2 class="a_title">¿Quiénes Somos?</h2>
-                        <p class="a_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi asperiores explicabo fugiat dolore, architecto eum tempore ipsam accusantium nam rem itaque. Illo fugiat debitis, omnis velit cupiditate quas culpa labore.</p>
+                        <p class="a_text">
+                            Disfruta con nosotros del ambiente más acogedor y agradable que hará de su visita un momento
+                            inolvidable.
+                            Sumérgete en un mar de posibilidades con exquisita comida y con música variada, desde el
+                            tango romántico hasta la inigualable música folclórica colombiana, y con nuestra amplia
+                            variedad de cócteles y bebidas, disfrutarás de una velada sin igual, estamos seguros de que
+                            tu visita a Fogatta será inolvidable.
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="seccion b"  id="seccion_b">
-                <div class="b_info" >
+            <div class="seccion b" id="seccion_b">
+                <div class="b_info w-screen p-0">
                     <h2 class="b_title">Nuestros Servicios</h2>
-                    <p class="b_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi asperiores explicabo fugiat dolore, architecto eum tempore ipsam accusantium nam rem itaque. Illo fugiat debitis, omnis velit cupiditate quas culpa labore.</p>
+                    <div class="b_text">
+                    <div class="cartas flex justify-evenly w-full">
+                        <div class="flex justify-center">
+                            <div class="rounded-lg shadow-lg bg-white respon">
+                                <div class="imagen1 w-96 bg-center bg-cover bg-norepeat">
+                                
+                                
+                                </div>
+                                <div class="p-6">
+                                    <h5 class="text-gray-900 text-xl font-medium mb-2">Bebidas y Cocteles</h5>
+                                    <p class="text-gray-700 text-base mb-4">
+                                        Estos cocteles exclusivos son más que una bebida, son una experiencia que fomenta el descubrimiento y resiste el paso del tiempo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="rounded-lg shadow-lg bg-white respon">
+                                <div class="imagen2 w-96 bg-center">
+                                
+                                </div>
+                                <div class="p-6">
+                                    <h5 class="text-gray-900 text-xl font-medium mb-2">Almuerzos</h5>
+                                    <p class="text-gray-700 text-base mb-4">
+                                       Contamos con los mejores cortes de carnes nacionales e importados junto con una sazón exquisita que implosionará de sabor tu paladar.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="rounded-lg shadow-lg bg-white respon">
+                                <div class="imagen3">
+                                </div>
+                                <div class="p-6">
+                                    <h5 class="text-gray-900 text-xl font-medium mb-2">Cena</h5>
+                                    <p class="text-gray-700 text-base mb-4">
+                                        Nuestros ingredientes son de alta calidad, esto permitirá que disfrutes de una agradable cena con variedad de platillos en nuestro menú, una experiencia que no vas a querer perderte.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </div>
             <div class="seccion c" id="seccion_c">
-                <div class="c_cont" >
+                <div class="c_cont">
                     <div class="c_info">
-                        <form class="c_form"action="">
+                        <form class="c_form" action="">
                             <h2 class="c_title">Contacto</h2>
                             <label for="nombre">Nombre</label>
                             <input id="nombre" type="text">
@@ -65,14 +117,15 @@
                         </form>
                     </div>
                     <div class="c_image"></div>
-                    
+
                 </div>
-            </div>    
+            </div>
         </div>
 
     </main>
     <script src="js/app.js">
-        
+
     </script>
 </body>
+
 </html>

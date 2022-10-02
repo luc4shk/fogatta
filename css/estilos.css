@@ -140,6 +140,8 @@
 
 .a_text{
     font-size: 17px;
+    line-height:50px;
+    text-align:justify;
 }
 
 .b{
@@ -159,7 +161,6 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    padding-left: 55px;
     height: 100vh;
     gap: 50px;
 }
@@ -169,7 +170,44 @@
 }
 
 .b_text{
-    font-size: 17px;
+    width: 100%;
+}
+.respon{
+    width: 384px;
+}
+
+.cartas{
+    width: 100%;
+}
+
+.p-6{
+    width:384px;
+}
+.imagen1{
+    width: 384px;
+    height: 288px;
+    background-image: url(../img/coctel.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.imagen2{
+    width: 384px;
+    height: 288px;
+    background-image: url(../img/almuerzo.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.imagen3{
+    width: 384px;
+    height: 288px;
+    background-image: url(../img/cena.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 
@@ -269,7 +307,42 @@ input[type=submit]{
     
 }
 /*Media */
+@media screen and (max-width:1207px){
+    .cartas{
+        flex-direction: column;
+        gap: 25px;
+        width: 800px;
+    }
 
+    .flex{
+        height: 300px;
+        display: flex;
+    }
+
+    .imagen1, .imagen2, .imagen3{
+        height: 200px;
+    }
+
+    .respon{
+        display: flex;
+        width: 800px;
+    }
+
+    .b_text{
+        width: 800px;
+        margin-top: 160px;
+        height: 800px;
+    }
+
+    .p-6{
+        width: 550px;
+    }
+
+    .b_info{
+    margin-top:250px;
+    }
+
+}
 @media screen and (max-width:955px) {
     .nav_cont{
         display: flex;
@@ -315,6 +388,18 @@ input[type=submit]{
         height: 200px;
         margin: 0;
         
+    }
+}
+
+@media screen and (max-width:798px){
+    
+    .imagen1, .imagen2, .imagen3{
+        display: none;
+    }
+
+    .b_text{
+        width: 400px;
+        height: 800px;
     }
 }
 
@@ -367,4 +452,6 @@ input[type=submit]{
     padding: 0 55px 0 55px;
     height: 60vh;
     }
+
+    
 }
