@@ -181,7 +181,7 @@
 }
 
 .p-6{
-    width:384px;
+    width:100%;
 }
 .imagen1{
     width: 384px;
@@ -335,7 +335,7 @@ input[type=submit]{
     }
 
     .p-6{
-        width: 550px;
+        width: 100%;
     }
 
     .b_info{
@@ -401,6 +401,8 @@ input[type=submit]{
         width: 400px;
         height: 800px;
     }
+
+
 }
 
 @media screen and (max-width:715px){
