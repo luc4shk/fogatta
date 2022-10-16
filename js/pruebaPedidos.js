@@ -1,6 +1,6 @@
 //Barra de Navegación
 var nav = document.querySelector('.nav_cont'); 
-var sec = document.querySelector('#seccion_a'); 
+var sec = document.querySelector('.tituloTable'); 
 var sec3 = document.querySelector('#seccion_c'); 
 var menu = document.querySelector('.menu'); 
 var desp = document.querySelector('.desp'); 
@@ -19,7 +19,6 @@ window.addEventListener('scroll', function(event) {
         nav.style.height = "200px";
         menu.style.top="155px"
         desp.style.margin="-5px 0 0 0"
-
         
     } else {
         nav.style.backgroundColor = 'black';
@@ -28,6 +27,7 @@ window.addEventListener('scroll', function(event) {
         menu.style.transition = "all 0.5s"
         menu.style.top="28px"
         desp.style.margin="-100px 0 0 0"
+
     }
 });
 
@@ -63,40 +63,58 @@ d.addEventListener('click', function(event){
 e.addEventListener('click', function(event){
     mostrar()    
 })
-
-let url ="https://api.openbrewerydb.org/breweries";
-    fetch(url)
-        .then(response => response.json())
-        .then(data => impresion(data))
-        .catch(error => console.log(error))
-
-
-function impresion(data){
-let respuesta=""
-let tipo=""
-    for(let i=0;i<data.length;i++){
-        if(i%2==0){
-            tipo="Bebida"
-        }
-        else{
-            tipo="Comida"
-        }
-        document.getElementById("body1").innerHTML += `
-        <tr>
-            <td>${4+i}</td>
-            <td>${data[i].name}</td>
-            <td>$${data[i].postal_code}</td>
-            <td>${tipo}</td>
-            <td><div class="editar"></div></td>
-            <td><div class="eliminar"></div></td>
-        </tr>
-        `;
+// let j=0;
+// let url ="https://api.generadordni.es/v2/profiles/person?results=20";
+//     fetch(url)
+//         .then(response => response.json())
+//         .then(data => impresion(data))
+//         .catch(error => console.log(error))
+//     let msg=""
+//         let url2 ="https://api.openbrewerydb.org/breweries";
+//         fetch(url2)
+//             .then(response => response.json())
+//             .then(data => msg=impresion2(data,j))
+//             .catch(error => console.log(error))
+        
+            
+// function impresion(data){
+    
+// let respuesta=""
+// let tipo=""
+//     for(let i=0;i<data.length;i++){
+//         if(i%2==0){
+//             tipo="Bebida"
+//         }
+//         else{
+//             tipo="Comida"
+//         }
+//         document.getElementById("tbody").innerHTML += `
+//         <tr>
+//             <td>${4+i}</td>
+//             <td>${data[i].name} ${data[i].surname}</td>
+//             <td>${tipo}</td>
+//             ${msg}
+//             <td><a href="#"><div class="editar"></div></a></td>
+//             <td><a href="#"><div class="eliminar"></div></a></td>
+//         </tr>
+//         `;
 
         
-    }
+//     }
 
-}
+// }
 
-function agregarFila() {
+// function impresion2(data,j){
+//     let respuesta=""
+    
+//         for(let i=j;i<data.length;i++){
+            
+//             respuesta=`
+//             <td>${data[i].name}</td>
+//             `;
+    
+            
+//         }
+//         return respuesta;
+//     }
 
-}

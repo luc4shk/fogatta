@@ -125,6 +125,9 @@
     height:200px;
     background-color:gray;
 }
+.desp{
+    display: none;
+}
 /*Finaliza sección Header*/
 /*Media */
 @media screen and (max-width:1207px){
@@ -180,6 +183,7 @@
     }
 
     .desp{
+        display: block;
         background-color: rgba(0, 0, 0, 1);
         width: 0;
         height: 0;

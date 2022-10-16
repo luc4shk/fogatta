@@ -306,6 +306,9 @@ input[type=submit]{
     margin: 0 calc(80vw - 75vw) 25px calc(80vw - 72vw);
     
 }
+.desp{
+    display: none;
+}
 /*Media */
 @media screen and (max-width:1207px){
     .cartas{
@@ -360,6 +363,7 @@ input[type=submit]{
     }
 
     .desp{
+        display: block;
         background-color: rgba(0, 0, 0, 1);
         width: 0;
         height: 0;

@@ -7,7 +7,7 @@
     font-family: 'Comfortaa';
     box-sizing: border-box;
 }
-
+/* Nav */
 .nav{
     width: 100%;
     height: 200px;
@@ -103,6 +103,7 @@
     margin: 0 calc(80vw - 75vw) 25px calc(80vw - 72vw);
     
 }
+/* Main */
 .main_cont{
     width:100%;
     height:100%;
@@ -115,10 +116,15 @@
 .tituloTable{
     margin:50px 0;
     font-size: 30px;
+    text-align: center;
+}
+
+.table{
+    margin-bottom: 30px;
 }
 .table,td,th{
     border-collapse: collapse;
-    height: 100px;
+    height: 7rem;
     text-align: center;
 }
 th,td{
@@ -155,43 +161,91 @@ button{
     background-size: cover;
     margin: 0 auto;
 }    
-/*Finaliza sección Header*/
-/*Media */
-@media screen and (max-width:1207px){
-    .cartas{
-        flex-direction: column;
-        gap: 25px;
-        width: 800px;
-    }
 
-    .flex{
-        height: 300px;
-        display: flex;
-    }
+/* Reseñas */
+.reseñas{
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    gap: 15px;
+}
+.individual_res{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    border-radius: 5px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 25px;
+    
+}
 
-    .imagen1, .imagen2, .imagen3{
-        height: 200px;
-    }
+.res_up{
+    display: flex;
+    gap: 20px;
+    padding: 0 5px;
+}
 
-    .respon{
-        display: flex;
-        width: 800px;
-    }
+.res_nombre{
+    font-weight: bold;
+    font-size: 20px;
+}
 
-    .b_text{
-        width: 800px;
-        margin-top: 160px;
-        height: 800px;
-    }
+.res_text{
+    resize: none;
+    text-align: justify ;
+    padding: 0px 5px;
+    background-color: white;
+    text-transform: initial;
+}
 
-    .p-6{
-        width: 100%;
-    }
 
-    .b_info{
-    margin-top:250px;
-    }
+.res_text::-webkit-scrollbar{
+    background: rgba(255, 255, 255, 1);
+    width: 4px;
+ }
 
+.res_text::-webkit-scrollbar-thumb{
+     background: rgba(225, 225, 225, 1);
+     width: 2px;
+     height: 2px;
+     border-radius: 5px;
+
+ }
+
+.res_up_img{
+    background-image: url(../img/picprofile.svg);
+    width: 80px;
+    height: 80px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.desp{
+    display: none;
+}
+
+@media screen and (max-width:1235px) {
+    .reseñas{
+        
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+}
+
+@media screen and (max-width:812px) {
+    .reseñas{
+        
+        grid-template-columns: repeat(1, 1fr);
+        
+    }
 }
 @media screen and (max-width:955px) {
     .nav_cont{
@@ -210,6 +264,7 @@ button{
     }
 
     .desp{
+        display: block;
         background-color: rgba(0, 0, 0, 1);
         width: 0;
         height: 0;
