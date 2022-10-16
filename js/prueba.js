@@ -17,8 +17,6 @@ window.addEventListener('scroll', function(event) {
     if (window.scrollY <= 90) { 
         nav.style.backgroundColor = 'transparent'; 
         nav.style.height = "200px";
-        sec.style.padding = "0 0 0 0"
-        sec3.style.padding = "0 0 0 0"
         menu.style.top="155px"
         desp.style.margin="-5px 0 0 0"
 
@@ -27,10 +25,8 @@ window.addEventListener('scroll', function(event) {
         nav.style.backgroundColor = 'black';
         nav.style.height = "100px";
         nav.style.transition = "all 0.5s"
-        sec.style.transition = "all 0.5s"
         menu.style.transition = "all 0.5s"
         menu.style.top="28px"
-        sec3.style.transition = "all 0.5s"
         desp.style.margin="-100px 0 0 0"
     }
 });
@@ -68,3 +64,39 @@ e.addEventListener('click', function(event){
     mostrar()    
 })
 
+let url ="https://api.openbrewerydb.org/breweries";
+    fetch(url)
+        .then(response => response.json())
+        .then(data => impresion(data))
+        .catch(error => console.log(error))
+
+
+function impresion(data){
+let respuesta=""
+let tipo=""
+    for(let i=0;i<data.length;i++){
+        if(i%2==0){
+            tipo="Bebida"
+        }
+        else{
+            tipo="Comida"
+        }
+        document.getElementById("body1").innerHTML += `
+        <tr>
+            <td>${4+i}</td>
+            <td>${data[i].name}</td>
+            <td>$${data[i].postal_code}</td>
+            <td>${tipo}</td>
+            <td><div class="editar"></div></td>
+            <td><div class="eliminar"></div></td>
+        </tr>
+        `;
+
+        
+    }
+
+}
+
+function agregarFila() {
+
+}

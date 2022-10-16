@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Lobster&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Comfortaa';
+    box-sizing: border-box;
+}
+
+.nav{
+    width: 100%;
+    height: 200px;
+    background-color: red;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image:linear-gradient(45deg, rgba(0,0,0,0.45675770308123254) 0%, rgba(0,0,0,0.7) 100%),url(../img/header.jpg); 
+
+}
+
+.nav_cont{
+    display: flex;
+    align-items: center;
+    height: 200px;    
+    width: 100%;
+    justify-content: space-between;
+    position: fixed;
+}
+
+.nav_cont_l{
+    display: flex;
+    align-items: center;
+    width: 250px;
+    margin-left:25px
+}
+
+.nav_logo{
+    width: 180px;
+    height: 50px;
+    background-image: url(../img/logotrans.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.nav_text{
+    color: white;
+    font-family: 'Comfortaa';
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav_cont_m{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-grow:1;
+}
+
+.nav_cont_r{
+    display: flex;
+    align-items: center;
+    width: 250px;
+    margin-right:25px;
+}
+
+.nav_btn_admin{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    width: 125px;
+    font-size: 20px;
+    display: flex;
+    text-align: center;
+}
+
+.nav_btn_user,.nav_btn_login, .nav_btn_reg{
+    text-decoration: none;
+    display: flex;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 125px;
+    font-size: 20px;
+}
+.nav_btn_user2{
+    display: none;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 80vw;
+    font-size: 20px;
+    border: 0;
+    border-bottom: 2px solid white;
+    padding: 20px 0 20px 0;
+    text-align: center;
+    justify-content: center;
+    margin: 0 calc(80vw - 75vw) 25px calc(80vw - 72vw);
+    
+}
+.main_cont{
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5rem;
+}
+
+.tituloTable{
+    margin:50px 0;
+    font-size: 30px;
+}
+.table,td,th{
+    border-collapse: collapse;
+    height: 100px;
+    text-align: center;
+}
+th,td{
+    width: 18rem;
+}
+th{
+    color: white;
+    background-color: rgba(0,0,0,1);
+    font-size: 20px;
+}
+tr:nth-child(even){
+     background-color: #f2f2f2;
+}
+
+.editar{
+    background-image: url("../img/editar.png");
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: cover;
+    margin: 0 auto;
+    
+    
+}
+button{
+    width: inherit;
+    height: inherit;
+}
+.eliminar{
+    background-image: url("../img/eliminar.png");
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: cover;
+    margin: 0 auto;
+}    
+/*Finaliza sección Header*/
+/*Media */
+@media screen and (max-width:1207px){
+    .cartas{
+        flex-direction: column;
+        gap: 25px;
+        width: 800px;
+    }
+
+    .flex{
+        height: 300px;
+        display: flex;
+    }
+
+    .imagen1, .imagen2, .imagen3{
+        height: 200px;
+    }
+
+    .respon{
+        display: flex;
+        width: 800px;
+    }
+
+    .b_text{
+        width: 800px;
+        margin-top: 160px;
+        height: 800px;
+    }
+
+    .p-6{
+        width: 100%;
+    }
+
+    .b_info{
+    margin-top:250px;
+    }
+
+}
+@media screen and (max-width:955px) {
+    .nav_cont{
+        display: flex;
+        flex-direction: column;
+    }
+    .menu{
+        background-image: url("https://i.postimg.cc/PJNSWMj4/menu-icon.png");
+        position:absolute;
+        background-size: contain;
+        width: 50px;
+        height: 50px;
+        top: 155px;
+        left: 0;
+        cursor:pointer;
+    }
+
+    .desp{
+        background-color: rgba(0, 0, 0, 1);
+        width: 0;
+        height: 0;
+        position: fixed;
+        transition: all 0.1s;
+        }
+
+    .mostrar{
+        width: 100vw;
+        height: 500px;
+    }
+    .nav_btn_user, .nav_btn_login, .nav_btn_reg{
+        display: none;
+    }
+    
+
+    .mostrar2{
+        display: flex;
+    }
+
+    .nav_cont_l{
+        display: flex;
+        /* text-align: center; */
+        justify-content: center;
+        width: 100vw;
+        height: 200px;
+        margin: 0;
+        
+    }
+}
+
+
+
+
+    
+

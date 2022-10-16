@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/productos.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav_cont" id="nav2">
+            <div class="nav_cont_l">
+                <a href="index.html" class="nav_logo"></a>
+            </div>
+            <div class="nav_cont_m">
+                <a class="nav_btn_user" href="#seccion_a">Carta</a>
+                <a class="nav_btn_user" href="#seccion_b">Reservas</a>
+                <a class="nav_btn_user" href="#seccion_c">Pedidos</a>
+            </div>
+            <div class="nav_cont_r">
+                <a class="nav_btn_login" href="loginCliente.html">Reseñas</a>
+                <a class="nav_btn_reg" href="registroCliente.html">Cerrar Sesión</a>
+            </div>
+            <div class="menu"></div>
+        </div>
+
+    </nav>
+    <div class="desp">
+        <a class="nav_btn_user2 uno" href="#seccion_a">Carta</a>
+        <a class="nav_btn_user2 dos" href="#seccion_b">Reservas</a>
+        <a class="nav_btn_user2 tres" href="#seccion_c">Pedidos</a>
+        <a class="nav_btn_user2 cuatro" href="loginCliente.html">Reseñas</a>
+        <a class="nav_btn_user2 cinco" href="registroCliente.html">Cerrar Sesión</a>
+    </div>
+    <main class="main">
+        <div class="main_cont">
+            <h1 class="tituloTable">Gestor de Productos</h1>
+            <table class="table">
+                <tbody id="body1">
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Precio Unitario</th>
+                        <th>Tipo</th>
+                        <th colspan="2">Acción</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Hamburguesa Black</td>
+                        <td>$25.000</td>
+                        <td>Comida</td>
+                        <td><a class="editar"></a></td>
+                        <td><a class="eliminar"></a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>HotDog Furia</td>
+                        <td>$50.000</td>
+                        <td>Comida</td>
+                        <td><a class="editar"></a></td>
+                        <td><a class="eliminar"></a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Pizza Bit</td>
+                        <td>$60.000</td>
+                        <td>Comida</td>
+                        <td><a class="editar"></a></td>
+                        <td><a class="eliminar"></a></td>
+                    </tr>
+                </tbody>
+            </table> 
+        </div>
+    </main>
+    <script src="js/prueba.js"> 
+    </script>
+</body>
+
+</html>
