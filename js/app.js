@@ -60,11 +60,11 @@ c.addEventListener('click', function(event){
     mostrar()    
 })
 
-d.addEventListener('click', function(event){
-    mostrar()    
-})
+// d.addEventListener('click', function(event){
+//     mostrar()    
+// })
 
-e.addEventListener('click', function(event){
-    mostrar()    
-})
+// e.addEventListener('click', function(event){
+//     mostrar()    
+// })
 

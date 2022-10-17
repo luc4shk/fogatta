@@ -44,25 +44,25 @@ menu.addEventListener('click', function(event){
 
 })
 
-a.addEventListener('click', function(event){
-    mostrar() 
-})
+// a.addEventListener('click', function(event){
+//     mostrar() 
+// })
 
-b.addEventListener('click', function(event){
-    mostrar()    
-})
+// b.addEventListener('click', function(event){
+//     mostrar()    
+// })
 
-c.addEventListener('click', function(event){
-    mostrar()    
-})
+// c.addEventListener('click', function(event){
+//     mostrar()    
+// })
 
-d.addEventListener('click', function(event){
-    mostrar()    
-})
+// d.addEventListener('click', function(event){
+//     mostrar()    
+// })
 
-e.addEventListener('click', function(event){
-    mostrar()    
-})
+// e.addEventListener('click', function(event){
+//     mostrar()    
+// })
 
 let url ="https://api.openbrewerydb.org/breweries";
     fetch(url)
