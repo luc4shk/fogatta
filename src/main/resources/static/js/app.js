@@ -14,7 +14,7 @@ var e = document.querySelector('.cinco');
 
 
 window.addEventListener('scroll', function(event) { 
-    if (window.scrollY <= 90) { 
+    if (window.scrollY <= 1) { 
         nav.style.backgroundColor = 'transparent'; 
         nav.style.height = "200px";
         sec.style.padding = "0 0 0 0"
