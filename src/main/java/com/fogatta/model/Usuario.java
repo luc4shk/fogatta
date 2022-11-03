@@ -11,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
@@ -25,35 +28,44 @@ public class Usuario {
     @Column(nullable = false, length = 30)
     private String apellido;
 
-    @Column(nullable = false, length = 10)
-    private String num_celular;
-
-    @Column(unique = true, nullable = false, length = 40)
+    @Column(nullable = false, unique = true, length = 45)
     private String email;
 
     @Column(nullable = false, length = 64)
     private String password;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 10)
+    private String num_celular;
+
+    @Column(nullable = false, length = 40)
     private String direccion;
 
+    @DateTimeFormat(iso = ISO.DATE)
     private LocalDate fecha_nacimiento;
 
     @Enumerated(EnumType.STRING)
     private Rol rol;
 
-    /* Constructores */
+    @Column(name = "reset_password_token", length = 45)
+    private String resetPasswordToken;
+
+    @Column(name = "verification_code", updatable = false, length = 64)
+    private String verificationCode;
+     
+    private boolean enabled;
+
+    /* Constructors */
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellido, String num_celular, String email, String password, String direccion,
+    public Usuario(String nombre, String apellido, String email, String password, String num_celular, String direccion,
             LocalDate fecha_nacimiento, Rol rol) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.num_celular = num_celular;
         this.email = email;
         this.password = password;
+        this.num_celular = num_celular;
         this.direccion = direccion;
         this.fecha_nacimiento = fecha_nacimiento;
         this.rol = rol;
@@ -85,20 +97,28 @@ public class Usuario {
         this.apellido = apellido;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getNum_celular() {
         return num_celular;
     }
 
     public void setNum_celular(String num_celular) {
         this.num_celular = num_celular;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setCorreo(String email) {
-        this.email = email;
     }
 
     public String getDireccion() {
@@ -125,12 +145,28 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public String getPassword() {
-        return password;
+    public String getVerificationCode() {
+        return verificationCode;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getResetPasswordToken() {
+        return resetPasswordToken;
+    }
+
+    public void setResetPasswordToken(String resetPasswordToken) {
+        this.resetPasswordToken = resetPasswordToken;
     }
 
 }

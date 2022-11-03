@@ -40,6 +40,7 @@ public class AdminSecurityConfig {
 
         // Permite que cualquier usuario vea la pagina de inicio
         http.authorizeRequests().antMatchers("/").permitAll();
+        //http.authorizeRequests().antMatchers("/register").permitAll();
 
         // todas las paginas que inicien con /admin solo pueden ser vistas por usuarios admin logeados
         http.antMatcher("/admin/**")

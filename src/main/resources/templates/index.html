@@ -14,7 +14,7 @@
     <nav class="nav">
         <div class="nav_cont" id="nav2">
             <div class="nav_cont_l">
-                <a href="index.html" class="nav_logo"></a>
+                <a href="@{/}" class="nav_logo"></a>
             </div>
             <div class="nav_cont_m">
                 <a class="nav_btn_user" href="#seccion_a">¿Quiénes Somos?</a>
@@ -22,8 +22,8 @@
                 <a class="nav_btn_user" href="#seccion_c">Contacto</a>
             </div>
             <div class="nav_cont_r">
-                <a class="nav_btn_login" href="loginCliente.html">Iniciar Sesión</a>
-                <a class="nav_btn_reg" href="registroCliente.html">Registrarse</a>
+                <a class="nav_btn_login" th:href="@{/user/login}">Iniciar Sesión</a>
+                <a class="nav_btn_reg" th:href="@{/register}">Registrarse</a>
             </div>
             <div class="menu"></div>
         </div>

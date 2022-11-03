@@ -18,6 +18,7 @@ public class UserSecurityConfig {
     public SecurityFilterChain filterChain2(HttpSecurity http) throws Exception{
 
         http.authorizeRequests().antMatchers("/").permitAll();
+        //http.authorizeRequests().antMatchers("/register").permitAll();
 
         http.antMatcher("/user/**")
             .authorizeRequests().anyRequest().hasAuthority("USER")
@@ -31,7 +32,7 @@ public class UserSecurityConfig {
             .and()
             .logout()
                 .logoutUrl("/user/logout")
-                .logoutSuccessUrl("/");
+                .logoutSuccessUrl("/user/login");
 
         return http.build();
     }

@@ -53,7 +53,11 @@ public class CustomUserDetails implements UserDetails{
     // cambiar
     @Override
     public boolean isEnabled() {
-        return true;
+        return usuario.isEnabled();
+    }
+
+    public String getFullName(){
+        return usuario.getNombre() + " " + usuario.getApellido();
     }
 
 }

@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilosRegistro.css">
-    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/estilosRegistro.css}">
+    <title>User register</title>
 </head>
 <body>
     <main class="main">
-        <form class="form">
-            <a href="index.html" class="logo"></a>
-            <!--<input type="text" name="nombres" id="nombres" placeholder="Nombres">-->
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-            <input type="text" name="apellidos" id="apellidos" placeholder="Apellido">
-            <input type="email" name="correo" id="correo" placeholder="Correo">
-            <input type="number" name="celular" id="celular" placeholder="Celular">
-            <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
+        <form class="form" th:action="@{/process_register}" method="post" th:object="${user}">
+            <a th:href="@{/}" class="logo"></a>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" th:field="*{nombre}" required>
+            <input type="text" name="apellido" id="apellido" placeholder="Apellido" th:field="*{apellido}">
+            <input type="email" name="email" id="email" placeholder="Correo" th:field="*{email}">
+            <input type="password" name="password" id="password" placeholder="Contraseña" th:field="*{password}">
+            <input type="number" name="num_celular" id="num_celular" placeholder="Celular" th:field="*{num_celular}">
+            <input type="text" name="direccion" id="direccion" placeholder="Dirección" th:field="*{direccion}">
             <div class="contFecha">
             <label>Fecha de nacimiento</label>
-            <input type="date" name="fechaNacimiento" id="fechaNacimiento" placeholder="fecha">
+            <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" placeholder="fecha" th:field="*{fecha_nacimiento}">
             </div>
             <input type="submit" value="Crear Cuenta">
         </form>
     </main>
-    <script src="app.js"></script>
+    <script th:src="@{/js/app.js}"></script>
 </body>
 </html>

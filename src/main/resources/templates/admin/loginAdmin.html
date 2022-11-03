@@ -1,30 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilosLogin.css">
+    <link rel="stylesheet" th:href="@{/css/estilosLogin.css}">
     <title>Document</title>
 </head>
 <body>
     <main class="main">
         <form class="form">
-            <a href="index.html" class="logo"></a>
-            <input type="email" name="correo" id="correo" placeholder="Correo">
+            <a th:href="@{/}" class="logo"></a>
+            <input type="number" name="codigo" id="codigo" placeholder="Código de administrador">
             <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
             <a href="" class="olvidar">¿Olvidaste tu contraseña?</a>
-            <input type="submit" value="Continuar" id="cartaCliente">
-            <a href="cartaCliente.html" >Ir a la carta</a> 
+            <input type="submit" value="Continuar">
             <a href="index.html" class="google">    
                 <div class="google_logo"href=""></div>
                 Continuar con google
             </a>
-            <a class="loginAdmin" href="loginAdmin.html">Inicia como Administrador</a>
-            <p class="p_reg">¿Aún no tienes cuenta? <a href="registroCliente.html" class="registro"> Registrate</a></p>
+            <a class="loginCliente" th:href="@{/user/login}">Inicia como Cliente</a>
         </form>
     </main>
-    <script src="app.js">
+    <script th:src="@{/app.js}">
         
     </script>
 </body>
