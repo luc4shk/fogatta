@@ -11,7 +11,7 @@
 .nav{
     width: 100%;
     height: 200px;
-    background-color: red;
+    background-color: black;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -104,6 +104,13 @@
     
 }
 
+.tituloTable{
+    margin:50px 0;
+    font-size: 30px;
+    text-align: center;
+}
+
+
 .main_cont{
     display: flex;
     flex-direction: column;
@@ -147,57 +154,159 @@
     font-size: 20px;
     font-weight: bold;
 }
+/*Tabla*/
+.tituloTable{
+    margin:50px 0;
+    font-size: 30px;
+    text-align: center;
+}
+
+.table{
+    margin-bottom: 30px;
+}
+.table,td,th{
+    border-collapse: collapse;
+    height: 7rem;
+    text-align: center;
+}
+th,td{
+    width: 18rem;
+}
+th{
+    color: white;
+    background-color: rgba(0,0,0,1);
+    font-size: 20px;
+}
+tr:nth-child(even){
+     background-color: #f2f2f2;
+}
+
+
+button{
+    width: inherit;
+    height: inherit;
+}
+ 
+/*Reserva*/
+.form{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+   }
+
+   
+.form_info{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+}
+
+
+
+.form_info input, select{
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 8px;
+    min-width: 20px;
+  }
+
+input[type=submit]{ 
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 8px;
+    margin-top: 15px; 
+    min-width: 185px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover{
+    color: white;
+    background-color: black;
+    border: 0;
+
+}
+/*Reseñas*/
+.reseñas{
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    gap: 15px;
+}
+.individual_res{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 25px;
+    
+}
+
+.res_up{
+    display: flex;
+    gap: 20px;
+    padding: 0 5px;
+}
+
+.res_nombre{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.res_text{
+    resize: none;
+    text-align: justify ;
+    padding: 0px 5px;
+    background-color: white;
+    text-transform: initial;
+}
+
+
+.res_text::-webkit-scrollbar{
+    background: rgba(255, 255, 255, 1);
+    width: 4px;
+ }
+
+.res_text::-webkit-scrollbar-thumb{
+     background: rgba(225, 225, 225, 1);
+     width: 2px;
+     height: 2px;
+     border-radius: 5px;
+
+ }
+
+.res_up_img{
+    background-image: url(../img/picprofile.svg);
+    width: 80px;
+    height: 80px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .desp{
     display: none;
 }
 /*Finaliza sección Header*/
 /*Media */
 @media screen and (max-width:1250px){
-    .cont_platos{
+    .cont_platos, .reseñas{
         grid-template-columns: repeat(2,1fr);
     }
 }
 @media screen and (max-width:834px){
-    .cont_platos{
+    .cont_platos, .reseñas{
         grid-template-columns: repeat(1,1fr);
     }
 }
-@media screen and (max-width:1207px){
-    .cartas{
-        flex-direction: column;
-        gap: 25px;
-        width: 800px;
-    }
 
-    .flex{
-        height: 300px;
-        display: flex;
-    }
-
-    .imagen1, .imagen2, .imagen3{
-        height: 200px;
-    }
-
-    .respon{
-        display: flex;
-        width: 800px;
-    }
-
-    .b_text{
-        width: 800px;
-        margin-top: 160px;
-        height: 800px;
-    }
-
-    .p-6{
-        width: 100%;
-    }
-
-    .b_info{
-    margin-top:250px;
-    }
-
-}
 @media screen and (max-width:955px) {
     .nav_cont{
         display: flex;
@@ -247,69 +356,6 @@
     }
 }
 
-@media screen and (max-width:798px){
-    
-    .imagen1, .imagen2, .imagen3{
-        display: none;
-    }
-
-    .b_text{
-        width: 400px;
-        height: 800px;
-    }
 
 
-}
 
-@media screen and (max-width:715px){
-    .nav{
-        
-    }
-    .c_image{
-        display: none;
-    }
-
-    .a_image{
-        display: none;
-    }
-
-    .a_info{
-        width: 100vw;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 50px;
-        justify-content: center;
-        border-left: 0;
-        padding:25px;
-        height: 60vh;
-    
-    }
-
-    .b_info{
-        width: 100vw;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        padding: 25px;
-        height: 100vh;
-        gap: 50px;
-        
-    }
-    
-
-    .c_info{
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 50px;
-    justify-content: center;
-    border:0;
-    padding: 0 55px 0 55px;
-    height: 60vh;
-    }
-
-    
-}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/cartaCliente.css}" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <nav class="nav">
+        <div class="nav_cont" id="nav2">
+        <div class="nav_cont_l">
+          <a th:href="@{/}" class="nav_logo"></a>
+        </div>
+        <div class="nav_cont_m">
+                <a class="nav_btn_user" th:href="@{/user/home}">Carta</a>
+                <a class="nav_btn_user" th:href="@{/user/reservas}">Reservas</a>
+                <a class="nav_btn_user" th:href="@{/user/pedidos}">Pedidos</a>
+            </div>
+            <div class="nav_cont_r">
+                <a class="nav_btn_login" th:href="@{/user/reseñas}">Reseñas</a>
+                <a class="nav_btn_reg" th:href="@{/}">Cerrar Sesión</a>
+            </div>
+        <div class="menu"></div>
+      </div>
+    </nav>
+    <div class="desp">
+        <a class="nav_btn_user2 uno" th:href="@{/user/home}">Carta</a>
+        <a class="nav_btn_user2 dos" th:href="@{/user/reservas}">Reservas</a>
+        <a class="nav_btn_user2 tres" th:href="@{/user/pedidos}">Pedidos</a>
+        <a class="nav_btn_user2 cuatro" th:href="@{/user/reseñas}">Reseñas</a>
+        <a class="nav_btn_user2 cinco" th:href="@{/}">Cerrar Sesión</a>
+    </div>
+    <main class="main">
+        <div class="main_cont">
+            <h1 class="tituloTable">Realizar Pedido</h1>
+            <form class="form" action="listadoReservasCliente.html">
+                <div class="form_info">
+                    <input id="nombre" type="text" placeholder="Nombre">
+                    <input id="apellido" type="text" placeholder="Apellido">
+                    <input id="tel" type="number" placeholder="Teléfono">
+                    <input id="direccion" type="text" placeholder="Dirección">
+                </div>
+                <input type="submit" value="Reservar">
+            </form>
+            <h1 class="tituloTable">Tus Pedidos</h1>
+            <table class="table">
+                <tbody id="tbody">
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                        <th>Producto/s</th>
+                        <th>Dirección</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Samuel Boada</td>
+                        <td>Activo</td>
+                        <td>16/10/22</td>
+                        <td>Algún lugar de Colombia</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jaider Oliveros</td>
+                        <td>En espera</td>
+                        <td>17/10/22</td>
+                        <td>Algun lugar de Venezuela</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Miguel Cardenas</td>
+                        <td>En espera</td>
+                        <td>25/12/22</td>
+                        <td>Calle 2N #7E - 96 VillaCamila</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    
+    <script th:src="@{/js/app2.js}"></script>
+  </body>
+</html>

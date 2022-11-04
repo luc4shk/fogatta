@@ -13,28 +13,26 @@
     <nav class="nav">
       <div class="nav_cont" id="nav2">
         <div class="nav_cont_l">
-          <a href="index.html" class="nav_logo"></a>
+          <a th:href="@{/}" class="nav_logo"></a>
         </div>
         <div class="nav_cont_m">
-          <a class="nav_btn_user" href="#seccion_a">Carta</a>
-          <a class="nav_btn_user" href="#seccion_b">Reservas</a>
-          <a class="nav_btn_user" href="#seccion_c">Pedidos</a>
-        </div>
-        <div class="nav_cont_r">
-          <a class="nav_btn_login" href="loginCliente.html">Reseñas</a>
-          <a class="nav_btn_reg" th:href="@{/user/logout}">Cerrar Sesión</a>
-        </div>
+                <a class="nav_btn_user" th:href="@{/user/home}">Carta</a>
+                <a class="nav_btn_user" th:href="@{/user/reservas}">Reservas</a>
+                <a class="nav_btn_user" th:href="@{/user/pedidos}">Pedidos</a>
+            </div>
+            <div class="nav_cont_r">
+                <a class="nav_btn_login" th:href="@{/user/reseñas}">Reseñas</a>
+                <a class="nav_btn_reg" th:href="@{/}">Cerrar Sesión</a>
+            </div>
         <div class="menu"></div>
       </div>
     </nav>
     <div class="desp">
-      <a class="nav_btn_user2 uno" href="#seccion_a">Carta</a>
-      <a class="nav_btn_user2 dos" href="#seccion_b">Reservas</a>
-      <a class="nav_btn_user2 tres" href="#seccion_c">Pedidos</a>
-      <a class="nav_btn_user2 cuatro" href="loginCliente.html">Reseñas</a>
-      <a class="nav_btn_user2 cinco" href="registroCliente.html"
-        >Cerrar Sesión</a
-      >
+      <a class="nav_btn_user2 uno" th:href="@{/user/home}">Carta</a>
+        <a class="nav_btn_user2 dos" th:href="@{/user/reservas}">Reservas</a>
+        <a class="nav_btn_user2 tres" th:href="@{/user/pedidos}">Pedidos</a>
+        <a class="nav_btn_user2 cuatro" th:href="@{/user/reseñas}">Reseñas</a>
+        <a class="nav_btn_user2 cinco" th:href="@{/}">Cerrar Sesión</a>
     </div>
     <main class="main">
       <div class="main_cont">
@@ -94,6 +92,6 @@
         </div>
       </div>
     </main>
-    <script th:src="@{/js/app.js}"></script>
+    <script th:src="@{/js/app2.js}"></script>
   </body>
 </html>

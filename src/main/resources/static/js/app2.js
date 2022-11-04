@@ -1,7 +1,5 @@
 //Barra de Navegación
 var nav = document.querySelector('.nav_cont'); 
-var sec = document.querySelector('#seccion_a'); 
-var sec3 = document.querySelector('#seccion_c'); 
 var menu = document.querySelector('.menu'); 
 var desp = document.querySelector('.desp'); 
 var a = document.querySelector('.uno'); 
@@ -17,8 +15,6 @@ window.addEventListener('scroll', function(event) {
     if (window.scrollY <= 1) { 
         nav.style.backgroundColor = 'transparent'; 
         nav.style.height = "200px";
-        sec.style.padding = "0 0 0 0"
-        sec3.style.padding = "0 0 0 0"
         menu.style.top="155px"
         desp.style.margin="-5px 0 0 0"
 
@@ -27,10 +23,8 @@ window.addEventListener('scroll', function(event) {
         nav.style.backgroundColor = 'black';
         nav.style.height = "100px";
         nav.style.transition = "all 0.5s"
-        sec.style.transition = "all 0.5s"
         menu.style.transition = "all 0.5s"
         menu.style.top="28px"
-        sec3.style.transition = "all 0.5s"
         desp.style.margin="-100px 0 0 0"
     }
 });
@@ -47,4 +41,5 @@ menu.addEventListener('click', function(event){
     mostrar()
 
 })
+
 

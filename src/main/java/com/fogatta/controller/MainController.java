@@ -66,6 +66,21 @@ public class MainController {
     public String viewUserHomePage(){
         return "user/cartaCliente";
     }
+    
+    @GetMapping("/user/pedidos")
+    public String viewPedidosUserPage(){
+        return "user/realizarPedidos";
+    }
+    
+    @GetMapping("/user/reservas")
+    public String viewReservasUserPage(){
+        return "user/realizarReservas";
+    }
+    
+    @GetMapping("/user/reseñas")
+    public String viewReseniasUserPage(){
+        return "user/reseñasCliente";
+    }
 
 
 }
