@@ -294,6 +294,21 @@ input[type=submit]:hover{
 .desp{
     display: none;
 }
+
+.button_logout{
+
+    margin-top: 0;
+    text-decoration: none;
+    display: flex;
+    color: white;
+    text-align: center;
+    padding: 0;
+    width: 125px;
+    font-size: 20px;
+
+}
+
+
 /*Finaliza sección Header*/
 /*Media */
 @media screen and (max-width:1250px){

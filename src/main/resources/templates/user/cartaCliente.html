@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" th:href="@{/css/cartaCliente.css}" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title>Carta-Fogatta</title>
   </head>
 
   <body>
@@ -22,7 +22,9 @@
             </div>
             <div class="nav_cont_r">
                 <a class="nav_btn_login" th:href="@{/user/reseñas}">Reseñas</a>
-                <a class="nav_btn_reg" th:href="@{/}">Cerrar Sesión</a>
+                <form class="form_logout" th:action="@{/user/logout}" method="post">
+                  <input class="button_logout" type="submit" value="Cerrar Sesión">
+                </form>
             </div>
         <div class="menu"></div>
       </div>
