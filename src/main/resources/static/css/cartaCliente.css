@@ -217,7 +217,20 @@ button{
     min-width: 20px;
   }
 
-
+  .btnPedido, .btnReserva{
+    margin-top: 15px;
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 8px;
+    min-width: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+  
+  .btnPedido:hover, .btnReserva:hover{
+      background-color: black;
+      color: white;
+  }
 
 
 /*Reseñas*/

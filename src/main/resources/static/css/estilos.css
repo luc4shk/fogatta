@@ -288,8 +288,17 @@ input[type=submit]{
     color: white;
     background-color: black;
     border-radius: 5px;
+    margin-top: 10px;
+    cursor:pointer;
+    transition: all 0.5s;
 }
 
+input[type=submit]:hover{
+    color:black;
+    background-color: white;
+    border:1px solid black;
+    
+}
 .nav_btn_user2{
     display: none;
     text-decoration: none;
