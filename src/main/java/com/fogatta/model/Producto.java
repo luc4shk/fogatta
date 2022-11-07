@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,7 +30,7 @@ public class Producto {
 
     @Column(nullable = false, length = 60)
     private String url_imagen;
-
+    
     /* Constructors */
 
     public Producto() {

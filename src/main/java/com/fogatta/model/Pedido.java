@@ -44,6 +44,60 @@ public class Pedido {
         inverseJoinColumns = @JoinColumn(name = "producto_id")
     )
     private Set<Producto> productos = new HashSet<>();
+    
+    
+    /*Constructor*/
+    public Pedido() {
+    }
+    
+    public Pedido(Integer id, String direccion, LocalDate fecha_pedido, Usuario usuario) {
+        this.id = id;
+        this.direccion = direccion;
+        this.fecha_pedido = fecha_pedido;
+        this.usuario = usuario;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public LocalDate getFecha_pedido() {
+        return fecha_pedido;
+    }
+
+    public void setFecha_pedido(LocalDate fecha_pedido) {
+        this.fecha_pedido = fecha_pedido;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Set<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(Set<Producto> productos) {
+        this.productos = productos;
+    }
+    
+    
 
     
 }
