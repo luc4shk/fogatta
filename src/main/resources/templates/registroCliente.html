@@ -5,25 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/estilosRegistro.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>User register</title>
 </head>
 <body>
     <main class="main">
-        <form class="form" th:action="@{/process_register}" method="post" th:object="${user}">
+        <form class="form" id="formulario" th:action="@{/process_register}" method="post" th:object="${user}" onsubmit="return validarDatos(event)">
             <a th:href="@{/}" class="logo"></a>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre" th:field="*{nombre}" required>
-            <input type="text" name="apellido" id="apellido" placeholder="Apellido" th:field="*{apellido}">
-            <input type="email" name="email" id="email" placeholder="Correo" th:field="*{email}">
-            <input type="password" name="password" id="password" placeholder="Contraseña" th:field="*{password}">
-            <input type="number" name="num_celular" id="num_celular" placeholder="Celular" th:field="*{num_celular}">
-            <input type="text" name="direccion" id="direccion" placeholder="Dirección" th:field="*{direccion}">
-            <div class="contFecha">
-            <label>Fecha de nacimiento</label>
-            <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" placeholder="fecha" th:field="*{fecha_nacimiento}">
+
+            <div class="formulario__grupo" id="grupo__nombre"> 
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Nombre" th:field="*{nombre}">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El nombre no debe ser vacio ni contener ningún simbolo especial</p>
             </div>
+
+            <div  class="formulario__grupo" id="grupo__apellido">
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Apellido" th:field="*{apellido}">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El apellido(s) no puede ser vacio o contener ningún simbolo especial</p>
+            </div>
+
+            <div class="formulario__grupo" id="grupo__email">
+                <div class="formulario__grupo-input">
+                    <input type="email" class="formulario__input" name="email" id="email" placeholder="Correo" th:field="*{email}">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones</p>
+            </div>
+
+            <div class="formulario__grupo" id="grupo__password">
+                <div class="formulario__grupo-input">
+                    <input type="password" class="formulario__input" name="password" id="password" placeholder="Contraseña" th:field="*{password}">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">La contraseña debe ser de 10 a 20 digitos</p>
+            </div>
+
+            <div class="formulario__grupo" id="grupo__telefono">
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="num_celular" id="num_celular" placeholder="Celular" th:field="*{num_celular}">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El teléfono solo puede contener numeros y debe contener 10 digitos</p>
+            </div>
+
+            <div class="formulario__grupo" id="grupo__direccion">
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="direccion" id="direccion" placeholder="Dirección" th:field="*{direccion}">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Debe colocar una dirección de por lo menos 5 caracteres</p>
+            </div>
+
+            <div class="formulario__grupo" id="grupo__fecha_nacimiento">
+                <div class="contFecha">
+                    <label>Fecha de nacimiento</label>
+                    <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" placeholder="fecha" th:field="*{fecha_nacimiento}">
+                </div>
+                <p class="formulario__input-error">La fecha seleccionada no es congruente</p>
+            </div>
+
             <input type="submit" value="Crear Cuenta">
+            <p class="formulario__input-error-total" id="msjGlobal"></p>
         </form>
     </main>
-    <script th:src="@{/js/app.js}"></script>
+    <script th:src="@{/js/formulario.js}"></script>
 </body>
 </html>

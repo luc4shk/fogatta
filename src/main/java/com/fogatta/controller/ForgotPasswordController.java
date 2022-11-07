@@ -108,11 +108,11 @@ public class ForgotPasswordController {
         helper.setTo(email);
 
         String subject = "Este es el link para cambiar tu contraseña";
-        String content = "<p>Hola,</p>"
-                + "<p>Has solicitado un cambio de contraseña</p>"
-                + "<p>Ingresa en el link debajo para cambiar tu contaseña</p>"
+        String content = "<p>Apreciado usuario</p>"
+                + "<p>Ha solicitado un cambio de contraseña</p>"
+                + "<p>Favor ingresar en el link debajo para cambiar su contaseña</p>"
                 + "<p><a href=\"" + resetPasswordLink + "\">Cambiar mi contraseña</a></p>"
-                + "<p>Ignore este mensaja si recuerda su constraseña, o no ha realizado una solicitud para cambiarla</p>";
+                + "<p>Ignore este mensaje si recuerda su constraseña, o no ha realizado una solicitud para cambiarla</p>";
         
         helper.setSubject(subject);
         helper.setText(content, true);

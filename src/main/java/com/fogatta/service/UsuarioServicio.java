@@ -48,13 +48,13 @@ public class UsuarioServicio {
         String asunto = "Favor verificar su registro";
         String autor = "Fogatta Team";
         String mailContent = "<p>Estimado " + usuario.getNombre() + " " + usuario.getApellido() + ",</p>";
-        mailContent += "<p>Dar click en el link de abajo para verificar su registro:</p>";
+        mailContent += "<p>Dar click en el siguiente link para verificar su registro:</p>";
 
         String verifyURL = siteURL + "/verify?code=" + usuario.getVerificationCode();
 
         mailContent += "<h3><a href=\"" + verifyURL + "\">VERIFICAR</a></h3>";
 
-        mailContent += "<p>Muchas Gracias<br>The Fogatta team</p>";
+        mailContent += "<p>Agradecemos su colaboración<br>The Fogatta team</p>";
 
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
