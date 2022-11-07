@@ -22,7 +22,9 @@
             </div>
             <div class="nav_cont_r">
                 <a class="nav_btn_login" th:href="@{/user/reseñas}">Reseñas</a>
-                <a class="nav_btn_reg" th:href="@{/}">Cerrar Sesión</a>
+                <form class="form_logout" th:action="@{/user/logout}" method="post">
+                  <input class="nav_btn_login botonForm" type="submit" value="Cerrar Sesión">
+                </form>
             </div>
             <div class="menu"></div>
         </div>
@@ -33,7 +35,9 @@
         <a class="nav_btn_user2 dos" th:href="@{/user/reservas}">Reservas</a>
         <a class="nav_btn_user2 tres" th:href="@{/user/pedidos}">Pedidos</a>
         <a class="nav_btn_user2 cuatro" th:href="@{/user/reseñas}">Reseñas</a>
-        <a class="nav_btn_user2 cinco" th:href="@{/}">Cerrar Sesión</a>
+        <form class="form_logout" th:action="@{/user/logout}" method="post">
+                  <input class="nav_btn_user2 cinco" type="submit" value="Cerrar Sesión">
+        </form>
     </div>
     <main class="main">
         <div class="main_cont">

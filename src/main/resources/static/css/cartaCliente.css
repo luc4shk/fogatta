@@ -86,6 +86,11 @@
     padding: 10px;
     width: 125px;
     font-size: 20px;
+    cursor: pointer;
+}
+
+.botonForm{
+    width: 200px;
 }
 .nav_btn_user2{
     display: none;
@@ -101,6 +106,7 @@
     text-align: center;
     justify-content: center;
     margin: 0 calc(80vw - 75vw) 25px calc(80vw - 72vw);
+    cursor:pointer;
     
 }
 
@@ -211,21 +217,9 @@ button{
     min-width: 20px;
   }
 
-input[type=submit]{ 
-    border: 1px black solid;
-    border-radius: 5px;
-    padding: 8px;
-    margin-top: 15px; 
-    min-width: 185px;
-    cursor: pointer;
-}
 
-input[type=submit]:hover{
-    color: white;
-    background-color: black;
-    border: 0;
 
-}
+
 /*Reseñas*/
 .reseñas{
     margin-bottom: 30px;
@@ -295,18 +289,8 @@ input[type=submit]:hover{
     display: none;
 }
 
-.button_logout{
 
-    margin-top: 0;
-    text-decoration: none;
-    display: flex;
-    color: white;
-    text-align: center;
-    padding: 0;
-    width: 125px;
-    font-size: 20px;
 
-}
 
 
 /*Finaliza sección Header*/
@@ -328,7 +312,7 @@ input[type=submit]:hover{
         flex-direction: column;
     }
     .menu{
-        background-image: url("https://i.postimg.cc/PJNSWMj4/menu-icon.png");
+        background-image: url("../img/menu_icon.png");
         position:absolute;
         background-size: contain;
         width: 50px;
