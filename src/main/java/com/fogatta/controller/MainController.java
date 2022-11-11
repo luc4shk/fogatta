@@ -126,6 +126,29 @@ public class MainController {
     public String viewReseniasUserPage(){
         return "user/reseñasCliente";
     }
+    
+    /* Mapeos de administrador */
 
-
+    @GetMapping("/admin/productos")
+    public String viewProductosAdminPage(){
+        return "admin/productosAdmin";
+    }
+    
+    @GetMapping("/admin/reservas")
+    public String viewReservasAdminPage(){
+        return "admin/reservasAdmin";
+    }
+    
+    @GetMapping("/admin/pedidos")
+    public String viewPedidosAdminPage(){
+        return "admin/pedidosAdmin";
+    }
+    
+    @GetMapping("/admin/reseñas")
+    public String viewReseñasAdminPage(){
+        return "admin/reseñasAdmin";
+    }
+    
+    
+    
 }

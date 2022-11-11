@@ -1,96 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilosAdmin.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/estilosAdmin.css}">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Document</title>
+    </head>
 
-<body>
-    <nav class="nav">
-        <div class="nav_cont" id="nav2">
-            <div class="nav_cont_l">
-                <a href="index.html" class="nav_logo"></a>
+    <body>
+        <nav class="nav">
+            <div class="nav_cont" id="nav2">
+                <div class="nav_cont_l">
+                    <a href="index.html" class="nav_logo"></a>
+                </div>
+                <div class="nav_cont_m">
+                    <a class="nav_btn_user" th:href="@{/admin/productos}">Productos</a>
+                    <a class="nav_btn_user" th:href="@{/admin/reservas}">Reservas</a>
+                    <a class="nav_btn_user" th:href="@{/admin/pedidos}">Pedidos</a>
+                </div>
+                <div class="nav_cont_r">
+                    <a class="nav_btn_login" th:href="@{/admin/reseñas}">Reseñas</a>
+                    <form class="form_logout" th:action="@{/admin/logout}" method="post">
+                        <input class="nav_btn_login botonForm" type="submit" value="Cerrar Sesión">
+                    </form>
+                </div>
+                <div class="menu"></div>
             </div>
-            <div class="nav_cont_m">
-                <a class="nav_btn_user" href="productosAdmin.html">Productos</a>
-                <a class="nav_btn_user" href="reservasAdmin.html">Reservas</a>
-                <a class="nav_btn_user" href="pedidosAdmin.html">Pedidos</a>
-            </div>
-            <div class="nav_cont_r">
-                <a class="nav_btn_login" href="reseñasAdmin.html">Reseñas</a>
-                <a class="nav_btn_reg" href="index.html">Cerrar Sesión</a>
-            </div>
-            <div class="menu"></div>
+
+        </nav>
+        <div class="desp">
+            <a class="nav_btn_user2 uno" th:href="@{/admin/productos}">Productos</a>
+            <a class="nav_btn_user2 dos" th:href="@{/admin/reservas}">Reservas</a>
+            <a class="nav_btn_user2 tres" th:href="@{/admin/pedidos}">Pedidos</a>
+            <a class="nav_btn_user2 cuatro" th:href="@{/admin/reseñas}">Reseñas</a>
+            <form class="form_logout" th:action="@{/admin/logout}" method="post">
+                <input class="nav_btn_login botonForm" type="submit" value="Cerrar Sesión">
+            </form>
         </div>
+        <main class="main">
+            <div class="main_cont">
+                <h1 class="tituloTable">Gestor de Pedidos</h1>
+                <table class="table">
+                    <tbody id="tbody">
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th>Producto/s</th>
+                            <th colspan="2">Acción</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Jaider Oliveros</td>
+                            <td>Entregado</td>
+                            <td>
+                                <ul>
+                                    <li>PizzaBit</li>
+                                </ul>
+                            </td>
+                            <td><a href="#"><div class="editar"></div></a></td>
+                            <td><a href="#"><div class="eliminar"></div></a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Miguel Cardenas</td>
+                            <td>En espera</td>
+                            <td>
+                                <ul>
+                                    <li>Hamburguesa Senior</li>
+                                </ul>
+                            </td>
+                            <td><a href="#"><div class="editar"></div></a></td>
+                            <td><a href="#"><div class="eliminar"></div></a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Samuel Boada</td>
+                            <td>En espera</td>
+                            <td>
+                                <ul>
+                                    <li>HotDog FullStack</li>
+                                </ul>
+                            </td>
+                            <td><a href="#"><div class="editar"></div></a></td>
+                            <td><a href="#"><div class="eliminar"></div></a></td>
+                        </tr>
 
-    </nav>
-    <div class="desp">
-        <a class="nav_btn_user2 uno" href="productosAdmin.html">Productos</a>
-        <a class="nav_btn_user2 dos" href="reservasAdmin.html">Reservas</a>
-        <a class="nav_btn_user2 tres" href="pedidosAdmin.html">Pedidos</a>
-        <a class="nav_btn_user2 cuatro" href="reseñasAdmin.html">Reseñas</a>
-        <a class="nav_btn_user2 cinco" href="index.html">Cerrar Sesión</a>
-    </div>
-    <main class="main">
-        <div class="main_cont">
-            <h1 class="tituloTable">Gestor de Pedidos</h1>
-            <table class="table">
-                <tbody id="tbody">
-                    <tr>
-                        <th>#</th>
-                        <th>Nombre</th>
-                        <th>Estado</th>
-                        <th>Producto/s</th>
-                        <th colspan="2">Acción</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Jaider Oliveros</td>
-                        <td>Entregado</td>
-                        <td>
-                            <ul>
-                                <li>PizzaBit</li>
-                            </ul>
-                        </td>
-                        <td><a href="#"><div class="editar"></div></a></td>
-                        <td><a href="#"><div class="eliminar"></div></a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Miguel Cardenas</td>
-                        <td>En espera</td>
-                        <td>
-                            <ul>
-                                <li>Hamburguesa Senior</li>
-                            </ul>
-                        </td>
-                        <td><a href="#"><div class="editar"></div></a></td>
-                        <td><a href="#"><div class="eliminar"></div></a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Samuel Boada</td>
-                        <td>En espera</td>
-                        <td>
-                            <ul>
-                                <li>HotDog FullStack</li>
-                            </ul>
-                        </td>
-                        <td><a href="#"><div class="editar"></div></a></td>
-                        <td><a href="#"><div class="eliminar"></div></a></td>
-                    </tr>
-
-                </tbody>
-            </table> 
-        </div>
-    </main>
-    <script src="js/pruebaPedidos.js"> 
-    </script>
-</body>
+                    </tbody>
+                </table> 
+            </div>
+        </main>
+        <script th:src="@{/js/pruebaPedidos.js}"> 
+        </script>
+    </body>
 
 </html>
