@@ -21,7 +21,7 @@ public class UserSecurityConfig {
         //http.authorizeRequests().antMatchers("/register").permitAll();
 
         http.antMatcher("/user/**")
-            .authorizeRequests().anyRequest().hasAuthority("USER")
+            .authorizeRequests().anyRequest().hasAnyAuthority("USER", "ADMIN")
             .and()
             .formLogin()
                 .loginPage("/user/login")

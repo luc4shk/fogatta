@@ -1,6 +1,5 @@
 package com.fogatta.model;
 
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -34,7 +33,7 @@ public class Mesa {
         joinColumns = @JoinColumn(name = "mesa_id"),
         inverseJoinColumns = @JoinColumn(name = "horario_id")
     )
-    private Set<Horario> productos = new HashSet<>();
+    private Set<Horario> horarios = new HashSet<>();
 
     public Mesa() {
     }
@@ -69,14 +68,12 @@ public class Mesa {
         this.ocupada = ocupada;
     }
 
-    public Set<Horario> getProductos() {
-        return productos;
+    public Set<Horario> getHorarios() {
+        return horarios;
     }
 
-    public void setProductos(Set<Horario> productos) {
-        this.productos = productos;
+    public void setHorarios(Set<Horario> horarios) {
+        this.horarios = horarios;
     }
-    
-    
     
 }

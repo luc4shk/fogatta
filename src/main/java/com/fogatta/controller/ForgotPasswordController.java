@@ -91,6 +91,7 @@ public class ForgotPasswordController {
             model.addAttribute("message", "token inválido");
         }else{
             usuarioServicio.updatePassword(user, password);
+            model.addAttribute("title", "Cambiar contraseña");
             model.addAttribute("message", "Haz cambiado tu contraseña de manera satisfactoria");
         }
 

@@ -38,13 +38,12 @@ public class AdminSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain1(HttpSecurity http) throws Exception{
 
-        // Permite que cualquier usuario vea la pagina de inicio
+        // permite que cualquier usuario vea la pagina de inicio
         http.authorizeRequests().antMatchers("/").permitAll();
-        //http.authorizeRequests().antMatchers("/register").permitAll();
 
-        // todas las paginas que inicien con /admin solo pueden ser vistas por usuarios admin logeados
+        // Todas las paginas que inicien con /admin solo pueden ser vistas por admin logeados
         http.antMatcher("/admin/**")
-            .authorizeRequests().anyRequest().hasAnyAuthority("ADMIN")
+            .authorizeRequests().anyRequest().hasAuthority("ADMIN")
             .and()
             .formLogin()
                 .loginPage("/admin/login")
@@ -56,9 +55,7 @@ public class AdminSecurityConfig {
             .logout()
                 .logoutUrl("/admin/logout")
                 .logoutSuccessUrl("/");
-            
-        http.authenticationProvider(authenticationProvider());
-        
+
         return http.build();
 
     }
