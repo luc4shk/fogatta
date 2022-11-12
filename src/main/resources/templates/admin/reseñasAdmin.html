@@ -14,10 +14,10 @@
         <nav class="nav">
             <div class="nav_cont" id="nav2">
                 <div class="nav_cont_l">
-                    <a href="index.html" class="nav_logo"></a>
+                    <a th:href="@{/}" class="nav_logo"></a>
                 </div>
                 <div class="nav_cont_m">
-                    <a class="nav_btn_user" th:href="@{/admin/productos}">Productos</a>
+                    <a class="nav_btn_user" th:href="@{/admin/home}">Productos</a>
                     <a class="nav_btn_user" th:href="@{/admin/reservas}">Reservas</a>
                     <a class="nav_btn_user" th:href="@{/admin/pedidos}">Pedidos</a>
                 </div>
@@ -32,7 +32,7 @@
 
         </nav>
         <div class="desp">
-            <a class="nav_btn_user2 uno" th:href="@{/admin/productos}">Productos</a>
+            <a class="nav_btn_user2 uno" th:href="@{/admin/home}">Productos</a>
             <a class="nav_btn_user2 dos" th:href="@{/admin/reservas}">Reservas</a>
             <a class="nav_btn_user2 tres" th:href="@{/admin/pedidos}">Pedidos</a>
             <a class="nav_btn_user2 cuatro" th:href="@{/admin/reseñas}">Reseñas</a>

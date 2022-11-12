@@ -129,10 +129,6 @@ public class MainController {
     
     /* Mapeos de administrador */
 
-    @GetMapping("/admin/productos")
-    public String viewProductosAdminPage(){
-        return "admin/productosAdmin";
-    }
     
     @GetMapping("/admin/reservas")
     public String viewReservasAdminPage(){
@@ -149,6 +145,14 @@ public class MainController {
         return "admin/reseñasAdmin";
     }
     
+    @GetMapping("/admin/producto/agregar")
+    public String viewAgregarAdminPage(){
+        return "admin/agregarProducto";
+    }
     
+    @GetMapping("/admin/producto/editar")
+    public String viewEditarProductoAdminPage(){
+        return "admin/editarProducto";
+    }
     
 }
