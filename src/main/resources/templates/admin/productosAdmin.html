@@ -59,7 +59,7 @@
                             <td th:text="'$' + ${producto.precio}"></td>
                             <td th:text="${producto.tipo}"></td>
                             <td><a th:href="@{'/admin/producto/editar/' + ${producto.id}}"><div class="editar"></div></a></td>
-                            <td><a th:href="@{'/admin/producto/eliminar/' + ${producto.id}}"><div class="eliminar"></div></a></td>
+                            <td><a id="btnEliminar" th:href="@{'/admin/producto/eliminar/' + ${producto.id}}"><div class="eliminar"></div></a></td>
                         </tr>
                     </tbody>
                 </table> 
