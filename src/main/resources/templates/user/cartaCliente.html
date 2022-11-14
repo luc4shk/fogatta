@@ -41,52 +41,12 @@
     <main class="main">
       <div class="main_cont">
         <p class="tituloTable"><b>Bienvenido [[${#request.userPrincipal.principal.usuario.nombre}]] [[${#request.userPrincipal.principal.usuario.apellido}]]</b></p>
-        <div class="cont_platos">
+        <div class="cont_platos" th:each="producto : ${listaProductos2}">
           <div class="plato">
-            <div class="plato_image"></div>
+            <img class="plato_image" th:src="${producto.url_imagen}">
             <div class="plato_text">
-              <p class="plato_title">Lorem, ipsum.</p>
-              <p class="plato_info">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Explicabo amet nulla optio fuga? Culpa modi eius veritatis
-                corporis, maxime molestiae. Fugit nemo beatae deleniti
-                reprehenderit fuga quod quia excepturi! Doloremque!
-              </p>
-            </div>
-          </div>
-          <div class="plato">
-            <div class="plato_image"></div>
-            <div class="plato_text">
-              <p class="plato_title">Lorem, ipsum.</p>
-              <p class="plato_info">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Explicabo amet nulla optio fuga? Culpa modi eius veritatis
-                corporis, maxime molestiae. Fugit nemo beatae deleniti
-                reprehenderit fuga quod quia excepturi! Doloremque!
-              </p>
-            </div>
-          </div>
-          <div class="plato">
-            <div class="plato_image"></div>
-            <div class="plato_text">
-              <p class="plato_title">Lorem, ipsum.</p>
-              <p class="plato_info">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Explicabo amet nulla optio fuga? Culpa modi eius veritatis
-                corporis, maxime molestiae. Fugit nemo beatae deleniti
-                reprehenderit fuga quod quia excepturi! Doloremque!
-              </p>
-            </div>
-          </div>
-          <div class="plato">
-            <div class="plato_image"></div>
-            <div class="plato_text">
-              <p class="plato_title">Lorem, ipsum.</p>
-              <p class="plato_info">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Explicabo amet nulla optio fuga? Culpa modi eius veritatis
-                corporis, maxime molestiae. Fugit nemo beatae deleniti
-                reprehenderit fuga quod quia excepturi! Doloremque!
+              <p class="plato_title" th:text="${producto.nombre}"></p>
+              <p class="plato_info" th:text="${producto.descripcion}">
               </p>
             </div>
           </div>

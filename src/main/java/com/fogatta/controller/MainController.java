@@ -82,7 +82,14 @@ public class MainController {
      */
     @GetMapping("/admin/login")
     public String viewAdminLoginPage(){
-        return "admin/loginAdmin";
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "admin/loginAdmin";
+        }
+ 
+        return "/admin/productosAdmin";
+
     }
 
     
@@ -102,57 +109,70 @@ public class MainController {
 
     }
 
-    @GetMapping("/admin/home")
-    public String viewAdminHomePage(){
-        return "admin/productosAdmin";
-    }
 
-    @GetMapping("/user/home")
-    public String viewUserHomePage(){
-        return "user/cartaCliente";
-    }
-    
+    /* Mapeos de usuario */
+
+    /**
+     * Método encargado de mostrar la vista de pedidos de usuario
+     * @return la plantilla de usuario especificada
+     */
     @GetMapping("/user/pedidos")
     public String viewPedidosUserPage(){
         return "user/realizarPedidos";
     }
     
+
+    /**
+     * Método encargado de mostrar la vista de reservas de usuario
+     * @return la plantilla de usuario especificada
+     */
     @GetMapping("/user/reservas")
     public String viewReservasUserPage(){
         return "user/realizarReservas";
     }
     
+
+    /**
+     * Método encargado de mostrar la vista de reseñas de usuario
+     * @return la plantilla de usuario especificada
+     */
     @GetMapping("/user/reseñas")
     public String viewReseniasUserPage(){
         return "user/reseñasCliente";
     }
     
+
     /* Mapeos de administrador */
 
     
+    /**
+     * Método encargado de mostrar la vista de reservas de administrador
+     * @return la plantilla de administrador especificada
+     */
     @GetMapping("/admin/reservas")
     public String viewReservasAdminPage(){
         return "admin/reservasAdmin";
     }
     
+
+    /**
+     * Método de controlador encargado de mostrar la vista de pedidos de administrador
+     * @return la plantilla de administrador especificada
+     */
     @GetMapping("/admin/pedidos")
     public String viewPedidosAdminPage(){
         return "admin/pedidosAdmin";
     }
     
+
+    /**
+     * Método de controlador encargado de mostrar la vista de reseñas de administrador
+     * @return la plantilla de administrador especificada
+     */
     @GetMapping("/admin/reseñas")
     public String viewReseñasAdminPage(){
         return "admin/reseñasAdmin";
     }
     
-    @GetMapping("/admin/producto/agregar")
-    public String viewAgregarAdminPage(){
-        return "admin/agregarProducto";
-    }
-    
-    @GetMapping("/admin/producto/editar")
-    public String viewEditarProductoAdminPage(){
-        return "admin/editarProducto";
-    }
     
 }

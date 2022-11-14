@@ -43,7 +43,7 @@
         <main class="main">
             <div class="main_cont">
                 <h1 class="tituloTable">Gestor de Productos</h1>
-                <a id="btn_anadirProducto" th:href="@{/admin/producto/agregar}">Añadir Producto</a>
+                <a id="btn_anadirProducto" th:href="@{/admin/producto/nuevo}">Añadir Producto</a>
                 <table class="table">
                     <tbody id="tbody">
                         <tr>
@@ -53,35 +53,19 @@
                             <th>Tipo</th>
                             <th colspan="2">Acción</th>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Hamburguesa Black</td>
-                            <td>$25.000</td>
-                            <td>Comida</td>
-                            <td><a th:href="@{/admin/producto/editar}"><div class="editar"></div></a></td>
-                            <td><a href="#"><div class="eliminar"></div></a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>HotDog Furia</td>
-                            <td>$50.000</td>
-                            <td>Comida</td>
-                            <td><a href="#"><div class="editar"></div></a></td>
-                            <td><a href="#"><div class="eliminar"></div></a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Pizza Bit</td>
-                            <td>$60.000</td>
-                            <td>Comida</td>
-                            <td><a href="#"><div class="editar"></div></a></td>
-                            <td><a href="#"><div class="eliminar"></div></a></td>
+                        <tr th:each="producto : ${listaProductos}">
+                            <td th:text="${producto.id}"></td>
+                            <td th:text="${producto.nombre}"></td>
+                            <td th:text="'$' + ${producto.precio}"></td>
+                            <td th:text="${producto.tipo}"></td>
+                            <td><a th:href="@{'/admin/producto/editar/' + ${producto.id}}"><div class="editar"></div></a></td>
+                            <td><a th:href="@{'/admin/producto/eliminar/' + ${producto.id}}"><div class="eliminar"></div></a></td>
                         </tr>
                     </tbody>
                 </table> 
             </div>
         </main>
-        <script th:src="@{/js/pruebaProductos.js}"> 
+        <script th:src="@{/js/app2.js}"> 
         </script>
     </body>
 

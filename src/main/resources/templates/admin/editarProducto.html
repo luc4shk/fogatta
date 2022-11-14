@@ -43,21 +43,21 @@
     <main class="main">
         <div class="main_cont">
             <h1 class="tituloTable">Editar Producto</h1>
-            <form class="form" action="listadoReservasCliente.html">
+            <form class="form" th:action="@{/admin/producto/agregar}" th:object="${producto}" method="post">
                 <div class="form_info">
-                    <input id="nombre" type="text" placeholder="Nombre" required>
-                    <input id="precio" type="number" placeholder="Precio" required>
-                    <input id="url_imagen" type="url" placeholder="URL de la imagen" required>
-                    <select required>
-                        <option hidden>Tipo</option>
-                        <option>Comida</option>
-                        <option>Bebida</option>
+                    <input id="id" type="text" placeholder="id" th:field="*{id}" readonly>
+                    <input id="nombre" type="text" placeholder="Nombre" th:field="*{nombre}" required>
+                    <input id="precio" type="number" placeholder="Precio" th:field="*{precio}" required>
+                    <input id="url_imagen" type="url" placeholder="URL de la imagen" th:field="*{url_imagen}" required>
+                    <select th:field="*{tipo}" required>
+                        <option value="none" hidden>Tipo</option>
+                        <option value="comida">Comida</option>
+                        <option value="bebida">Bebida</option>
                     </select>
-                    
+                    <textarea id="t_area" placeholder="Descripción" th:field="*{descripcion}" required></textarea>
                 </div>
-                <textarea id="t_area" placeholder="Descripción" required></textarea>
                 <div class="btns">
-                <input class="btnPedidoAñadir" type="submit" value="Agregar">
+                <input class="btnPedidoAñadir" type="submit" value="Guardar cambios">
                 <a class="btnPedidoCancelar" th:href="@{/admin/home}">Cancelar</a>
                 </div>
             </form>
