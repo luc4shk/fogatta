@@ -1,62 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" th:href="@{/css/cartaCliente.css}" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Carta-Fogatta</title>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" th:href="@{/css/cartaCliente.css}" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Carta-Fogatta</title>
+    </head>
 
-  <body>
-    <nav class="nav">
-      <div class="nav_cont" id="nav2">
-        <div class="nav_cont_l">
-          <a th:href="@{/}" class="nav_logo"></a>
-        </div>
-        <div class="nav_cont_m">
-                <a class="nav_btn_user" th:href="@{/user/home}">Carta</a>
-                <a class="nav_btn_user" th:href="@{/user/reservas}">Reservas</a>
-                <a class="nav_btn_user" th:href="@{/user/pedidos}">Pedidos</a>
+    <body>
+        <nav class="nav">
+            <div class="nav_cont" id="nav2">
+                <div class="nav_cont_l">
+                    <a th:href="@{/}" class="nav_logo"></a>
+                </div>
+                <div class="nav_cont_m">
+                    <a class="nav_btn_user" th:href="@{/user/home}">Carta</a>
+                    <a class="nav_btn_user" th:href="@{/user/reservas}">Reservas</a>
+                    <a class="nav_btn_user" th:href="@{/user/pedidos}">Pedidos</a>
+                </div>
+                <div class="nav_cont_r">
+                    <a class="nav_btn_login" th:href="@{/user/reseñas}">Reseñas</a>
+                    <form class="form_logout" th:action="@{/user/logout}" method="post">
+                        <input class="nav_btn_login botonForm" type="submit" value="Cerrar Sesión">
+                    </form>
+                </div>
+                <div class="menu"></div>
             </div>
-            <div class="nav_cont_r">
-                <a class="nav_btn_login" th:href="@{/user/reseñas}">Reseñas</a>
-                <form class="form_logout" th:action="@{/user/logout}" method="post">
-                  <input class="nav_btn_login botonForm" type="submit" value="Cerrar Sesión">
-                </form>
-            </div>
-        <div class="menu"></div>
-      </div>
-    </nav>
-    <div class="desp">
-      <a class="nav_btn_user2 uno" th:href="@{/user/home}">Carta</a>
-        <a class="nav_btn_user2 dos" th:href="@{/user/reservas}">Reservas</a>
-        <a class="nav_btn_user2 tres" th:href="@{/user/pedidos}">Pedidos</a>
-        <a class="nav_btn_user2 cuatro" th:href="@{/user/reseñas}">Reseñas</a>
-        <form class="form_logout" th:action="@{/user/logout}" method="post">
-                  <input class="nav_btn_user2 cinco" type="submit" value="Cerrar Sesión">
-        </form>
-    </div>
-    <main class="main">
-      <div class="main_cont">
-        <p class="tituloTable"><b>Bienvenido [[${#request.userPrincipal.principal.usuario.nombre}]] [[${#request.userPrincipal.principal.usuario.apellido}]]</b></p>
-        <div class="cont_platos" th:each="producto : ${listaProductos2}">
-          <div class="plato">
-            <img class="plato_image" th:src="${producto.url_imagen}">
-            <div class="plato_text">
-              <p class="plato_title" th:text="${producto.nombre}"></p>
-              <p class="plato_info" th:text="${producto.descripcion}">
-              </p>
-            </div>
-          </div>
+        </nav>
+        <div class="desp">
+            <a class="nav_btn_user2 uno" th:href="@{/user/home}">Carta</a>
+            <a class="nav_btn_user2 dos" th:href="@{/user/reservas}">Reservas</a>
+            <a class="nav_btn_user2 tres" th:href="@{/user/pedidos}">Pedidos</a>
+            <a class="nav_btn_user2 cuatro" th:href="@{/user/reseñas}">Reseñas</a>
+            <form class="form_logout" th:action="@{/user/logout}" method="post">
+                <input class="nav_btn_user2 cinco" type="submit" value="Cerrar Sesión">
+            </form>
         </div>
-        <div class="botones">
-            <button class="anterior"></button>
-            <button class="siguiente"></button>
-        </div>
-      </div>
-    </main>
-    <script th:src="@{/js/app2.js}"></script>
-  </body>
+        <main class="main">
+            <div class="main_cont">
+                <p class="tituloTable"><b>Bienvenido [[${#request.userPrincipal.principal.usuario.nombre}]] [[${#request.userPrincipal.principal.usuario.apellido}]]</b></p>
+                <div class="cont_grid">
+                    <div class="cont_platos" th:each="producto : ${listaProductos2}">
+                        <div class="plato">
+                            <img class="plato_image" th:src="${producto.url_imagen}">
+                            <div class="plato_text">
+                                <p class="plato_title" th:text="${producto.nombre}"></p>
+                                <p class="plato_info" th:text="${producto.descripcion}">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="botones">
+                    <button class="anterior"></button>
+                    <button class="siguiente"></button>
+                </div>
+            </div>
+        </main>
+        <script th:src="@{/js/app2.js}"></script>
+    </body>
 </html>
