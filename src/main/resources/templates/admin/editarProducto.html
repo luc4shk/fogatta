@@ -45,17 +45,22 @@
             <h1 class="tituloTable">Editar Producto</h1>
             <form class="form" th:action="@{/admin/producto/agregar}" th:object="${producto}" method="post">
                 <div class="form_info">
-                    <input id="id" type="text" placeholder="id" th:field="*{id}" readonly>
-                    <input id="nombre" type="text" placeholder="Nombre" th:field="*{nombre}" required>
-                    <input id="precio" type="number" placeholder="Precio" th:field="*{precio}" required>
-                    <input id="url_imagen" type="url" placeholder="URL de la imagen" th:field="*{url_imagen}" required>
+                    <label>Id:</label>
+                    <input id="id" type="text" placeholder="id" th:field="*{id}" readonly disabled>
+                    <label>Nombre:</label>
+                    <input id="nombre" type="text"  th:field="*{nombre}" required>
+                    <label>Precio:</label>
+                    <input id="precio" type="number"  th:field="*{precio}"  required>
+                    <label>URL:</label>
+                    <input id="url_imagen" type="url"  th:field="*{url_imagen}" required>
+                    <label>Tipo:</label>
                     <select th:field="*{tipo}" required>
                         <option value="none" hidden>Tipo</option>
                         <option value="comida">Comida</option>
                         <option value="bebida">Bebida</option>
                     </select>
-                    <textarea id="t_area" placeholder="Descripción" th:field="*{descripcion}" required></textarea>
                 </div>
+                <textarea id="t_area" placeholder="Descripción" th:field="*{descripcion}" required></textarea>
                 <div class="btns">
                 <input class="btnPedidoAñadir" type="submit" value="Guardar cambios">
                 <a class="btnPedidoCancelar" th:href="@{/admin/home}">Cancelar</a>

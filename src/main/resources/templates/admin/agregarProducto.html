@@ -43,13 +43,16 @@
     <main class="main">
         <div class="main_cont">
             <h1 class="tituloTable">Agregar Producto</h1>
-            <form class="form" th:action="@{/admin/producto/agregar}" th:object="${producto}" method="post">
+            <form id="formu" class="form" th:action="@{/admin/producto/agregar}" th:object="${producto}" method="post">
                 <div class="form_info form2">
-                    <input id="nombre" type="text" placeholder="Nombre" th:field="*{nombre}" required>
-                    <input id="precio" type="number" placeholder="Precio" th:field="*{precio}" required>
-                    <input id="url_imagen" type="url" placeholder="URL de la imagen" th:field="*{url_imagen}" required>
-                    <select th:field="*{tipo}" required>
-                        <option value="none"  hidden>Tipo</option>
+                    <label>Nombre:</label>
+                    <input id="nombre" type="text"  th:field="*{nombre}" required>
+                    <label>Precio:</label>
+                    <input id="precio" type="number"  th:field="*{precio}"  required>
+                    <label>URL:</label>
+                    <input id="url_imagen" type="url"  th:field="*{url_imagen}" required>
+                    <label>Tipo:</label>
+                    <select id="tipo" th:field="*{tipo}" required>
                         <option value="comida">Comida</option>
                         <option value="bebida">Bebida</option>
                     </select>
@@ -57,12 +60,14 @@
                 </div>
                 <textarea id="t_area" placeholder="Descripción" th:field="*{descripcion}" required></textarea>
                 <div class="btns">
-                <input class="btnPedidoAñadir"type="submit" value="Agregar">
-                <a class="btnPedidoCancelar" th:href="@{/admin/home}">Cancelar</a>
+                <input id="buttonAñadir"class="btnPedidoAñadir"type="submit" value="Agregar">
+                <a class="btnPedidoCancelar" th:href="@{/admin/home}">Volver</a>
                 </div>
             </form>
         </div>
     </main>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script th:src="@{/js/alertAgregarProducto.js}"></script>
     <script th:src="@{/js/app2.js}"></script>
 </body>
 </html>

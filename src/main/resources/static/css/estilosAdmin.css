@@ -163,7 +163,7 @@ tr:nth-child(even){
     background-position: center;
     background-size: cover;
     margin: 0 auto;
-    
+    cursor: pointer;
     
 }
 button{
@@ -177,6 +177,7 @@ button{
     background-position: center;
     background-size: cover;
     margin: 0 auto;
+    cursor: pointer;
 }    
 /*Agregar Pedido*/
 #t_area{
@@ -216,7 +217,7 @@ button{
 .form_info{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: 1fr 10fr;
     gap: 15px;
 }
 
@@ -229,8 +230,14 @@ button{
     border: 1px black solid;
     border-radius: 5px;
     padding: 8px;
+    height: 40px;
     min-width: 20px;
   }
+
+label{
+    text-align: left;
+    font-weight: bold;
+}
 
 /*  .btnPedido, .btnReserva{
     margin-top: 15px;
@@ -248,6 +255,11 @@ button{
       background-color: black;
       color: white;
   }
+
+  #btnEditar{
+      cursor:default;
+  }
+
 
 /* Reseñas */
 .reseñas{
@@ -318,6 +330,14 @@ button{
     display: none;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
 @media screen and (max-width:1235px) {
     .reseñas{
         
@@ -326,6 +346,22 @@ button{
     }
 }
 
+@media screen and (max-width:409px) {
+    .form_info{
+        
+        grid-template-columns: 1fr;
+        
+    }
+    .btns{
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .form2{
+        gap:15px;
+    }
+    
+    
+}
 @media screen and (max-width:812px) {
     .reseñas{
         

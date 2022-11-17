@@ -48,11 +48,7 @@ body{
 
 
 
-input[type=number]
-{
--webkit-appearance: none;
--moz-appearance:textfield;
-}
+
 
 input{
     width:350px;
