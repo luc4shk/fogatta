@@ -25,6 +25,9 @@ public class MainController {
     @Autowired
     private UsuarioServicio servicio;
 
+    @Autowired
+    ProductoController product_controller;
+
     /**
      * Método encargado de mostrar la página index
      * @return la plantilla index de la aplicación
@@ -98,14 +101,14 @@ public class MainController {
      * @return la plantilla que contiene el formulario de login de usuario
      */
     @GetMapping("/user/login")
-    public String viewUserLoginPage(){
+    public String viewUserLoginPage(Model modelo){
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "user/loginCliente";
         }
  
-        return "/user/cartaCliente";
+        return product_controller.listByPageUser(modelo, 1, "tipo", "asc");
 
     }
 

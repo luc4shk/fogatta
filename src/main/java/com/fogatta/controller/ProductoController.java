@@ -1,6 +1,10 @@
 package com.fogatta.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,24 +22,76 @@ public class ProductoController {
     @Autowired
     private ProductoServicio servicio;
 
+
+
     /**
      * Método de controlador encargado de mostrar la pagina de inicio de usuario
      * @return la plantilla de inicio de usuario
      */
     @GetMapping("/user/home")
     public String viewUserHomePage(Model modelo){
-        modelo.addAttribute("listaProductos2", servicio.listAll());
-        return "user/cartaCliente";
+        return listByPageUser(modelo, 1, "tipo", "asc");
     }
 
+
+    @GetMapping("/user/producto/page/{pageNumber}")
+    public String listByPageUser(Model modelo, @PathVariable("pageNumber") int paginaActual,
+            @Param("sortField") String sortField,
+            @Param("sortDir") String sortDir){
+
+        Page<Producto> page = servicio.listAll(paginaActual, sortField, sortDir);
+        long totalItems = page.getTotalElements();
+        int totalPages = page.getTotalPages();
+
+        List<Producto> listProducts = page.getContent();
+
+        modelo.addAttribute("paginaActual", paginaActual);
+        modelo.addAttribute("totalItems", totalItems);
+        modelo.addAttribute("totalPages", totalPages);
+        modelo.addAttribute("listProducts", listProducts);
+        modelo.addAttribute("sortField", sortField);
+        modelo.addAttribute("sortDir", sortDir);
+
+        String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
+        modelo.addAttribute("reverseSortDir", reverseSortDir);
+
+        return "user/cartaCliente";
+
+    }
+
+    
     /**
      * Método de controlador encargado de mostrar la pagina de inicio de administrador
      * @return la plantilla del inicio de administrador
      */
     @GetMapping("/admin/home")
     public String viewAdminHomePage(Model modelo){
-        modelo.addAttribute("listaProductos", servicio.listAll());
+        return listByPageAdmin(modelo, 1, "id", "asc");
+    }
+
+    @GetMapping("/admin/producto/page/{pageNumber}")
+    public String listByPageAdmin(Model modelo, @PathVariable("pageNumber") int paginaActual,
+            @Param("sortField") String sortField,
+            @Param("sortDir") String sortDir){
+
+        Page<Producto> page = servicio.listAll(paginaActual, sortField, sortDir);
+        long totalItems = page.getTotalElements();
+        int totalPages = page.getTotalPages();
+
+        List<Producto> listProducts = page.getContent();
+
+        modelo.addAttribute("paginaActual", paginaActual);
+        modelo.addAttribute("totalItems", totalItems);
+        modelo.addAttribute("totalPages", totalPages);
+        modelo.addAttribute("listProducts", listProducts);
+        modelo.addAttribute("sortField", sortField);
+        modelo.addAttribute("sortDir", sortDir);
+
+        String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
+        modelo.addAttribute("reverseSortDir", reverseSortDir);
+
         return "admin/productosAdmin";
+
     }
 
     /**

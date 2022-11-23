@@ -48,7 +48,7 @@
             <form class="form" th:action="@{/admin/producto/agregar}" th:object="${producto}" method="post">
                 <div class="form_info">
                     <label>Id:</label>
-                    <input id="id" type="text" placeholder="id" th:field="*{id}" readonly disabled>
+                    <input id="id" type="text" placeholder="id" th:field="*{id}" readonly>
                     <label>Nombre:</label>
                     <input id="nombre" type="text"  th:field="*{nombre}" required>
                     <label>Precio:</label>

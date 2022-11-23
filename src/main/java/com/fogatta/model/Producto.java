@@ -21,13 +21,13 @@ public class Producto {
     @Column(nullable = false)
     private int precio;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 255)
     private String descripcion;
 
     @Column(nullable = false, length = 10)
     private String tipo;
 
-    @Column(nullable = false, length = 60)
+    @Column(nullable = false, length = 255)
     private String url_imagen;
     
     /* Constructors */

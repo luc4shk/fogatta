@@ -44,7 +44,7 @@
             <div class="main_cont">
                 <p class="tituloTable"><b>Bienvenido [[${#request.userPrincipal.principal.usuario.nombre}]] [[${#request.userPrincipal.principal.usuario.apellido}]]</b></p>
                 <div class="cont_grid">
-                    <div class="cont_platos" th:each="producto : ${listaProductos2}">
+                    <div class="cont_platos" th:each="producto : ${listProducts}">
                         <div class="plato">
                             <img class="plato_image" th:src="${producto.url_imagen}">
                             <div class="plato_text">
@@ -59,6 +59,35 @@
                     <button class="anterior"></button>
                     <button class="siguiente"></button>
                 </div>
+            </div>
+            <div>&nbsp;</div>
+            <div>
+
+                Total Items: [[${totalItems}]] - Page [[${paginaActual}]] of [[${totalPages}]]
+                &nbsp; - &nbsp;
+    
+                <a th:if="${paginaActual > 1}" th:href="@{'/user/producto/page/1' + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">First</a>
+                <span th:unless="${paginaActual > 1}">First</span>
+                &nbsp;&nbsp;
+                
+                <a th:if="${paginaActual > 1}" th:href="@{'/user/producto/page/' + ${paginaActual - 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Previous</a>
+                <span th:unless="${paginaActual > 1}">Previous</span>
+                &nbsp;&nbsp;
+    
+                <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+                    <a th:if="${i != paginaActual}" th:href="@{'/user/producto/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+                    <span th:unless="${i != paginaActual}">[[${i}]]</span>
+                    &nbsp;&nbsp;
+                </span>
+    
+                <a th:if="${paginaActual < totalPages}" th:href="@{'/user/producto/page/' + ${paginaActual + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+                <span th:unless="${paginaActual < totalPages}">Next</span>
+    
+                &nbsp;&nbsp;
+    
+                <a th:if="${paginaActual < totalPages}" th:href="@{'/user/producto/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+                <span th:unless="${paginaActual < totalPages}">Last</span>
+
             </div>
         </main>
         <script th:src="@{/js/app2.js}"></script>
