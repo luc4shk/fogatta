@@ -6,6 +6,7 @@
     scroll-behavior: smooth;
     font-family: 'Comfortaa';
     box-sizing: border-box;
+    
 }
 
 .nav{
@@ -89,8 +90,15 @@
     cursor: pointer;
 }
 
+.nav_btn_user:hover, .nav_btn_login:hover, .nav_btn_reg:hover{
+    text-decoration: none;
+    color: white;
+}
+
 .botonForm{
     width: 200px;
+    border: none;
+    background-color: transparent;
 }
 .nav_btn_user2{
     display: none;
@@ -109,7 +117,17 @@
     cursor:pointer;
     
 }
+.nav_btn_user2:hover{
+    text-decoration: none;
+    color:white;
+    
+}
 
+.nav_btn_user2[type=submit]{
+    background-color: transparent;
+    border:none;
+    
+}
 .tituloTable{
     margin:50px 0;
     font-size: 30px;
@@ -144,8 +162,8 @@
 }
 .plato_image{
     
-    width:400px;
-    height: 300px;
+    width:380px;
+    height: 320px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -163,6 +181,7 @@
 .plato_title{
     font-size: 20px;
     font-weight: bold;
+    margin-top:20px;
 }
 /*Tabla*/
 .tituloTable{
@@ -221,7 +240,7 @@ button{
     min-width: 20px;
   }
 
-  .btnPedido, .btnReserva{
+ .btnPedido[type=submit], .btnReserva[type=submit] {
     margin-top: 15px;
     border: 1px black solid;
     border-radius: 5px;
@@ -229,6 +248,7 @@ button{
     min-width: 20px;
     transition: all 0.5s;
     cursor: pointer;
+    background-color: #eee ;
   }
   
   .btnPedido:hover, .btnReserva:hover{
@@ -306,9 +326,32 @@ button{
     display: none;
 }
 
+#btnFormPedido, #btnFormReserva{
+    background-color: black;
+    color:white;
+    margin: 5px 0 20px 0;
+    border-radius: 5px;
+    padding: 8px;
+    width: 50%;
+    min-width: 360px;
+    transition: all 0.5s;
+    cursor: pointer;
+    text-align: center;
+}
+
+#btnFormPedido:hover , #btnFormReserva:hover{
+          box-shadow: 2px 5px 7px -3px rgba(0,0,0,0.7),0px 10px 15px -3px rgba(0,0,0,0.1);
+
+  }
 
 
-
+#categorias{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between
+      
+}
 
 /*Finaliza sección Header*/
 /*Media */

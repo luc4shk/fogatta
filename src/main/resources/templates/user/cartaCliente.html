@@ -5,9 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" th:href="@{/css/cartaCliente.css}" />
+        <link rel="stylesheet" th:href="@{/css/paginacion.css}" />
         <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <title>Fogatta - Carta</title>
     </head>
 
@@ -49,44 +50,47 @@
                             <img class="plato_image" th:src="${producto.url_imagen}">
                             <div class="plato_text">
                                 <p class="plato_title" th:text="${producto.nombre}"></p>
-                                <p class="plato_info" th:text="${producto.descripcion}">
-                                </p>
+                                <!--<p class="plato_info" th:text="${producto.descripcion}"></p>-->
+                                
+                            </div>
+                            <div id="categorias">
+                                <h5 th:if="${producto.tipo=='bebida'}" ><span class="badge badge-primary">Bebida</span></h5>
+                                <h5 th:unless="${producto.tipo=='bebida'}"><span  class="badge badge-warning">Comida</span></h5>
+                                <h5><a href="#" class="badge badge-dark">Ver mas</a></h5>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="botones">
-                    <button class="anterior"></button>
-                    <button class="siguiente"></button>
-                </div>
-            </div>
-            <div>&nbsp;</div>
-            <div>
-
-                Total Items: [[${totalItems}]] - Page [[${paginaActual}]] of [[${totalPages}]]
-                &nbsp; - &nbsp;
-    
-                <a th:if="${paginaActual > 1}" th:href="@{'/user/producto/page/1' + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">First</a>
-                <span th:unless="${paginaActual > 1}">First</span>
-                &nbsp;&nbsp;
                 
-                <a th:if="${paginaActual > 1}" th:href="@{'/user/producto/page/' + ${paginaActual - 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Previous</a>
-                <span th:unless="${paginaActual > 1}">Previous</span>
+            </div>
+            
+            <div>&nbsp;</div>
+            <div id="paginacion">
+
+                <!--                Total Items: [[${totalItems}]] - Page [[${paginaActual}]] of [[${totalPages}]]
+                                &nbsp; - &nbsp;-->
+
+                <a  class="first" th:if="${paginaActual > 1}" th:href="@{'/user/producto/page/1' + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">First</a>
+                <span class="first"  th:unless="${paginaActual > 1}">First</span>
                 &nbsp;&nbsp;
-    
-                <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-                    <a th:if="${i != paginaActual}" th:href="@{'/user/producto/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
-                    <span th:unless="${i != paginaActual}">[[${i}]]</span>
+
+                <a class="prev" th:if="${paginaActual > 1}" th:href="@{'/user/producto/page/' + ${paginaActual - 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Previous</a>
+                <span class="prev" th:unless="${paginaActual > 1}">Previous</span>
+                &nbsp;&nbsp;
+
+                <span id="s_numero" th:each="i: ${#numbers.sequence(1, totalPages)}">
+                    <a class="numero" th:if="${i != paginaActual}"  th:href="@{'/user/producto/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+                    <span class="numero now" th:unless="${i != paginaActual}">[[${i}]]</span>
                     &nbsp;&nbsp;
                 </span>
-    
-                <a th:if="${paginaActual < totalPages}" th:href="@{'/user/producto/page/' + ${paginaActual + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
-                <span th:unless="${paginaActual < totalPages}">Next</span>
-    
+
+                <a class="next" th:if="${paginaActual < totalPages}" th:href="@{'/user/producto/page/' + ${paginaActual + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+                <span class="next" th:unless="${paginaActual < totalPages}">Next</span>
+
                 &nbsp;&nbsp;
-    
-                <a th:if="${paginaActual < totalPages}" th:href="@{'/user/producto/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
-                <span th:unless="${paginaActual < totalPages}">Last</span>
+
+                <a class="last" th:if="${paginaActual < totalPages}" th:href="@{'/user/producto/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+                <span class="last" th:unless="${paginaActual < totalPages}">Last</span>
 
             </div>
         </main>

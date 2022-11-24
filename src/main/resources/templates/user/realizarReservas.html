@@ -42,30 +42,7 @@
     </div>
     <main class="main">
         <div class="main_cont">
-            <h1 class="tituloTable">Agendar Reserva</h1>
-            <form class="form" action="listadoReservasCliente.html">
-                <div class="form_info">
-                    <input type="text" placeholder="Nombre">
-                    <input type="text" placeholder="Apellido">
-                    <input type="number" placeholder="Teléfono">
-                    <input type="text" placeholder="Dirección">
-                    <select>
-                        <option hidden selected>Selecciona una mesa</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                    </select>
-                    <input type="date">
-                </div>
-                <input class="btnReserva" type="submit" value="Reservar">
-            </form>
+            
             <h1 class="tituloTable">Tus Reservas</h1>
             <table class="table">
                 <tbody id="tbody">
@@ -99,6 +76,7 @@
                     </tr>
                 </tbody>
             </table>
+            <a id="btnFormReserva" th:href="@{/user/realizar-reservas}">Realizar Reserva</a>
         </div>
     </main>
     <script th:src="@{/js/app2.js}"></script>

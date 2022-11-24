@@ -1,0 +1,64 @@
+#paginacion{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.first, .last{
+    padding:8px;
+    border-radius: 8px;
+    border: 1px solid;
+    background-color:black;
+    color:white;
+    transition: 0.5s all;
+    cursor: pointer;
+}
+
+.first:hover, .last:hover{
+    background-color: white;
+    color:black;
+    text-decoration: none;
+}
+
+
+.prev, .next{
+    padding:8px;
+    border-radius: 8px;
+    border: 1px solid;
+    background-color:black;
+    color:white;
+    cursor: pointer;
+    transition: 0.5s all;
+}
+
+.prev:hover, .next:hover{
+    background-color: white;
+    color:black;
+    text-decoration: none;
+}
+
+
+.numero{
+    padding:8px;
+    border-radius: 8px;
+    border: 1px solid;
+    background-color:purple;
+    background-color:white;
+    color:black;
+    font-weight: bold;
+    transition: 0.5s all;
+    cursor: pointer;
+}
+
+.now{
+    background-color: #4BC3BF;
+    color:white;
+    border:1px solid black;
+}
+.numero:hover{
+    text-decoration: none;
+    box-shadow: 2px 5px 7px -3px rgba(0,0,0,0.7),0px 10px 15px -3px rgba(0,0,0,0.1);
+    
+}

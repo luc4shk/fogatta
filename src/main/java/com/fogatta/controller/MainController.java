@@ -124,6 +124,18 @@ public class MainController {
         return "user/realizarPedidos";
     }
     
+    /* Mapeos de usuario */
+
+    /**
+     * Método encargado de mostrar la vista de el para realizar los pedidos
+     * @return la plantilla de usuario especificada
+     */
+    @GetMapping("/user/realizar-pedidos")
+    public String viewRealizarPedidosUserPage(){
+        return "user/formularioPedidos";
+    }
+    
+    
 
     /**
      * Método encargado de mostrar la vista de reservas de usuario
@@ -134,6 +146,16 @@ public class MainController {
         return "user/realizarReservas";
     }
     
+    /* Mapeos de usuario */
+
+    /**
+     * Método encargado de mostrar la vista de el para realizar las reservas
+     * @return la plantilla de usuario especificada
+     */
+    @GetMapping("/user/realizar-reservas")
+    public String viewRealizarReservasUserPage(){
+        return "user/formularioReservas";
+    }
 
     /**
      * Método encargado de mostrar la vista de reseñas de usuario

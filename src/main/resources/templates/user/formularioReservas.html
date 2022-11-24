@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" th:href="@{/css/cartaCliente.css}">
+        <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Fogatta - Editar producto</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav_cont" id="nav2">
+                <div class="nav_cont_l">
+                    <a th:href="@{/}" class="nav_logo"></a>
+                </div>
+                <div class="nav_cont_m">
+                    <a class="nav_btn_user" th:href="@{/user/home}">Carta</a>
+                    <a class="nav_btn_user" th:href="@{/user/reservas}">Reservas</a>
+                    <a class="nav_btn_user" th:href="@{/user/pedidos}">Pedidos</a>
+                </div>
+                <div class="nav_cont_r">
+                    <a class="nav_btn_login" th:href="@{/user/reseñas}">Reseñas</a>
+                    <form class="form_logout" th:action="@{/user/logout}" method="post">
+                        <input class="nav_btn_login botonForm" type="submit" value="Cerrar Sesión">
+                    </form>
+                </div>
+                <div class="menu"></div>
+            </div>
+        </nav>
+        <div class="desp">
+            <a class="nav_btn_user2 uno" th:href="@{/user/home}">Carta</a>
+            <a class="nav_btn_user2 dos" th:href="@{/user/reservas}">Reservas</a>
+            <a class="nav_btn_user2 tres" th:href="@{/user/pedidos}">Pedidos</a>
+            <a class="nav_btn_user2 cuatro" th:href="@{/user/reseñas}">Reseñas</a>
+            <form class="form_logout" th:action="@{/user/logout}" method="post">
+                <input class="nav_btn_user2 cinco" type="submit" value="Cerrar Sesión">
+            </form>
+        </div>
+        <main class="main">
+            <div class="main_cont">
+                <h1 class="tituloTable">Agendar Reserva</h1>
+                <form class="form" action="listadoReservasCliente.html">
+                    <div class="form_info">
+                        <input type="text" placeholder="Nombre">
+                        <input type="text" placeholder="Apellido">
+                        <input type="number" placeholder="Teléfono">
+                        <input type="text" placeholder="Dirección">
+                        <select>
+                            <option hidden selected>Selecciona una mesa</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+                        <input type="date">
+                    </div>
+                    <input class="btnReserva" type="submit" value="Reservar">
+                </form>
+            </div>
+        </main>
+    </body>
+</html>

@@ -42,16 +42,7 @@
     </div>
     <main class="main">
         <div class="main_cont">
-            <h1 class="tituloTable">Realizar Pedido</h1>
-            <form class="form" action="listadoReservasCliente.html">
-                <div class="form_info">
-                    <input id="nombre" type="text" placeholder="Nombre">
-                    <input id="apellido" type="text" placeholder="Apellido">
-                    <input id="tel" type="number" placeholder="Teléfono">
-                    <input id="direccion" type="text" placeholder="Dirección">
-                </div>
-                <input class="btnPedido"type="submit" value="Pedir">
-            </form>
+            
             <h1 class="tituloTable">Tus Pedidos</h1>
             <table class="table">
                 <tbody id="tbody">
@@ -85,6 +76,7 @@
                     </tr>
                 </tbody>
             </table>
+            <a id="btnFormPedido" th:href="@{/user/realizar-pedidos}">Realizar Pedido</a>
         </div>
     </main>
     
