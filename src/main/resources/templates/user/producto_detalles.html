@@ -1,0 +1,31 @@
+    <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles del producto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <form th:object="${producto}">
+
+        <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Número de Producto:</label>
+            <input type="text" class="form-control" th:field="*{id}" id="recipient-name" name="id" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" th:field="*{nombre}" id="recipient-name" name="nombre" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Precio:</label>
+            <input type="number" class="form-control" th:field="*{precio}" id="recipient-name" name="precio" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="message-text" class="col-form-label">Descripcion:</label>
+            <textarea class="form-control" th:field="*{descripcion}" id="message-text" name="descripcion" readonly></textarea>
+        </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+    </div>

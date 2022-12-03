@@ -136,26 +136,7 @@ public class MainController {
     }
     
     
-
-    /**
-     * Método encargado de mostrar la vista de reservas de usuario
-     * @return la plantilla de usuario especificada
-     */
-    @GetMapping("/user/reservas")
-    public String viewReservasUserPage(){
-        return "user/realizarReservas";
-    }
-    
     /* Mapeos de usuario */
-
-    /**
-     * Método encargado de mostrar la vista de el para realizar las reservas
-     * @return la plantilla de usuario especificada
-     */
-    @GetMapping("/user/realizar-reservas")
-    public String viewRealizarReservasUserPage(){
-        return "user/formularioReservas";
-    }
 
     /**
      * Método encargado de mostrar la vista de reseñas de usuario

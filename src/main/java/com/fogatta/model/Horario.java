@@ -21,18 +21,20 @@ public class Horario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @Column(nullable = false, length = 7)
+    @Column(nullable = false, length = 10)
     private String hora;
     
-    private boolean estado;
 
     public Horario() {
     }
 
-    public Horario(Integer id, String hora, boolean estado) {
+    public Horario(Integer id, String hora) {
         this.id = id;
         this.hora = hora;
-        this.estado = estado;
+    }
+
+    public Horario(String hora) {
+        this.hora = hora;
     }
 
     public Integer getId() {
@@ -51,14 +53,6 @@ public class Horario {
         this.hora = hora;
     }
 
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-    
-    
+     
     
 }

@@ -59,6 +59,13 @@ public class ProductoController {
 
     }
 
+    @GetMapping("/user/producto/detalles/{id}")
+    public String verProducto(@PathVariable("id") Integer id, Model model){
+        Producto producto = servicio.get(id);
+        model.addAttribute("producto", producto);
+        return "user/producto_detalles";
+    }
+
     
     /**
      * Método de controlador encargado de mostrar la pagina de inicio de administrador

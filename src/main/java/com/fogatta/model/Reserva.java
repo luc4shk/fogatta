@@ -1,6 +1,7 @@
 package com.fogatta.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -27,7 +29,7 @@ public class Reserva{
     private String estado;
     
     @DateTimeFormat(iso = ISO.DATE)
-    private LocalDate fecha_reserva;
+    private LocalDateTime fecha_reserva;
     
     @ManyToOne
     @JoinColumn(name = "usuario_id")
@@ -36,13 +38,18 @@ public class Reserva{
     @ManyToOne
     @JoinColumn(name = "mesa_id")
     private Mesa mesa;
+
+    @ManyToOne
+    @JoinColumn(name = "horario_id")
+    private Horario horario;
+
     
     /*Constructor*/
 
     public Reserva() {
     }
 
-    public Reserva(Integer id, Integer acompanantes, String estado, LocalDate fecha_reserva) {
+    public Reserva(Integer id, Integer acompanantes, String estado, LocalDateTime fecha_reserva) {
         this.id = id;
         this.acompanantes = acompanantes;
         this.estado = estado;
@@ -69,17 +76,46 @@ public class Reserva{
         return estado;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Mesa getMesa() {
+        return mesa;
+    }
+
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
+    }
+
+    public Horario getHorario() {
+        return horario;
+    }
+
+    public void setHorario(Horario horario) {
+        this.horario = horario;
+    }
+
     public void setEstado(String estado) {
         this.estado = estado;
     }
 
-    public LocalDate getFecha_reserva() {
+    public LocalDateTime getFecha_reserva() {
         return fecha_reserva;
     }
 
-    public void setFecha_reserva(LocalDate fecha_reserva) {
+    public void setFecha_reserva(LocalDateTime fecha_reserva) {
         this.fecha_reserva = fecha_reserva;
     }
-    
+
+    @PrePersist
+    public void asignarFecha_reserva(){
+        fecha_reserva = LocalDateTime.now();
+        estado = "Agendada";
+    }
     
 }

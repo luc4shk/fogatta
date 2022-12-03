@@ -43,28 +43,25 @@
         <main class="main">
             <div class="main_cont">
                 <h1 class="tituloTable">Agendar Reserva</h1>
-                <form class="form" action="listadoReservasCliente.html">
+                <form class="form" th:action="@{/user/reservas/agregar}" th:object="${reserva}" method="post">
                     <div class="form_info">
-                        <input type="text" placeholder="Nombre">
-                        <input type="text" placeholder="Apellido">
-                        <input type="number" placeholder="Teléfono">
-                        <input type="text" placeholder="Dirección">
-                        <select>
-                            <option hidden selected>Selecciona una mesa</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
+                        <input type="number" th:field="*{acompanantes}" placeholder="Acompañantes" min="1" max="4" required>
+                        <select th:field="*{mesa}" required>
+                            <th:block th:each="table : ${listaMesas}">
+                                <option th:text="${table.nombre}" th:value="${table.id}"></option>
+                            </th:block>
                         </select>
-                        <input type="date">
+                        <select th:field="*{horario}" required>
+                            <th:block th:each="hor : ${listaHorarios}">
+                                <option th:text="${hor.hora}" th:value="${hor.id}"></option>
+                            </th:block>
+                        </select>
                     </div>
                     <input class="btnReserva" type="submit" value="Reservar">
+
+                    <div th:if="${error != null}">
+                        <p>[[${error}]]</p>
+                    </div>
                 </form>
             </div>
         </main>

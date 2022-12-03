@@ -1,16 +1,11 @@
 package com.fogatta.model;
 
-import java.util.HashSet;
-import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,28 +15,20 @@ public class Mesa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(nullable = false)
+    private String nombre;
     
     @Column(nullable = false)
     private Integer max_ocupantes;
             
-    @Column(nullable = false)
-    private boolean ocupada;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-        name = "mesa_horario", 
-        joinColumns = @JoinColumn(name = "mesa_id"),
-        inverseJoinColumns = @JoinColumn(name = "horario_id")
-    )
-    private Set<Horario> horarios = new HashSet<>();
-
     public Mesa() {
     }
 
-    public Mesa(Integer id, Integer max_ocupantes, boolean ocupada) {
+    public Mesa(Integer id, Integer max_ocupantes, String nombre) {
         this.id = id;
         this.max_ocupantes = max_ocupantes;
-        this.ocupada = ocupada;
+        this.nombre = nombre;
     }
 
     public Integer getId() {
@@ -60,20 +47,12 @@ public class Mesa {
         this.max_ocupantes = max_ocupantes;
     }
 
-    public boolean getOcupada() {
-        return ocupada;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setOcupada(boolean ocupada) {
-        this.ocupada = ocupada;
-    }
-
-    public Set<Horario> getHorarios() {
-        return horarios;
-    }
-
-    public void setHorarios(Set<Horario> horarios) {
-        this.horarios = horarios;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
 }

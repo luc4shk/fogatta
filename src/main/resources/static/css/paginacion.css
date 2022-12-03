@@ -50,6 +50,7 @@
     font-weight: bold;
     transition: 0.5s all;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .now{
