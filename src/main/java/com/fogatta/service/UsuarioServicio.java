@@ -1,6 +1,7 @@
 package com.fogatta.service;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -12,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fogatta.model.Reserva;
 import com.fogatta.model.Rol;
 import com.fogatta.model.Usuario;
 import com.fogatta.repositorios.UsuarioRepositorio;
@@ -127,6 +129,15 @@ public class UsuarioServicio {
         usuario.setResetPasswordToken(null);
         repo.save(usuario);
         
+    }
+
+
+    @Transactional
+    public List<Reserva> obtenerReservas(String email){
+        
+        Usuario user = repo.findByEmail(email);
+        return user.getReservas();
+
     }
     
 }

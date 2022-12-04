@@ -15,6 +15,7 @@ import com.fogatta.model.Horario;
 import com.fogatta.model.Mesa;
 import com.fogatta.model.Reserva;
 import com.fogatta.service.ReservasServicio;
+import com.fogatta.service.UsuarioServicio;
 
 @Controller
 public class ReservaController {
@@ -22,14 +23,17 @@ public class ReservaController {
     @Autowired
     private ReservasServicio servicio;
 
+    @Autowired
+    private UsuarioServicio userServicio;
+
     /**
      * Método encargado de mostrar la vista de reservas de usuario
      * @return la plantilla de usuario especificada
      */
     @GetMapping("/user/reservas")
-    public String viewReservasUserPage(Model modelo){
+    public String viewReservasUserPage(Model modelo, @AuthenticationPrincipal CustomUserDetails userDetails){
 
-        List<Reserva> listaReservas = servicio.listAll();
+        List<Reserva> listaReservas = userServicio.obtenerReservas(userDetails.getUsername());
         modelo.addAttribute("listaReservas", listaReservas);
         return "user/realizarReservas";
     }
@@ -54,6 +58,12 @@ public class ReservaController {
     @PostMapping("/user/reservas/agregar")
     public String saveReserva(@ModelAttribute("reserva") Reserva reserva, @AuthenticationPrincipal CustomUserDetails userDetails, Model modelo){
 
+
+        List<Horario> listaHorarios = servicio.listHoras();
+        List<Mesa> listaMesas = servicio.listMesas();
+
+        modelo.addAttribute("listaMesas", listaMesas);
+        modelo.addAttribute("listaHorarios", listaHorarios);
 
         List<Reserva> reservasActivas = servicio.listAll();
 

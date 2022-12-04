@@ -48,31 +48,17 @@
                 <tbody id="tbody">
                     <tr>
                         <th>#</th>
-                        <th>Nombre</th>
                         <th>Estado</th>
                         <th>Fecha</th>
-                        <th>Número de Mesa</th>
+                        <th>Mesa</th>
+                        <th>Hora</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Miguel Cardenas</td>
-                        <td>Activa</td>
-                        <td>16/10/22</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jaider Oliveros</td>
-                        <td>Cumplida</td>
-                        <td>2/11/22</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Samuel Boada</td>
-                        <td>En espera</td>
-                        <td>14/11/22</td>
-                        <td>3</td>
+                    <tr th:each="reserva : ${listaReservas}">
+                      <td th:text="${reserva.id}"></td>
+                      <td th:text="${reserva.estado}"></td>
+                      <td th:text="${#temporals.format(reserva.fecha_reserva, 'dd/MM/YYYY hh:mm a')}"></td>
+                      <td th:text="${reserva.mesa.nombre}"></td>
+                      <td th:text="${reserva.horario.hora}"></td>
                     </tr>
                 </tbody>
             </table>

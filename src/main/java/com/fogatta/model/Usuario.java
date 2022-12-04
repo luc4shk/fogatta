@@ -1,14 +1,19 @@
 package com.fogatta.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -53,6 +58,10 @@ public class Usuario {
     private String verificationCode;
      
     private boolean enabled;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
+    private List<Reserva> reservas = new ArrayList<>();
 
     /* Constructors */
 
@@ -167,6 +176,14 @@ public class Usuario {
 
     public void setResetPasswordToken(String resetPasswordToken) {
         this.resetPasswordToken = resetPasswordToken;
+    }
+
+    public List<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(List<Reserva> reservas) {
+        this.reservas = reservas;
     }
 
 }
