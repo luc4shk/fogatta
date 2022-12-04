@@ -1,5 +1,7 @@
 package com.fogatta.controller;
 
+import com.fogatta.details.CustomUserDetails;
+import com.fogatta.model.Reserva;
 import java.io.UnsupportedEncodingException;
 
 import javax.mail.MessagingException;
@@ -16,8 +18,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.fogatta.model.Usuario;
+import com.fogatta.service.ReservasServicio;
 import com.fogatta.service.UsuarioServicio;
 import com.fogatta.utility.Utility;
+import java.util.List;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class MainController {
@@ -27,6 +33,9 @@ public class MainController {
 
     @Autowired
     ProductoController product_controller;
+    
+    @Autowired
+    private ReservasServicio reservaServicio;
 
     /**
      * Método encargado de mostrar la página index
@@ -150,17 +159,6 @@ public class MainController {
 
     /* Mapeos de administrador */
 
-    
-    /**
-     * Método encargado de mostrar la vista de reservas de administrador
-     * @return la plantilla de administrador especificada
-     */
-    @GetMapping("/admin/reservas")
-    public String viewReservasAdminPage(){
-        return "admin/reservasAdmin";
-    }
-    
-
     /**
      * Método de controlador encargado de mostrar la vista de pedidos de administrador
      * @return la plantilla de administrador especificada
@@ -170,7 +168,8 @@ public class MainController {
         return "admin/pedidosAdmin";
     }
     
-
+    
+    
     /**
      * Método de controlador encargado de mostrar la vista de reseñas de administrador
      * @return la plantilla de administrador especificada
@@ -179,6 +178,7 @@ public class MainController {
     public String viewReseñasAdminPage(){
         return "admin/reseñasAdmin";
     }
+    
     
     
 }

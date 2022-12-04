@@ -7,9 +7,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.fogatta.model.Horario;
-//import com.fogatta.model.Mesa;
+import com.fogatta.model.Mesa;
 import com.fogatta.repositorios.HorarioRepositorio;
-//import com.fogatta.repositorios.MesaRepositorio;
+import com.fogatta.repositorios.MesaRepositorio;
 
 @Configuration
 public class DarabaseLoader {

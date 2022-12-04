@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <head>
         <meta charset="UTF-8">
@@ -9,11 +9,11 @@
         <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
         <script src="https://cdn.tailwindcss.com"></script>
-        <title>Fogatta - Reservas</title>
+        <title>Fogatta - Editar Reserva</title>
     </head>
 
     <body>
-        <nav class="nav">
+    <nav class="nav">
             <div class="nav_cont" id="nav2">
                 <div class="nav_cont_l">
                     <a th:href="@{/}" class="nav_logo"></a>
@@ -33,43 +33,36 @@
             </div>
 
         </nav>
-        <div class="desp">
+    <div class="desp">
             <a class="nav_btn_user2 uno" th:href="@{/admin/home}">Productos</a>
             <a class="nav_btn_user2 dos" th:href="@{/admin/reservas}">Reservas</a>
             <a class="nav_btn_user2 tres" th:href="@{/admin/pedidos}">Pedidos</a>
             <a class="nav_btn_user2 cuatro" th:href="@{/admin/reseñas}">Reseñas</a>
-            <form class="form_logout" th:action="@{/admin/logout}" method="post">
-                <input class="nav_btn_user2 cinco" type="submit" value="Cerrar Sesión">
+            <form class="form_logout" th:action="@{/user/logout}" method="post">
+                  <input class="nav_btn_user2 cinco" type="submit" value="Cerrar Sesión">
+        </form>
+        </div>
+    <main class="main">
+        <div class="main_cont">
+            <h1 class="tituloTable">Editar Reserva</h1>
+            <form class="form" th:action="@{/admin/reservas/agregar}" th:object="${reserva}" method="post">
+                <div class="form_info">
+                    <label>Id:</label>
+                    <input id="id" type="text" placeholder="id" th:field="*{id}" readonly="true">
+                    <label>Nombre:</label>
+                    <input id="nombre" type="text"  th:field="*{usuario.nombre}" required>
+                    <label>Estado:</label>
+                    <input id="estado" type="text"  th:field="*{estado}" required>
+                    <label>Fecha:</label>
+                    <input id="fecha_reserva" type="text"  th:field="*{fecha_reserva}"  required>
+                </div>
+                <div class="btns">
+                <input class="btnPedidoAñadir" type="submit" value="Guardar cambios">
+                <a class="btnPedidoCancelar" th:href="@{/admin/reservas}">Cancelar</a>
+                </div>
             </form>
         </div>
-        <main class="main">
-            <div class="main_cont">
-                <h1 class="tituloTable">Gestor de Reservas</h1>
-                <table class="table">
-                    <thead id="thead">
-                        <tr>
-                            <th>#</th>
-                            <th>Nombre</th>
-                            <th>Estado</th>
-                            <th>Fecha</th>
-                            <th colspan="2">Acción</th>
-                        </tr>
-                    </thead>                        
-                    
-                        <tr th:each="reserva : ${listaReservas}">
-                            <td th:text="${reserva.id}"></td>
-                            <td th:text="${reserva.usuario.nombre}"></td>
-                            <td th:text="${reserva.estado}"></td>
-                            <td th:text="${#temporals.format(reserva.fecha_reserva, 'dd/MM/YYYY hh:mm a')}"></td>
-                            <td><a th:href="@{'/admin/reservas/editar/' + ${reserva.id}}"><div class="editar"></div></a></td>
-                            <td><a th:href="@{'/admin/reservas/eliminar/' + ${reserva.id}}"><div class="eliminar"></div></a></td>
-                        </tr>
-                   
-                </table> 
-            </div>
-        </main>
-        <script th:src="@{/js/app2.js}"> 
-        </script>
-    </body>
-
+    </main>
+    <script th:src="@{/js/app2.js}"></script>
+</body>
 </html>

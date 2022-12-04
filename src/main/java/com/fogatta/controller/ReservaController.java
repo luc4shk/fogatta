@@ -16,6 +16,8 @@ import com.fogatta.model.Mesa;
 import com.fogatta.model.Reserva;
 import com.fogatta.service.ReservasServicio;
 import com.fogatta.service.UsuarioServicio;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ReservaController {
@@ -25,14 +27,13 @@ public class ReservaController {
 
     @Autowired
     private UsuarioServicio userServicio;
-
+    
     /**
      * Método encargado de mostrar la vista de reservas de usuario
      * @return la plantilla de usuario especificada
      */
     @GetMapping("/user/reservas")
     public String viewReservasUserPage(Model modelo, @AuthenticationPrincipal CustomUserDetails userDetails){
-
         List<Reserva> listaReservas = userServicio.obtenerReservas(userDetails.getUsername());
         modelo.addAttribute("listaReservas", listaReservas);
         return "user/realizarReservas";
@@ -81,6 +82,48 @@ public class ReservaController {
 
         return "redirect:/user/reservas";
 
+    } 
+    
+    /* ADMINISTRADOR */
+    
+    /**
+     * Método encargado de mostrar la vista de reservas de administrador
+     * @param modelo
+     * @return la plantilla de administrador especificada
+     */
+    @GetMapping("/admin/reservas")
+    public String viewReservasAdminPage(Model modelo){
+        List<Reserva> listaReservas = servicio.listAll();
+        modelo.addAttribute("listaReservas", listaReservas);
+        return "admin/reservasAdmin";
+    }
+
+    /**
+     * Método encargado de eliminar por id las reservaciones
+     * @param id
+     * @return 
+     */
+    @GetMapping("/admin/reservas/eliminar/{id}")
+    public String eliminarReserva(@PathVariable(name ="id") Integer id){
+        servicio.delete(id);
+        return "redirect:/admin/reservas";
     }
     
+    @PostMapping("/admin/reservas/agregar")
+    public String guardarReserva(@ModelAttribute("reserva") Reserva reserva){
+        servicio.guardar(reserva);
+        return "redirect:/admin/reservas";
+    }
+    /**
+     * Método de permite editar una reserva
+     * @param id
+     * @return 
+     */
+    @GetMapping("/admin/reservas/editar/{id}")
+    public ModelAndView viewEditarReservaAdminPage(@PathVariable(name ="id") Integer id){
+        ModelAndView modelo = new ModelAndView("admin/editarReserva");
+        modelo.addObject("reserva", servicio.getById(id));
+        return modelo;
+    }
 }
+
