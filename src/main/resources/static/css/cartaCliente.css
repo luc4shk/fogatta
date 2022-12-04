@@ -125,7 +125,19 @@
 
 .nav_btn_user2[type=submit]{
     background-color: transparent;
-    border:none;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 80vw;
+    font-size: 20px;
+    border: 0;
+    border-bottom: 2px solid white;
+    padding: 20px 0 20px 0;
+    text-align: center;
+    justify-content: center;
+    margin: 0 calc(80vw - 75vw) 25px calc(80vw - 72vw);
+    cursor:pointer;
     
 }
 .tituloTable{
@@ -354,6 +366,60 @@ button{
 }
 
 /*Finaliza sección Header*/
+
+/*Formulario de Reservas*/
+
+.reservas{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:15px;
+}
+
+.inputReserva, select.optionReserva{
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 8px;
+    width: 40vw;
+    height: 40px;
+
+}
+
+.inputReserva[type=submit]{
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 8px;
+    min-width: 20px;
+    cursor: pointer;
+    background-color: #eee ;
+    transition:0.5s background-color;
+}
+
+.inputReserva[type=submit]:hover{
+    background-color: black;
+    color: white;
+}
+
+.inputReserva[type=number]::-webkit-inner-spin-button,
+.inputReserva[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/*Mensaje Reservas Error*/
+
+.containermsg{
+    background-color: #f8d7da;
+    padding:1rem;
+    border:1px solid #f5c2c7;
+    color:#842029;
+    width: 40vw;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 15px
+}
 /*Media */
 @media screen and (max-width:1250px){
     .cont_grid, .reseñas{

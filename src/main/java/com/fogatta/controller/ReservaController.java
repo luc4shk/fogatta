@@ -70,7 +70,7 @@ public class ReservaController {
         for(Reserva reserve : reservasActivas){
 
             if(reserve.getEstado().equals("Agendada") && reserve.getMesa().getId() == reserva.getMesa().getId() && reserve.getHorario().getId() == reserva.getHorario().getId()){
-                modelo.addAttribute("error", "La mesa seleccionada no se encuentra disponible para el horario solicitado");
+                modelo.addAttribute("error", "La mesa seleccionada no se encuentra disponible para el horario solicitado.");
                 return "user/formularioReservas";
             }
 
