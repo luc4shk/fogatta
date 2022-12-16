@@ -49,12 +49,36 @@
                 <div class="form_info">
                     <label>Id:</label>
                     <input id="id" type="text" placeholder="id" th:field="*{id}" readonly="true">
+
                     <label>Nombre:</label>
-                    <input id="nombre" type="text"  th:field="*{usuario.nombre}" required>
+                    <input id="nombre" type="text" th:field="*{usuario.nombre}" readonly="true" required>
+
                     <label>Estado:</label>
-                    <input id="estado" type="text"  th:field="*{estado}" required>
-                    <label>Fecha:</label>
-                    <input id="fecha_reserva" type="text"  th:field="*{fecha_reserva}"  required>
+                    <select id="estado" th:field="*{estado}" required>
+                        <option value="Agendada">Agendada</option>
+                        <option value="Efectiva">Efectiva</option>
+                    </select>
+
+                    <label>Acompañantes:</label>
+                    <input type="number" th:field="*{acompanantes}">
+
+                    <label>Mesa:</label>
+                    <select th:field="*{mesa}" required>
+                        <th:block th:each="table : ${listaMesas}">
+                            <option th:text="${table.nombre}" th:value="${table.id}"></option>
+                        </th:block>
+                    </select>
+
+                    <label>Horario:</label>
+                    <select th:field="*{horario}" required>
+                        <th:block th:each="hor : ${listaHorarios}">
+                            <option th:text="${hor.hora}" th:value="${hor.id}"></option>
+                        </th:block>
+                    </select>
+
+                    <div class="containermsg" th:if="${error != null}">
+                        <p >[[${error}]]</p>
+                    </div>
                 </div>
                 <div class="btns">
                 <input class="btnPedidoAñadir" type="submit" value="Guardar cambios">

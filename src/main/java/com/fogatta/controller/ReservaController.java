@@ -108,12 +108,44 @@ public class ReservaController {
         servicio.delete(id);
         return "redirect:/admin/reservas";
     }
-    
+
+
     @PostMapping("/admin/reservas/agregar")
-    public String guardarReserva(@ModelAttribute("reserva") Reserva reserva){
+    public String saveReservaAdmin(@ModelAttribute("reserva") Reserva reserva, @AuthenticationPrincipal CustomUserDetails userDetails, Model modelo){
+
+
+        List<Horario> listaHorarios = servicio.listHoras();
+        List<Mesa> listaMesas = servicio.listMesas();
+
+        modelo.addAttribute("listaMesas", listaMesas);
+        modelo.addAttribute("listaHorarios", listaHorarios);
+
+        List<Reserva> reservasActivas = servicio.listAll();
+
+        for(Reserva reserve : reservasActivas){
+
+            if(reserve.getId() != reserva.getId()){
+
+                if(reserve.getEstado().equals("Agendada") && reserve.getMesa().getId() == reserva.getMesa().getId() && reserve.getHorario().getId() == reserva.getHorario().getId()){
+                    modelo.addAttribute("error", "La mesa seleccionada no se encuentra disponible para el horario solicitado.");
+                    return "admin/editarReserva";
+                }
+
+            }
+            else{
+                reserva.setFecha_reserva(reserve.getFecha_reserva());
+            }
+
+        }
+
+        reserva.setUsuario(userDetails.getUsuario());
         servicio.guardar(reserva);
+
         return "redirect:/admin/reservas";
-    }
+
+    } 
+    
+
     /**
      * Método de permite editar una reserva
      * @param id
@@ -123,6 +155,13 @@ public class ReservaController {
     public ModelAndView viewEditarReservaAdminPage(@PathVariable(name ="id") Integer id){
         ModelAndView modelo = new ModelAndView("admin/editarReserva");
         modelo.addObject("reserva", servicio.getById(id));
+
+        List<Horario> listaHorarios = servicio.listHoras();
+        List<Mesa> listaMesas = servicio.listMesas();
+
+        modelo.addObject("listaMesas", listaMesas);
+        modelo.addObject("listaHorarios", listaHorarios);
+
         return modelo;
     }
 }
