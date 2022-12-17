@@ -45,7 +45,7 @@
     <main class="main">
         <div class="main_cont">
             <h1 class="tituloTable">Editar Reserva</h1>
-            <form class="form" th:action="@{/admin/reservas/agregar}" th:object="${reserva}" method="post">
+            <form id="formu" class="form" th:action="@{/admin/reservas/agregar}" th:object="${reserva}" method="post">
                 <div class="form_info">
                     <label>Id:</label>
                     <input id="id" type="text" placeholder="id" th:field="*{id}" readonly="true">
@@ -81,12 +81,14 @@
                     </div>
                 </div>
                 <div class="btns">
-                <input class="btnPedidoAñadir" type="submit" value="Guardar cambios">
+                <input id="buttonEditar" class="btnPedidoAñadir" type="submit" value="Guardar cambios">
                 <a class="btnPedidoCancelar" th:href="@{/admin/reservas}">Cancelar</a>
                 </div>
             </form>
         </div>
     </main>
     <script th:src="@{/js/app2.js}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script th:src="@{/js/alertEditarReserva.js}"></script>
 </body>
 </html>

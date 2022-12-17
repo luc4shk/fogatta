@@ -43,7 +43,7 @@
         <main class="main">
             <div class="main_cont">
                 <h1 class="tituloTable">Agendar Reserva</h1>
-                <form class="form reservas" th:action="@{/user/reservas/agregar}" th:object="${reserva}" method="post">
+                <form id="formu" class="form reservas" th:action="@{/user/reservas/agregar}" th:object="${reserva}" method="post">
                     <div class="reservas">
                         <input class="inputReserva" type="number" th:field="*{acompanantes}" placeholder="Acompañantes" min="1" max="4" required>
                         <select class="optionReserva" th:field="*{mesa}" required>
@@ -57,7 +57,7 @@
                             </th:block>
                         </select>
                     </div>
-                    <input class="inputReserva" type="submit" value="Reservar">
+                    <input id="buttonReservar"class="inputReserva" type="submit" value="Reservar">
 
                     <div class="containermsg" th:if="${error != null}">
                         <p >[[${error}]]</p>
@@ -66,5 +66,7 @@
             </div>
         </main>
         <script th:src="@{/js/app2.js}"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script th:src="@{/js/alertAgregarReserva.js}"></script>
     </body>
 </html>

@@ -62,14 +62,16 @@
                             <td th:text="${reserva.estado}"></td>
                             <td th:text="${#temporals.format(reserva.fecha_reserva, 'dd/MM/YYYY hh:mm a')}"></td>
                             <td><a th:href="@{'/admin/reservas/editar/' + ${reserva.id}}"><div class="editar"></div></a></td>
-                            <td><a th:href="@{'/admin/reservas/eliminar/' + ${reserva.id}}"><div class="eliminar"></div></a></td>
+                            <td><a id="btnEliminarR" th:onclick="eliminar([[${reserva.id}]])"><div class="eliminar"></div></a></td>
                         </tr>
                    
                 </table> 
             </div>
         </main>
-        <script th:src="@{/js/app2.js}"> 
-        </script>
+        <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script th:src="@{/js/app2.js}"></script>         
+        <script th:src="@{/js/alertEliminarReserva.js}"></script> 
     </body>
 
 </html>
