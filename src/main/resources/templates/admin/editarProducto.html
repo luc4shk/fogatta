@@ -47,7 +47,7 @@
     <main class="main">
         <div class="main_cont">
             <h1 class="tituloTable">Editar Producto</h1>
-            <form class="form" th:action="@{/admin/producto/agregar}" th:object="${producto}" method="post" enctype="multipart/form-data">
+            <form id="formu" class="form" th:action="@{/admin/producto/agregar}" th:object="${producto}" method="post" enctype="multipart/form-data">
                 <div class="form_info">
                     <label>Id:</label>
                     <input id="id" type="text" placeholder="id" th:field="*{id}" readonly="true">
@@ -69,7 +69,7 @@
                 </div>
                 <textarea id="t_area" placeholder="Descripción" th:field="*{descripcion}" required></textarea>
                 <div class="btns">
-                <input class="btnPedidoAñadir" type="submit" value="Guardar cambios">
+                <input id="buttonEditar" class="btnPedidoAñadir" type="submit" value="Guardar cambios">
                 <a class="btnPedidoCancelar" th:href="@{/admin/home}">Cancelar</a>
                 </div>
             </form>

@@ -5,7 +5,7 @@ btn.addEventListener("click",(e)=>{
     e.preventDefault();
      Swal.fire({
   icon: 'success',
-  title: 'Reserva Editada!',
+  title: 'Editado con éxito!',
   width: 500,
   padding: '3em',
   color: '#000',

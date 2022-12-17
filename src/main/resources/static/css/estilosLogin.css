@@ -84,33 +84,6 @@ input[type=submit]{
     cursor: pointer;
 }
 
-.google{
-    width: 350px;
-    height: 70px;
-    margin: 0 auto;
-    display: block;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    gap: 25px;
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-}
-
-.google_logo{
-    background-image: url(https://i.postimg.cc/0y1BHZzL/google.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 30px;
-    height: 30px;
-    
-}
-
 .loginAdmin{
     color:black;
     text-decoration:none;
