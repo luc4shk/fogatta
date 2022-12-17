@@ -10,6 +10,8 @@
         <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
         <script src="https://cdn.tailwindcss.com"></script>
         <title>Fogatta - Editar producto</title>
+         <!-- JQuery -->
+         <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
     </head>
 
     <body>
@@ -45,7 +47,7 @@
     <main class="main">
         <div class="main_cont">
             <h1 class="tituloTable">Editar Producto</h1>
-            <form class="form" th:action="@{/admin/producto/agregar}" th:object="${producto}" method="post">
+            <form class="form" th:action="@{/admin/producto/agregar}" th:object="${producto}" method="post" enctype="multipart/form-data">
                 <div class="form_info">
                     <label>Id:</label>
                     <input id="id" type="text" placeholder="id" th:field="*{id}" readonly="true">
@@ -53,8 +55,11 @@
                     <input id="nombre" type="text"  th:field="*{nombre}" required>
                     <label>Precio:</label>
                     <input id="precio" type="number"  th:field="*{precio}"  required>
-                    <label>URL:</label>
-                    <input id="url_imagen" type="url"  th:field="*{url_imagen}" required>
+                    <label>Foto del producto:</label>
+                    <input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg" required>
+                    <p>
+                        <img id="thumbnail" alt="Product preview">
+                    </p>
                     <label>Tipo:</label>
                     <select th:field="*{tipo}" required>
                         <option value="none" hidden>Tipo</option>
@@ -70,6 +75,30 @@
             </form>
         </div>
     </main>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            $("#fileImage").change(function() {
+                showImageThumbnail(this);
+            });
+
+        });
+
+        function showImageThumbnail(fileInput){
+
+            file = fileInput.files[0];
+            reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#thumbnail').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(file);
+
+        }
+
+    </script>
     <script th:src="@{/js/app2.js}"></script>
 </body>
 </html>

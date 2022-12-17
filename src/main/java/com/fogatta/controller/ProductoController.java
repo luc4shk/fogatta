@@ -1,5 +1,6 @@
 package com.fogatta.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,14 +8,18 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fogatta.model.Producto;
 import com.fogatta.service.ProductoServicio;
+import com.fogatta.utility.FileUploadUtil;
 
 @Controller
 public class ProductoController {
@@ -114,8 +119,17 @@ public class ProductoController {
 
 
     @PostMapping("/admin/producto/agregar")
-    public String guardarProducto(@ModelAttribute("producto") Producto producto){
-        servicio.save(producto);
+    public String guardarProducto(@ModelAttribute("producto") Producto producto, @RequestParam("fileImage") MultipartFile multipartFile) throws IOException{
+        
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        producto.setPhoto(fileName);
+        
+        Producto savedProduct = servicio.save(producto);
+
+        String uploadDir = "./product-photos/" + savedProduct.getId();
+
+        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+
         return "redirect:/admin/home";
     }
 

@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "productos")
@@ -27,20 +28,20 @@ public class Producto {
     @Column(nullable = false, length = 10)
     private String tipo;
 
-    @Column(nullable = false, length = 255)
-    private String url_imagen;
+    @Column(nullable = false, length = 64)
+    private String photo;
     
     /* Constructors */
 
     public Producto() {
     }
 
-    public Producto(String nombre, int precio, String descripcion, String tipo, String url_imagen) {
+    public Producto(String nombre, int precio, String descripcion, String tipo, String photo) {
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;
         this.tipo = tipo;
-        this.url_imagen = url_imagen;
+        this.photo = photo;
     }
 
     /* Getters and Setters */
@@ -85,12 +86,23 @@ public class Producto {
         this.tipo = tipo;
     }
 
-    public String getUrl_imagen() {
-        return url_imagen;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setUrl_imagen(String url_imagen) {
-        this.url_imagen = url_imagen;
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    @Transient
+    public String getPhotosImagePath(){
+
+        if(photo == null || id == null){
+            return null;
+        }
+
+        return "/product-photos/" + id + "/" + photo;
+
     }
     
 }

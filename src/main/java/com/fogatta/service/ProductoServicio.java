@@ -24,8 +24,8 @@ public class ProductoServicio {
         return repo.findAll(pageable);
     }
 
-    public void save(Producto producto){
-        repo.save(producto);
+    public Producto save(Producto producto){
+        return repo.save(producto);
     }
 
     public Producto get(Integer id){
