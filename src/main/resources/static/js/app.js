@@ -48,3 +48,7 @@ menu.addEventListener('click', function(event){
 
 })
 
+a.addEventListener("click", ()=> mostrar())
+b.addEventListener("click", ()=> mostrar())
+c.addEventListener("click", ()=> mostrar())
+

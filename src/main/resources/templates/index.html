@@ -17,7 +17,7 @@
         <nav class="nav">
             <div class="nav_cont" id="nav2">
                 <div class="nav_cont_l">
-                    <a href="@{/}" class="nav_logo"></a>
+                    <a th:href="@{/}" class="nav_logo"></a>
                 </div>
                 <div class="nav_cont_m">
                     <a class="nav_btn_user" href="#seccion_a">¿Quiénes Somos?</a>
@@ -37,7 +37,7 @@
             <a class="nav_btn_user2 dos" href="#seccion_b">Nuestros Servicios</a>
             <a class="nav_btn_user2 tres" href="#seccion_c">Contacto</a>
             <a class="nav_btn_user2 cuatro" th:href="@{/user/login}">Iniciar Sesion</a>
-            <a class="nav_btn_user2 cinco" th:href="@{/user/login}">Registrarse</a>
+            <a class="nav_btn_user2 cinco" th:href="@{/register}">Registrarse</a>
         </div>
         <main class="main">
             <div class="main_cont">
@@ -70,7 +70,7 @@
                                         </div>
                                         <div class="p-6">
                                             <h5 class="text-gray-900 text-xl font-medium mb-2">Bebidas y Cocteles</h5>
-                                            <p class="text-gray-700 text-base mb-4">
+                                            <p class="text-gray-700 text-base ">
                                                 Estos cocteles exclusivos son más que una bebida, son una experiencia que fomenta el descubrimiento y resiste el paso del tiempo.
                                             </p>
                                         </div>
@@ -83,7 +83,7 @@
                                         </div>
                                         <div class="p-6">
                                             <h5 class="text-gray-900 text-xl font-medium mb-2">Almuerzos</h5>
-                                            <p class="text-gray-700 text-base mb-4">
+                                            <p class="text-gray-700 text-base ">
                                                 Contamos con los mejores cortes de carnes nacionales e importados junto con una sazón exquisita que implosionará de sabor tu paladar.
                                             </p>
                                         </div>
@@ -95,7 +95,7 @@
                                         </div>
                                         <div class="p-6">
                                             <h5 class="text-gray-900 text-xl font-medium mb-2">Cena</h5>
-                                            <p class="text-gray-700 text-base mb-4">
+                                            <p class="text-gray-700 text-base ">
                                                 Nuestros ingredientes son de alta calidad, esto permitirá que disfrutes de una agradable cena con variedad de platillos en nuestro menú, una experiencia que no vas a querer perderte.
                                             </p>
                                         </div>

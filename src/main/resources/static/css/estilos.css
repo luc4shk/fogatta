@@ -6,6 +6,7 @@
     scroll-behavior: smooth;
     font-family: 'Comfortaa';
     box-sizing: border-box;
+    scroll-padding-top: 50px;
 }
 
 .nav{
@@ -91,9 +92,9 @@
 /*Comienza sección Main*/
 
 .seccion{
-    width: 100%;
-    height: 100%;
-    height:1100px;
+    /* width: 100%; */
+    /* height: 100%; */
+    /* height:1100px; */
 
 }
 
@@ -106,9 +107,7 @@
 
 .a_cont{
     display: flex;
-    gap: 45px;
     align-items: center;
-    width: 100%;
     height: 100vh;
 }
 
@@ -132,7 +131,7 @@
     background-repeat: no-repeat;
     border-radius: 25px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    margin: 25px 50px;
+    margin: 0 55px 0 0;
 }
 .a_title{
     font-size: 40px;
@@ -222,8 +221,6 @@
 .c_cont{
     display: flex;
     align-items: center;
-    width: 100%;
-    gap: 45px;
 }
 
 .c_info{
@@ -234,7 +231,7 @@
     gap: 50px;
     justify-content: center;
     border-right: solid 3px #f09a00;
-    padding: 0 55px 0 55px;
+    padding: 0 55px 0 0;
     height: 60vh;
 }
 .c_image{
@@ -246,7 +243,7 @@
     background-repeat: no-repeat;
     border-radius: 25px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    margin: 25px 50px;
+    margin: 0 0 0 50px;
 }
 .c_title{
     font-size: 40px;
@@ -265,9 +262,11 @@ label{
     font-size: 20px;
 }
 
-textarea{
+form > textarea{
     border:3px solid rgba(0, 0, 0, 0.5);
+    height: 100px;
     resize: none;
+    padding: 5px;
 }
 input[type=text], input[type=email]{
     border: 0;
@@ -285,18 +284,18 @@ input[type=text], input[type=email], textarea, input[type=submit]{
 }
 
 input[type=submit]{
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: #eee;
     border-radius: 5px;
     margin-top: 10px;
     cursor:pointer;
+    border: 1px solid black;
     transition: all 0.5s;
 }
 
 input[type=submit]:hover{
-    color:black;
-    background-color: white;
-    border:1px solid black;
+    color:white;
+    background-color: black;
     
 }
 .nav_btn_user2{
@@ -329,12 +328,16 @@ input[type=submit]:hover{
     .flex{
         height: 300px;
         display: flex;
+        height: 170px;
     }
 
     .imagen1, .imagen2, .imagen3{
-        height: 200px;
+        height: 170px;
     }
 
+    .b_title{
+        margin-top: 50px;
+    }
     .respon{
         display: flex;
         width: 800px;
@@ -348,10 +351,6 @@ input[type=submit]:hover{
 
     .p-6{
         width: 100%;
-    }
-
-    .b_info{
-    margin-top:250px;
     }
 
 }
@@ -404,24 +403,28 @@ input[type=submit]:hover{
     }
 }
 
-@media screen and (max-width:798px){
+
+
+@media screen and (max-width:825px){
     
+    .a_text {
+        line-height: 25px;
+    }
+
     .imagen1, .imagen2, .imagen3{
         display: none;
     }
 
     .b_text{
-        width: 400px;
-        height: 800px;
+        width: 90%;
+        height: 400px;
     }
 
 
 }
 
 @media screen and (max-width:715px){
-    .nav{
-        
-    }
+
     .c_image{
         display: none;
     }
@@ -431,25 +434,27 @@ input[type=submit]:hover{
     }
 
     .a_info{
-        width: 100vw;
+        width: 90%;
         display: flex;
         align-items: center;
         flex-direction: column;
         gap: 50px;
         justify-content: center;
         border-left: 0;
-        padding:25px;
+        padding: 0;
         height: 60vh;
     
     }
 
+    .a_cont{
+        justify-content: center;
+    }
+
     .b_info{
-        width: 100vw;
         display: flex;
         align-items: center;
         flex-direction: column;
         justify-content: center;
-        padding: 25px;
         height: 100vh;
         gap: 50px;
         
@@ -457,16 +462,56 @@ input[type=submit]:hover{
     
 
     .c_info{
-    width: 100vw;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 50px;
     justify-content: center;
     border:0;
-    padding: 0 55px 0 55px;
+    padding:0;
     height: 60vh;
     }
 
     
+}
+
+@media screen and (max-width:506px){
+    div > .p-6{
+        padding: 11px;
+    }
+}
+
+@media screen and (max-width:485px){
+    .a_title, .b_title, .c_title {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width:427px){
+    .a_title, .b_title, .c_title {
+        font-size: 30px;
+    }
+
+    /* .cartas{
+        gap:10px;
+    } */
+
+    /* .b_info{
+        gap: 20px;
+    } */
+
+    .flex{
+        height: 189px;
+    }
+}
+
+@media screen and (max-height:668px){
+    
+    .cartas{
+        gap:10px;
+    }
+
+    .b_info{
+        gap: 20px;
+    }
 }
