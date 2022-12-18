@@ -47,7 +47,7 @@ public class ForgotPasswordController {
             usuarioServicio.updateResetPasswordToken(token, email);
             String resetPasswordLink = Utility.getSiteURL(request) + "/reset_password?token=" + token;
             enviarEmail(email, resetPasswordLink);
-            model.addAttribute("message", "Hemos enviado un link para cambiar tu contraseña a tu email. Por favor revisa tu correo");
+            model.addAttribute("message", "Hemos enviado un link para cambiar tu contraseña a tu email. Por favor revisa tu correo.");
 
         } catch (UserNotFoundException e) {
             model.addAttribute("error", e.getMessage());
@@ -66,7 +66,7 @@ public class ForgotPasswordController {
 
         if(user == null){
             model.addAttribute("title", "Cambiar contraseña");
-            model.addAttribute("message", "token inválido");
+            model.addAttribute("message", "Token inválido.");
             return "message";
         }
 
@@ -88,11 +88,11 @@ public class ForgotPasswordController {
 
         if(user == null){
             model.addAttribute("title", "Cambiar contraseña");
-            model.addAttribute("message", "token inválido");
+            model.addAttribute("message", "Token inválido.");
         }else{
             usuarioServicio.updatePassword(user, password);
             model.addAttribute("title", "Cambiar contraseña");
-            model.addAttribute("message", "Haz cambiado tu contraseña de manera satisfactoria");
+            model.addAttribute("message", "Haz cambiado tu contraseña de manera satisfactoria.");
         }
 
         return "message";
@@ -109,11 +109,11 @@ public class ForgotPasswordController {
         helper.setTo(email);
 
         String subject = "Este es el link para cambiar tu contraseña";
-        String content = "<p>Apreciado usuario</p>"
-                + "<p>Ha solicitado un cambio de contraseña</p>"
-                + "<p>Favor ingresar en el link debajo para cambiar su contaseña</p>"
+        String content = "<p>Apreciado usuario:</p>"
+                + "<p>Ha solicitado un cambio de contraseña.</p>"
+                + "<p>Favor ingresar en el link debajo para cambiar su contraseña.</p>"
                 + "<p><a href=\"" + resetPasswordLink + "\">Cambiar mi contraseña</a></p>"
-                + "<p>Ignore este mensaje si recuerda su constraseña, o no ha realizado una solicitud para cambiarla</p>";
+                + "<p>Ignore este mensaje si recuerda su contraseña, o no ha realizado una solicitud para cambiarla.</p>";
         
         helper.setSubject(subject);
         helper.setText(content, true);

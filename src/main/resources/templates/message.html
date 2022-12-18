@@ -6,21 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/estilosOtrasPaginas.css}">
     <title>Fogatta - Registro Completado</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
 
-    <br><br>
+    <nav class="nav">
+        <div class="nav_cont" id="nav2">
+            <div class="nav_cont_l">
+                <a th:href="@{/}" class="nav_logo"></a>
+            </div>
+        </div>
 
-    <div class="container-fluid">
+    </nav>
+    <div id="tamaño" class="container mt-4">
 
-        <div class="text-center">
-            <h2>[[${title}]]</h2>
-            <br>
-            <h4>[[${message}]]</h4>
-            <br>
-            <a th:href="@{/user/login}">Volver al inicio</a>
+        
+            <h2 class="titulo">[[${title}]]</h2>
+        <div  class="alert alert-secondary mt-4">
+            <p>[[${message}]]</p>
+            <hr>
+            <a id="gris" class="btn btn-dark" th:href="@{/user/login}">Volver al inicio</a>
         </div>
 
     </div>

@@ -14,15 +14,16 @@
         <form class="form" th:action="@{/admin/login}" method="post">
             <a th:href="@{/}" class="logo"></a>
 
-            <div th:if="${param.error}">
-                <p>Usuario o contraseña no válido</p>
-            </div>
+            
 
             <input type="email" name="email" id="email" placeholder="Usuario de administrador">
             <input type="password" name="password" id="password" placeholder="Contraseña">
             <a href="" class="olvidar">¿Olvidaste tu contraseña?</a>
             <input type="submit" value="Continuar">
-            <a class="loginCliente" th:href="@{/user/login}">Inicia como Cliente</a>
+            <div class="loginError"th:if="${param.error}">
+                <p>Usuario o contraseña no válido.</p>
+            </div>
+            <a class="loginCliente" th:href="@{/user/login}">Inicia como <b>Cliente</b></a>
         </form>
     </main>
     <script th:src="@{/app.js}">

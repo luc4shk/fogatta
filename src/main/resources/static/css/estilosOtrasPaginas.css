@@ -67,8 +67,48 @@
 	background-color: black;
 }
 
+#tamaño{
+    max-width: 540px;
+}
 
+#verde{
+    color: #0f5132;
+}
 
+#rojo{
+    color: #842029;
+}
+
+.error{
+    background-color: #f8d7da;
+    padding:10px;
+    border:1px solid #f5c2c7;
+    color:#842029;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-bottom: 8px;
+    max-width:350px;
+    margin: 0 auto;
+}
+
+.perfecto{
+    max-width:350px;
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    margin: 0 auto;
+    border: 1px solid #badbcc;
+    padding: 10px;
+}
+
+.titulo{
+    text-align: center;
+}
+
+#gris{
+    color: #fff;
+}
 
 
 
@@ -135,3 +175,4 @@
 .formulario__grupo-incorrecto .formulario__input {
 	border: 3px solid #bb2929;
 }
+
