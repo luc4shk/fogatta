@@ -1,104 +1,107 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" th:href="@{/css/estilosAdmin.css}">
-        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
-        <script src="https://cdn.tailwindcss.com"></script>
-        <title>Fogatta - Editar producto</title>
-         <!-- JQuery -->
-         <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/estilosAdmin.css}" />
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Fogatta - Editar producto</title>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.2.js"
+        integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
+</head>
 
-    <body>
+<body>
     <nav class="nav">
-            <div class="nav_cont" id="nav2">
-                <div class="nav_cont_l">
-                    <a th:href="@{/}" class="nav_logo"></a>
-                </div>
-                <div class="nav_cont_m">
-                    <a class="nav_btn_user" th:href="@{/admin/home}">Productos</a>
-                    <a class="nav_btn_user" th:href="@{/admin/reservas}">Reservas</a>
-                    <a class="nav_btn_user" th:href="@{/admin/pedidos}">Pedidos</a>
-                </div>
-                <div class="nav_cont_r">
-                    <a class="nav_btn_login" th:href="@{/admin/reseñas}">Reseñas</a>
-                    <form class="form_logout" th:action="@{/admin/logout}" method="post">
-                        <input class="nav_btn_login botonForm" type="submit" value="Cerrar Sesión">
-                    </form>
-                </div>
-                <div class="menu"></div>
+        <div class="nav_cont" id="nav2">
+            <div class="nav_cont_l">
+                <a th:href="@{/}" class="nav_logo"></a>
             </div>
-
-        </nav>
-    <div class="desp">
-            <a class="nav_btn_user2 uno" th:href="@{/admin/home}">Productos</a>
-            <a class="nav_btn_user2 dos" th:href="@{/admin/reservas}">Reservas</a>
-            <a class="nav_btn_user2 tres" th:href="@{/admin/pedidos}">Pedidos</a>
-            <a class="nav_btn_user2 cuatro" th:href="@{/admin/reseñas}">Reseñas</a>
-            <form class="form_logout" th:action="@{/user/logout}" method="post">
-                  <input class="nav_btn_user2 cinco" type="submit" value="Cerrar Sesión">
-        </form>
+            <div class="nav_cont_m">
+                <a class="nav_btn_user" th:href="@{/admin/home}">Productos</a>
+                <a class="nav_btn_user" th:href="@{/admin/reservas}">Reservas</a>
+                <a class="nav_btn_user" th:href="@{/admin/pedidos}">Pedidos</a>
+            </div>
+            <div class="nav_cont_r">
+                <a class="nav_btn_login" th:href="@{/admin/reseñas}">Reseñas</a>
+                <form class="form_logout" th:action="@{/admin/logout}" method="post">
+                    <input class="nav_btn_login botonForm" type="submit" value="Cerrar Sesión" />
+                </form>
+            </div>
+            <div class="menu"></div>
         </div>
+    </nav>
+    <div class="desp">
+        <a class="nav_btn_user2 uno" th:href="@{/admin/home}">Productos</a>
+        <a class="nav_btn_user2 dos" th:href="@{/admin/reservas}">Reservas</a>
+        <a class="nav_btn_user2 tres" th:href="@{/admin/pedidos}">Pedidos</a>
+        <a class="nav_btn_user2 cuatro" th:href="@{/admin/reseñas}">Reseñas</a>
+        <form class="form_logout" th:action="@{/user/logout}" method="post">
+            <input class="nav_btn_user2 cinco" type="submit" value="Cerrar Sesión" />
+        </form>
+    </div>
     <main class="main">
         <div class="main_cont">
             <h1 class="tituloTable">Editar Producto</h1>
-            <form id="formu" class="form" th:action="@{/admin/producto/agregar}" th:object="${producto}" method="post" enctype="multipart/form-data">
+            <form id="formu" class="form" th:action="@{/admin/producto/agregar}" th:object="${producto}" method="post"
+                enctype="multipart/form-data">
                 <div class="form_info">
                     <label>Id:</label>
-                    <input id="id" type="text" placeholder="id" th:field="*{id}" readonly="true">
+                    <input id="id" type="text" placeholder="id" th:field="*{id}" readonly="true" />
                     <label>Nombre:</label>
-                    <input id="nombre" type="text"  th:field="*{nombre}" required>
+                    <input id="nombre" type="text" th:field="*{nombre}" required />
                     <label>Precio:</label>
-                    <input id="precio" type="number"  th:field="*{precio}"  required>
-                    <label>Foto del producto:</label>
-                    <input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg" required>
-                    <p>
-                        <img id="thumbnail" alt="Product preview">
-                    </p>
+                    <input id="precio" type="number" th:field="*{precio}" required />
                     <label>Tipo:</label>
                     <select th:field="*{tipo}" required>
                         <option value="none" hidden>Tipo</option>
                         <option value="comida">Comida</option>
                         <option value="bebida">Bebida</option>
                     </select>
+                    <label id="imagen"for="">Imagen:</label>
+                    <div class="formSegundo">
+                        <div class="selectImage">
+                            <label id="labelImagen" for="fileImage" >Seleccionar</label>
+                            <input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg"
+                                required />
+                                <p id="productoImagen">
+                                    <img id="thumbnail" th:src="@{/img/imgIcon.png}" alt="" />
+                                </p>
+                        </div>
+                    </div>
                 </div>
+
                 <textarea id="t_area" placeholder="Descripción" th:field="*{descripcion}" required></textarea>
-                <div class="btns">
-                <input id="buttonEditar" class="btnPedidoAñadir" type="submit" value="Guardar cambios">
-                <a class="btnPedidoCancelar" th:href="@{/admin/home}">Cancelar</a>
+                <div class="btns btns2">
+                    <input id="buttonEditar" class="btnPedidoAñadir" type="submit" value="Guardar cambios" />
+                    <a class="btnPedidoCancelar" th:href="@{/admin/home}">Cancelar</a>
                 </div>
             </form>
         </div>
     </main>
     <script type="text/javascript">
-
-        $(document).ready(function() {
-
-            $("#fileImage").change(function() {
+        $(document).ready(function () {
+            $("#fileImage").change(function () {
                 showImageThumbnail(this);
             });
-
         });
 
-        function showImageThumbnail(fileInput){
-
+        function showImageThumbnail(fileInput) {
             file = fileInput.files[0];
             reader = new FileReader();
 
-            reader.onload = function(e) {
-                $('#thumbnail').attr('src', e.target.result);
-            }
+            reader.onload = function (e) {
+                $("#thumbnail").attr("src", e.target.result);
+            };
 
             reader.readAsDataURL(file);
-
         }
-
     </script>
     <script th:src="@{/js/app2.js}"></script>
 </body>
+
 </html>

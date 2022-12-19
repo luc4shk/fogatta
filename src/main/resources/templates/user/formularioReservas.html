@@ -60,13 +60,13 @@
                     <input id="buttonReservar"class="inputReserva" type="submit" value="Reservar">
 
                     <div class="containermsg" th:if="${error != null}">
-                        <p >[[${error}]]</p>
+                        <p id="error">[[${error}]]</p>
                     </div>
                 </form>
             </div>
         </main>
         <script th:src="@{/js/app2.js}"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script th:src="@{/js/alertAgregarReserva.js}"></script>
+    <!-- <script th:src="@{/js/alertAgregarReserva.js}"></script> -->
     </body>
 </html>
