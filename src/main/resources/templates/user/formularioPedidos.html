@@ -45,15 +45,42 @@
                 <h1 class="tituloTable">Realizar Pedido</h1>
                 <form class="form" action="listadoReservasCliente.html">
                     <div class="form_info">
-                        <input id="nombre" type="text" placeholder="Nombre">
+                        <div style="display: flex; flex-direction: column;">
+                        <label for="">Comida</label>
+                        <select name="" id="comida">
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                        </div>
+                        <div class="" style="display: flex; flex-direction: column;">
+                        <label for="">Bebida</label>
+                        <select name="" id="bebida">
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                        </div>
+                        
+                        <!-- <input id="nombre" type="text" placeholder="Nombre">
                         <input id="apellido" type="text" placeholder="Apellido">
                         <input id="tel" type="number" placeholder="Teléfono">
-                        <input id="direccion" type="text" placeholder="Dirección">
+                        <input id="direccion" type="text" placeholder="Dirección"> -->
+                    </div>
+                    <input id="inputDireccion"type="text" name="direccion" placeholder="Dirección">
+                    <div class="contador">
+                    <button id="menos" type="button">-</button>
+                    <div id="numeroProducto">1</div>
+                    <button id="mas" type="button">+</button>
+                    </div>
+                    <div id="precioTotal">
+                        Precio Total: <b>$50000</b>
                     </div>
                     <input class="btnPedido" type="submit" value="Pedir">
                 </form>
             </div>
         </main>
+        <script th:src="@{/js/contadorPedidos.js}"></script>
         <script th:src="@{/js/app2.js}"></script>
     </body>
 </html>

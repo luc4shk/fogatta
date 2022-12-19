@@ -419,6 +419,63 @@ margin: 0;
     border-radius: 5px;
     margin-bottom: 15px
 }
+
+
+/* Pedidos */
+
+.contador{
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+#mas, #menos{
+    width: 2rem;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#numeroProducto{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 3rem;
+    text-align: center;
+}
+
+#precioTotal{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 15px;
+}
+
+#inputDireccion{
+    width: 100%;
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 8px;
+    min-width: 20px;
+    margin-top: 15px;
+    height: 40px;
+}
+
+#comida, #bebida{
+    height: 40px;
+}
+
+
+#numeroProducto[type=number]::-webkit-inner-spin-button,
+#numeroProducto[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
 /*Media */
 @media screen and (max-width:1250px){
     .cont_grid, .reseñas{
