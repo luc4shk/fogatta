@@ -10,14 +10,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.fogatta.details.CustomUserDetails;
 import com.fogatta.model.Pedido;
+import com.fogatta.model.Producto;
 import com.fogatta.service.PedidoServicio;
+import com.fogatta.service.ProductoServicio;
 import com.fogatta.service.UsuarioServicio;
+import java.util.ArrayList;
+import net.bytebuddy.matcher.FilterableList;
 
 @Controller
 public class PedidoController {
 
     @Autowired
     private PedidoServicio pedidoServicio;
+    
+    @Autowired
+    private ProductoServicio productoServicio;
 
     @Autowired
     private UsuarioServicio userServicio;
@@ -42,9 +49,20 @@ public class PedidoController {
      * @return la plantilla de usuario especificada
      */
     @GetMapping("/user/realizar-pedidos")
-    public String viewRealizarPedidosUserPage(){
+    public String viewRealizarPedidosUserPage(Model modelo){
+        List<Producto> productos = productoServicio.listAll();
+        List<Producto> listaComida = new ArrayList();
+        List<Producto> listaBebida = new ArrayList();
+        for(Producto p : productos){
+            if(p.getTipo().equals("comida")){
+                listaComida.add(p);
+            }else{
+                listaBebida.add(p);
+            }
+        }
+        modelo.addAttribute("listaComida", listaComida);
+        modelo.addAttribute("listaBebida", listaBebida);
         return "user/formularioPedidos";
     }
-
-    
+  
 }
