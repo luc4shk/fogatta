@@ -261,6 +261,7 @@ button{
     transition: all 0.5s;
     cursor: pointer;
     background-color: #eee ;
+    margin-bottom: 20px;
   }
   
   .btnPedido:hover, .btnReserva:hover{
@@ -469,11 +470,20 @@ margin: 0;
     height: 40px;
 }
 
+.producto_select{
+    display: flex; 
+    flex-direction: column;
+}
+
 
 #numeroProducto[type=number]::-webkit-inner-spin-button,
 #numeroProducto[type=number]::-webkit-outer-spin-button {
 -webkit-appearance: none;
 margin: 0;
+}
+
+#labelDireccion{
+    display: none;
 }
 
 /*Media */
@@ -487,6 +497,32 @@ margin: 0;
         grid-template-columns: repeat(1,1fr);
     }
 }
+
+@media screen and (max-width:402px){
+    .form_info{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #labelDireccion{
+        margin-top: 15px;
+        display: block;
+    }
+
+    #inputDireccion{
+        margin-top: 0;
+    }
+
+    #precioTotal{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    
+}
+
+
+
 
 @media screen and (max-width:955px) {
     .nav_cont{

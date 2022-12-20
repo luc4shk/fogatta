@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" th:href="@{/css/cartaCliente.css}">
-        <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
-        <script src="https://cdn.tailwindcss.com"></script>
-        <title>Fogatta - Editar producto</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/cartaCliente.css}">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Fogatta - Editar producto</title>
+</head>
+
+<body>
     <nav class="nav">
         <div class="nav_cont" id="nav2">
-        <div class="nav_cont_l">
-          <a th:href="@{/}" class="nav_logo"></a>
-        </div>
-        <div class="nav_cont_m">
+            <div class="nav_cont_l">
+                <a th:href="@{/}" class="nav_logo"></a>
+            </div>
+            <div class="nav_cont_m">
                 <a class="nav_btn_user" th:href="@{/user/home}">Carta</a>
                 <a class="nav_btn_user" th:href="@{/user/reservas}">Reservas</a>
                 <a class="nav_btn_user" th:href="@{/user/pedidos}">Pedidos</a>
@@ -25,11 +26,11 @@
             <div class="nav_cont_r">
                 <a class="nav_btn_login" th:href="@{/user/reseñas}">Reseñas</a>
                 <form class="form_logout" th:action="@{/user/logout}" method="post">
-                  <input class="nav_btn_login botonForm" type="submit" value="Cerrar Sesión">
+                    <input class="nav_btn_login botonForm" type="submit" value="Cerrar Sesión">
                 </form>
             </div>
-        <div class="menu"></div>
-      </div>
+            <div class="menu"></div>
+        </div>
     </nav>
     <div class="desp">
         <a class="nav_btn_user2 uno" th:href="@{/user/home}">Carta</a>
@@ -37,50 +38,47 @@
         <a class="nav_btn_user2 tres" th:href="@{/user/pedidos}">Pedidos</a>
         <a class="nav_btn_user2 cuatro" th:href="@{/user/reseñas}">Reseñas</a>
         <form class="form_logout" th:action="@{/user/logout}" method="post">
-                  <input class="nav_btn_user2 cinco" type="submit" value="Cerrar Sesión">
+            <input class="nav_btn_user2 cinco" type="submit" value="Cerrar Sesión">
         </form>
     </div>
-        <main class="main">
-            <div class="main_cont">
-                <h1 class="tituloTable">Realizar Pedido</h1>
-                <form class="form" action="listadoReservasCliente.html">
-                    <div class="form_info">
-                        <div style="display: flex; flex-direction: column;">
+    <main class="main">
+        <div class="main_cont">
+            <h1 class="tituloTable">Realizar Pedido</h1>
+            <form class="form form2" action="listadoReservasCliente.html">
+                <div class="form_info">
+                    <div class="producto_select" >
                         <label for="">Comida</label>
-                        <select name="" id="comida">
+                        <select  name="" id="comida">
                             <th:block th:each="comida : ${listaComida}">
-                                <option th:text="${comida.nombre}" th:value="${comida.id}"></option>
-                            </th:block>                       
-                        </select>
-                        </div>
-                        <div class="" style="display: flex; flex-direction: column;">
-                        <label for="">Bebida</label>
-                        <select name="" id="bebida">
-                            <th:block th:each="bebida : ${listaBebida}">
-                                <option th:text="${bebida.nombre}" th:value="${bebida.id}"></option>
+                                <option  th:text="${comida.nombre}" th:value="${comida.precio}"></option>
                             </th:block>
                         </select>
-                        </div>
-                        
-                        <!-- <input id="nombre" type="text" placeholder="Nombre">
-                        <input id="apellido" type="text" placeholder="Apellido">
-                        <input id="tel" type="number" placeholder="Teléfono">
-                        <input id="direccion" type="text" placeholder="Dirección"> -->
                     </div>
-                    <input id="inputDireccion"type="text" name="direccion" placeholder="Dirección">
-                    <div class="contador">
+                    <div class="producto_select" >
+                        <label for="">Bebida</label>
+                        <select  name="" id="bebida">
+                            <th:block th:each="bebida : ${listaBebida}">
+                                <option  th:text="${bebida.nombre}" th:value="${bebida.precio}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                </div>
+                <label id="labelDireccion" for="inputDireccion">Dirección</label>
+                <input id="inputDireccion" type="text" name="direccion" placeholder="Dirección">
+                <div class="contador">
                     <button id="menos" type="button">-</button>
                     <div id="numeroProducto">1</div>
                     <button id="mas" type="button">+</button>
-                    </div>
-                    <div id="precioTotal">
-                        Precio Total: <b>$0</b>
-                    </div>
-                    <input class="btnPedido" type="submit" value="Pedir">
-                </form>
-            </div>
-        </main>
-        <script th:src="@{/js/contadorPedidos.js}"></script>
-        <script th:src="@{/js/app2.js}"></script>
-    </body>
+                </div>
+                <div id="precioTotal">
+                    Precio Total: <b id="precio">$0</b>
+                </div>
+                <input class="btnPedido" type="submit" value="Pedir">
+            </form>
+        </div>
+    </main>
+    <script th:src="@{/js/contadorPedidos.js}"></script>
+    <script th:src="@{/js/app2.js}"></script>
+</body>
+
 </html>
