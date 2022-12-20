@@ -3,6 +3,8 @@ package com.fogatta.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -93,20 +95,33 @@ public class ReservaController {
      */
     @GetMapping("/admin/reservas")
     public String viewReservasAdminPage(Model modelo){
-        List<Reserva> listaReservas = servicio.listAll();
-        modelo.addAttribute("listaReservas", listaReservas);
-        return "admin/reservasAdmin";
+        return listByPageAdmin(modelo, 1, "fecha", "asc");
     }
 
-    /**
-     * Método encargado de eliminar por id las reservaciones
-     * @param id
-     * @return 
-     */
-    @GetMapping("/admin/reservas/eliminar/{id}")
-    public String eliminarReserva(@PathVariable(name ="id") Integer id){
-        servicio.delete(id);
-        return "redirect:/admin/reservas";
+
+    @GetMapping("/admin/reservas/page/{pageNumber}")
+    public String listByPageAdmin(Model modelo, @PathVariable("pageNumber") int paginaActual,
+            @Param("sortField") String sortField,
+            @Param("sortDir") String sortDir){
+
+        Page<Reserva> page = servicio.listByPage(paginaActual, sortField, sortDir);
+        long totalItems = page.getTotalElements();
+        int totalPages = page.getTotalPages();
+
+        List<Reserva> listaReservas = page.getContent();
+
+        modelo.addAttribute("paginaActual", paginaActual);
+        modelo.addAttribute("totalItems", totalItems);
+        modelo.addAttribute("totalPages", totalPages);
+        modelo.addAttribute("listaReservas", listaReservas);
+        modelo.addAttribute("sortField", sortField);
+        modelo.addAttribute("sortDir", sortDir);
+
+        String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
+        modelo.addAttribute("reverseSortDir", reverseSortDir);
+
+        return "admin/reservasAdmin";
+
     }
 
 
@@ -164,5 +179,18 @@ public class ReservaController {
 
         return modelo;
     }
+
+
+    /**
+     * Método encargado de eliminar por id las reservaciones
+     * @param id
+     * @return 
+     */
+    @GetMapping("/admin/reservas/eliminar/{id}")
+    public String eliminarReserva(@PathVariable(name ="id") Integer id){
+        servicio.delete(id);
+        return "redirect:/admin/reservas";
+    }
+
 }
 

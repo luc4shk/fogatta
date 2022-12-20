@@ -29,7 +29,7 @@ public class Reserva{
     private String estado;
     
     @DateTimeFormat(iso = ISO.DATE)
-    private LocalDateTime fecha_reserva;
+    private LocalDateTime fecha;
     
     @ManyToOne
     @JoinColumn(name = "usuario_id")
@@ -53,7 +53,7 @@ public class Reserva{
         this.id = id;
         this.acompanantes = acompanantes;
         this.estado = estado;
-        this.fecha_reserva = fecha_reserva;
+        this.fecha = fecha_reserva;
     }
 
     public Integer getId() {
@@ -105,16 +105,16 @@ public class Reserva{
     }
 
     public LocalDateTime getFecha_reserva() {
-        return fecha_reserva;
+        return fecha;
     }
 
     public void setFecha_reserva(LocalDateTime fecha_reserva) {
-        this.fecha_reserva = fecha_reserva;
+        this.fecha = fecha_reserva;
     }
 
     @PrePersist
     public void asignarFecha_reserva(){
-        fecha_reserva = LocalDateTime.now();
+        fecha = LocalDateTime.now();
         estado = "Agendada";
     }
     

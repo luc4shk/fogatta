@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fogatta.model.Pedido;
 import com.fogatta.model.Reserva;
 import com.fogatta.model.Rol;
 import com.fogatta.model.Usuario;
@@ -137,6 +138,14 @@ public class UsuarioServicio {
         
         Usuario user = repo.findByEmail(email);
         return user.getReservas();
+
+    }
+
+    @Transactional
+    public List<Pedido> obtenerPedidos(String email){
+
+        Usuario user = repo.findByEmail(email);
+        return user.getPedidos();
 
     }
     

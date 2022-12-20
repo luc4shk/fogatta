@@ -63,6 +63,10 @@ public class Usuario {
     @JoinColumn(name = "usuario_id")
     private List<Reserva> reservas = new ArrayList<>();
 
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
+    private List<Pedido> pedidos = new ArrayList<>();
+
     /* Constructors */
 
     public Usuario() {
@@ -184,6 +188,14 @@ public class Usuario {
 
     public void setReservas(List<Reserva> reservas) {
         this.reservas = reservas;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
 }

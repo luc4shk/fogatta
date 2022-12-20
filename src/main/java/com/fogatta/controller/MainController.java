@@ -113,29 +113,6 @@ public class MainController {
 
     }
 
-
-    /* Mapeos de usuario */
-
-    /**
-     * Método encargado de mostrar la vista de pedidos de usuario
-     * @return la plantilla de usuario especificada
-     */
-    @GetMapping("/user/pedidos")
-    public String viewPedidosUserPage(){
-        return "user/realizarPedidos";
-    }
-    
-    /* Mapeos de usuario */
-
-    /**
-     * Método encargado de mostrar la vista de el para realizar los pedidos
-     * @return la plantilla de usuario especificada
-     */
-    @GetMapping("/user/realizar-pedidos")
-    public String viewRealizarPedidosUserPage(){
-        return "user/formularioPedidos";
-    }
-    
     
     /* Mapeos de usuario */
 

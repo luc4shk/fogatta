@@ -75,27 +75,32 @@
             <div>&nbsp;</div>
             <div id="paginacion">
 
-                <a  class="first text-decoration-none" th:if="${paginaActual > 1}" th:href="@{'/user/producto/page/1' + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">First</a>
-                <span class="first"  th:unless="${paginaActual > 1}">First</span>
+                <a  class="first text-decoration-none" th:if="${paginaActual > 1}" th:href="@{'/user/producto/page/1' + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Primero</a>
+                <span class="first"  th:unless="${paginaActual > 1}">Primero</span>
                 &nbsp;&nbsp;
 
-                <a class="prev text-decoration-none" th:if="${paginaActual > 1}" th:href="@{'/user/producto/page/' + ${paginaActual - 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Previous</a>
-                <span class="prev" th:unless="${paginaActual > 1}">Previous</span>
+                <a class="prev text-decoration-none" th:if="${paginaActual > 1}" th:href="@{'/user/producto/page/' + ${paginaActual - 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Anterior</a>
+                <span class="prev" th:unless="${paginaActual > 1}">Anterior</span>
                 &nbsp;&nbsp;
 
-                <span id="s_numero" th:each="i: ${#numbers.sequence(1, totalPages)}">
+                <span id="s_numero" th:if="${totalItems == 0}">
+                    <span class="numero now">[[${0}]]</span>
+                </span>
+                &nbsp;&nbsp;
+
+                <span id="s_numero" th:unless="${totalItems == 0}" th:each="i: ${#numbers.sequence(1, totalPages)}">
                     <a class="numero" th:if="${i != paginaActual}"  th:href="@{'/user/producto/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
                     <span class="numero now" th:unless="${i != paginaActual}">[[${i}]]</span>
                     &nbsp;&nbsp;
                 </span>
 
-                <a class="next text-decoration-none" th:if="${paginaActual < totalPages}" th:href="@{'/user/producto/page/' + ${paginaActual + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
-                <span class="next" th:unless="${paginaActual < totalPages}">Next</span>
+                <a class="next text-decoration-none" th:if="${paginaActual < totalPages}" th:href="@{'/user/producto/page/' + ${paginaActual + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Siguiente</a>
+                <span class="next" th:unless="${paginaActual < totalPages}">Siguiente</span>
 
                 &nbsp;&nbsp;
 
-                <a class="last text-decoration-none" th:if="${paginaActual < totalPages}" th:href="@{'/user/producto/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
-                <span class="last" th:unless="${paginaActual < totalPages}">Last</span>
+                <a class="last text-decoration-none" th:if="${paginaActual < totalPages}" th:href="@{'/user/producto/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Ultimo</a>
+                <span class="last" th:unless="${paginaActual < totalPages}">Ultimo</span>
 
             </div>
         </main>

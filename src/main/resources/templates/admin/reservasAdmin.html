@@ -8,6 +8,7 @@
         <link rel="stylesheet" th:href="@{/css/estilosAdmin.css}">
         <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" th:href="@{/css/paginacion.css}" />
         <script src="https://cdn.tailwindcss.com"></script>
         <title>Fogatta - Reservas</title>
     </head>
@@ -66,6 +67,38 @@
                         </tr>
                    
                 </table> 
+            </div>
+
+            <div id="paginacion">
+
+    
+                <a class="first" th:if="${paginaActual > 1}" th:href="@{'/admin/reservas/page/1' + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Primero</a>
+                <span class="first" th:unless="${paginaActual > 1}">Primero</span>
+                &nbsp;&nbsp;
+                
+                <a  class="prev" th:if="${paginaActual > 1}" th:href="@{'/admin/reservas/page/' + ${paginaActual - 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Anterior</a>
+                <span class="prev" th:unless="${paginaActual > 1}">Anterior</span>
+                &nbsp;&nbsp;
+
+                <span id="s_numero" th:if="${totalItems == 0}">
+                    <span class="numero now">[[${0}]]</span>
+                </span>
+                &nbsp;&nbsp;
+
+                <span id="s_numero" th:unless="${totalItems == 0}" th:each="i: ${#numbers.sequence(1, totalPages)}">
+                    <a class="numero" th:if="${i != paginaActual}" th:href="@{'/admin/reservas/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+                    <span class="numero now" th:unless="${i != paginaActual}">[[${i}]]</span>
+                    &nbsp;&nbsp;
+                </span>
+                
+                <a class="next" th:if="${paginaActual < totalPages}" th:href="@{'/admin/reservas/page/' + ${paginaActual + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Siguiente</a>
+                <span class="next" th:unless="${paginaActual < totalPages}">Siguiente</span>
+                &nbsp;&nbsp;
+    
+                <a class="last"th:if="${paginaActual < totalPages}" th:href="@{'/admin/reservas/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Ultimo</a>
+                <span class="last" th:unless="${paginaActual < totalPages}">Ultimo</span>
+                &nbsp;&nbsp;
+
             </div>
         </main>
         <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
