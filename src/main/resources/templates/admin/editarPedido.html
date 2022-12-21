@@ -9,7 +9,7 @@
     <link rel="stylesheet" th:href="@{/css/cartaCliente.css}">
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Fogatta - Crear pedido</title>
+    <title>Fogatta - Editar Pedido</title>
 </head>
 
 <body>
@@ -19,13 +19,13 @@
                 <a th:href="@{/}" class="nav_logo"></a>
             </div>
             <div class="nav_cont_m">
-                <a class="nav_btn_user" th:href="@{/user/home}">Carta</a>
-                <a class="nav_btn_user" th:href="@{/user/reservas}">Reservas</a>
-                <a class="nav_btn_user" th:href="@{/user/pedidos}">Pedidos</a>
+                <a class="nav_btn_user" th:href="@{/admin/home}">Productos</a>
+                <a class="nav_btn_user" th:href="@{/admin/reservas}">Reservas</a>
+                <a class="nav_btn_user" th:href="@{/admin/pedidos}">Pedidos</a>
             </div>
             <div class="nav_cont_r">
-                <a class="nav_btn_login" th:href="@{/user/reseñas}">Reseñas</a>
-                <form class="form_logout" th:action="@{/user/logout}" method="post">
+                <a class="nav_btn_login" th:href="@{/admin/reseñas}">Reseñas</a>
+                <form class="form_logout" th:action="@{/admin/logout}" method="post">
                     <input class="nav_btn_login botonForm" type="submit" value="Cerrar Sesión">
                 </form>
             </div>
@@ -33,19 +33,31 @@
         </div>
     </nav>
     <div class="desp">
-        <a class="nav_btn_user2 uno" th:href="@{/user/home}">Carta</a>
-        <a class="nav_btn_user2 dos" th:href="@{/user/reservas}">Reservas</a>
-        <a class="nav_btn_user2 tres" th:href="@{/user/pedidos}">Pedidos</a>
-        <a class="nav_btn_user2 cuatro" th:href="@{/user/reseñas}">Reseñas</a>
-        <form class="form_logout" th:action="@{/user/logout}" method="post">
+        <a class="nav_btn_user2 uno" th:href="@{/admin/home}">Productos</a>
+        <a class="nav_btn_user2 dos" th:href="@{/admin/reservas}">Reservas</a>
+        <a class="nav_btn_user2 tres" th:href="@{/admin/pedidos}">Pedidos</a>
+        <a class="nav_btn_user2 cuatro" th:href="@{/admin/reseñas}">Reseñas</a>
+        <form class="form_logout" th:action="@{/admin/logout}" method="post">
             <input class="nav_btn_user2 cinco" type="submit" value="Cerrar Sesión">
         </form>
     </div>
     <main class="main">
         <div class="main_cont">
             <h1 class="tituloTable">Realizar Pedido</h1>
-            <form class="form form2" th:action="@{/user/pedidos/agregar}" th:object="${pedido}" method="post">
+            <form class="form form2" th:action="@{/admin/pedidos/agregar}" th:object="${pedido}" method="post">
+
                 <div class="form_info">
+
+                    <div class="inputs">
+                        <label>Id:</label>
+                        <input id="id" type="text" placeholder="id" th:field="*{id}" readonly="true">
+                    </div>
+
+                    <div class="inputs">
+                        <label>Nombre:</label>
+                        <input id="nombre" type="text" th:field="*{usuario.nombre}" readonly="true" required>
+                    </div>
+
                     <div class="producto_select">
                         <label for="">Comida</label>
                         <select th:field="*{productos}" id="comida" name="" required>
@@ -70,6 +82,12 @@
                 </div>
                 <label id="labelDireccion" for="inputDireccion">Dirección</label>
                 <input id="inputDireccion" th:field="*{direccion}" type="text" name="direccion" placeholder="Dirección" required>
+                <label>Estado:</label>
+                    <select id="estado" th:field="*{estado}" required>
+                        <option value="En proceso">En proceso</option>
+                        <option value="Enviado">Enviado</option>
+                        <option value="Entregado">Entregado</option>
+                    </select>
                 <div class="contador">
                     <button id="menos" type="button">-</button>
                     <input type="number" th:field="*{cantidad}" id="numeroProducto" readonly>
@@ -79,7 +97,8 @@
                     <p>Precio Total:</p>
                     <input type="text" th:field="*{precioTotal}" id="precio" readonly>
                 </div>
-                <input class="btnPedido" type="submit" value="Pedir">
+                <input class="btnPedido" type="submit" value="Guardar Cambios">
+                <a class="btnPedidoCancelar" th:href="@{/admin/pedidos}">Cancelar</a>
             </form>
         </div>
     </main>

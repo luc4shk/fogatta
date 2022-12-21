@@ -7,7 +7,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -47,8 +46,6 @@ public class Pedido {
     )
     private Set<Producto> productos = new HashSet<>();
     
-    
-
     @Column(length = 20)
     private String estado;
 
@@ -57,11 +54,10 @@ public class Pedido {
     public String cantidad;
 
     /*Constructor*/
+
     public Pedido() {
     }
     
-   
-
     public Pedido(Integer id, String direccion, LocalDateTime fecha_pedido, Usuario usuario, Set<Producto> productos,
             String estado, String precioTotal, String cantidad) {
         this.id = id;
@@ -74,7 +70,7 @@ public class Pedido {
         this.cantidad = cantidad;
     }
 
-
+    /* Getters and setters */
 
     public Integer getId() {
         return id;

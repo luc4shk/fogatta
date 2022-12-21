@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" th:href="@{/css/estilosAdmin.css}">
+        <link rel="stylesheet" th:href="@{/css/paginacion.css}" />
         <script src="https://cdn.tailwindcss.com"></script>
         <title>Fogatta - Pedidos</title>
     </head>
@@ -57,12 +58,51 @@
                             <td th:text="${pedido.id}"></td>
                             <td th:text="${pedido.usuario.nombre}"></td>
                             <td th:text="${pedido.estado}"></td>
-                            <td th:text="${pedido.productos}"></td>
-                            <td><a href="#"><div class="editar"></div></a></td>
+                            <td>
+
+                                <ul th:each="pp : ${pedido.productos}">
+                                    <li th:text="${pp}"></li>
+                                </ul>
+                                <p th:text="'Cantidad = '+${pedido.cantidad}" style="font-weight: bold;" ></p>
+
+                            </td>
+                            <td><a th:href="@{'/admin/pedidos/editar/' + ${pedido.id}}"><div class="editar"></div></a></td>
                             <td><a id="btnEliminarP" th:onclick="eliminar([[${pedido.id}]])"><div class="eliminar"></div></a></td>
                         </tr>
                     </tbody>
                 </table> 
+
+                <div id="paginacion">
+
+    
+                    <a class="first" th:if="${paginaActual > 1}" th:href="@{'/admin/pedidos/page/1' + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Primero</a>
+                    <span class="first" th:unless="${paginaActual > 1}">Primero</span>
+                    &nbsp;&nbsp;
+                    
+                    <a  class="prev" th:if="${paginaActual > 1}" th:href="@{'/admin/pedidos/page/' + ${paginaActual - 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Anterior</a>
+                    <span class="prev" th:unless="${paginaActual > 1}">Anterior</span>
+                    &nbsp;&nbsp;
+    
+                    <span id="s_numero" th:if="${totalItems == 0}">
+                        <span class="numero now">[[${0}]]</span>
+                    </span>
+                    &nbsp;&nbsp;
+    
+                    <span id="s_numero" th:unless="${totalItems == 0}" th:each="i: ${#numbers.sequence(1, totalPages)}">
+                        <a class="numero" th:if="${i != paginaActual}" th:href="@{'/admin/pedidos/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+                        <span class="numero now" th:unless="${i != paginaActual}">[[${i}]]</span>
+                        &nbsp;&nbsp;
+                    </span>
+                    
+                    <a class="next" th:if="${paginaActual < totalPages}" th:href="@{'/admin/pedidos/page/' + ${paginaActual + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Siguiente</a>
+                    <span class="next" th:unless="${paginaActual < totalPages}">Siguiente</span>
+                    &nbsp;&nbsp;
+        
+                    <a class="last"th:if="${paginaActual < totalPages}" th:href="@{'/admin/pedidos/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Ultimo</a>
+                    <span class="last" th:unless="${paginaActual < totalPages}">Ultimo</span>
+                    &nbsp;&nbsp;
+    
+                </div>
             </div>
         </main>
         <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>

@@ -52,6 +52,7 @@
                         <th>Estado</th>
                         <th>Producto/s</th>
                         <th>Dirección</th>
+                        <th>Fecha-pedido</th>
                     </tr>
                     <tr th:each="pedido : ${listaPedidos}">
                       <td th:text="${pedido.id}"></td>
@@ -65,6 +66,10 @@
                         <p th:text="'Cantidad = '+${pedido.cantidad}" style="font-weight: bold;" ></p>
                       </td>
                       <td th:text="${pedido.direccion}"></td>
+                      <td >
+                        <p th:text="${#temporals.format(pedido.fecha_pedido, 'dd/MM/YYYY hh:mm a')}"></p>
+                        <p th:text="'Precio Total = '+${pedido.precioTotal}" style="font-weight: bold;" ></p>
+                      </td>
                     </tr>
                 </tbody>
             </table>

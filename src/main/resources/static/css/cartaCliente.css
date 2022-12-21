@@ -477,7 +477,7 @@ margin: 0;
     height: 40px;
 }
 
-.producto_select{
+.producto_select, .inputs{
     display: flex; 
     flex-direction: column;
 }

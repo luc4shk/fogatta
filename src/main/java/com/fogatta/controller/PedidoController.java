@@ -3,12 +3,15 @@ package com.fogatta.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fogatta.details.CustomUserDetails;
 import com.fogatta.model.Pedido;
@@ -40,8 +43,6 @@ public class PedidoController {
         return "user/realizarPedidos";
     }
     
-    /* Mapeos de usuario */
-
     /**
      * Método encargado de mostrar la vista de el para realizar los pedidos
      * @return la plantilla de usuario especificada
@@ -79,6 +80,8 @@ public class PedidoController {
 
 
     }
+
+    /* ADMIN */
     
     /**
      * Método de controlador encargado de mostrar la vista de pedidos de administrador
@@ -87,10 +90,80 @@ public class PedidoController {
      */
     @GetMapping("/admin/pedidos")
     public String viewPedidosAdminPage(Model modelo){
-        List<Pedido> listaPedidos = pedidoServicio.listAll();
-        modelo.addAttribute("listaPedidos", listaPedidos);
-        return "admin/pedidosAdmin";
+        return listByPageAdmin(modelo, 1, "estado", "asc");
     }
+
+    @GetMapping("/admin/pedidos/page/{pageNumber}")
+    public String listByPageAdmin(Model modelo, @PathVariable("pageNumber") int paginaActual,
+            @Param("sortField") String sortField,
+            @Param("sortDir") String sortDir){
+
+        Page<Pedido> page = pedidoServicio.listByPage(paginaActual, sortField, sortDir);
+        long totalItems = page.getTotalElements();
+        int totalPages = page.getTotalPages();
+
+        List<Pedido> listaPedidos = page.getContent();
+
+        modelo.addAttribute("paginaActual", paginaActual);
+        modelo.addAttribute("totalItems", totalItems);
+        modelo.addAttribute("totalPages", totalPages);
+        modelo.addAttribute("listaPedidos", listaPedidos);
+        modelo.addAttribute("sortField", sortField);
+        modelo.addAttribute("sortDir", sortDir);
+
+        String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
+        modelo.addAttribute("reverseSortDir", reverseSortDir);
+
+        return "admin/pedidosAdmin";
+
+    }
+
+    @GetMapping("/admin/pedidos/editar/{id}")
+    public ModelAndView viewEditarReservaAdminPage(@PathVariable(name ="id") Integer id){
+        ModelAndView modelo = new ModelAndView("admin/editarPedido");
+        modelo.addObject("pedido", pedidoServicio.getById(id));
+
+        List<Producto> productos = pedidoServicio.listProductos();
+        List<Producto> listaComida = new ArrayList<>();
+        List<Producto> listaBebida = new ArrayList<>();
+
+        for(Producto p : productos){
+            if(p.getTipo().equals("comida")){
+                listaComida.add(p);
+            }else{
+                listaBebida.add(p);
+            }
+        }
+
+        modelo.addObject("listaComida", listaComida);
+        modelo.addObject("listaBebida", listaBebida);
+
+        return modelo;
+    }
+
+    @PostMapping("/admin/pedidos/agregar")
+    public String savePedidoAdmin(@ModelAttribute("pedido") Pedido pedido, @AuthenticationPrincipal CustomUserDetails userDetails, Model modelo){
+
+
+        List<Pedido> pedidosActivos = pedidoServicio.listAll();
+
+        for(Pedido request : pedidosActivos){
+
+            if(pedido.getId() == request.getId()){
+
+                pedido.setFecha_pedido(request.getFecha_pedido());
+                break;
+
+            }
+    
+        }
+
+        pedido.setUsuario(userDetails.getUsuario());
+        pedidoServicio.guardar(pedido);
+
+        return "redirect:/admin/pedidos";
+
+    } 
     
     /**
      * Método encargado de eliminar por id las pedidos
