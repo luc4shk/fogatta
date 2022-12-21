@@ -48,7 +48,7 @@
                 <div class="form_info">
                     <div class="producto_select">
                         <label for="">Comida</label>
-                        <select th:field="*{productos}" id="comida" name="">
+                        <select th:field="*{productos}" id="comida" name="" required>
                             <option th:id="${0}" text="" th:value="${haodsf}">Ninguno</option>
                             <th:block th:each="comida : ${listaComida}">                                
                             <option th:id="${comida.precio}" th:text="${comida.nombre}" th:value="${comida.id}">
@@ -59,7 +59,7 @@
                     </div>
                     <div class="producto_select">
                         <label for="">Bebida</label>
-                        <select th:field="*{productos}" id="bebida" name="">
+                        <select th:field="*{productos}" id="bebida" name="" required>
                             <option th:id="${0}" text="" th:value="${51655}">Ninguno</option>
                             <th:block th:each="bebida : ${listaBebida}">
                                 <option th:id="${bebida.precio}" th:text="${bebida.nombre}" th:value="${bebida.id}">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <label id="labelDireccion" for="inputDireccion">Dirección</label>
-                <input id="inputDireccion" th:field="*{direccion}" type="text" name="direccion" placeholder="Dirección">
+                <input id="inputDireccion" th:field="*{direccion}" type="text" name="direccion" placeholder="Dirección" required>
                 <div class="contador">
                     <button id="menos" type="button">-</button>
                     <input type="number" th:field="*{cantidad}" id="numeroProducto" readonly>

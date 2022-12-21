@@ -57,7 +57,13 @@
                       <td th:text="${pedido.id}"></td>
                       <td th:text="${pedido.usuario.nombre}"></td>
                       <td th:text="${pedido.estado}"></td>
-                      <td th:text="${pedido.productos}"></td>
+                      <td >
+                        
+                        <ul th:each="pp : ${pedido.productos}">
+                            <li th:text="${pp}"></li>
+                        </ul>
+                        <p th:text="'Cantidad = '+${pedido.cantidad}" style="font-weight: bold;" ></p>
+                      </td>
                       <td th:text="${pedido.direccion}"></td>
                     </tr>
                 </tbody>
