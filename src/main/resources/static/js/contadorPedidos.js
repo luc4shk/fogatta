@@ -5,15 +5,15 @@ const bebida = document.querySelector("#bebida");
 const comida = document.querySelector("#comida");
 const precio = document.getElementById("precio");
 
-let numero = parseFloat(contador.innerHTML);
+let numero = parseFloat(contador.value);
 let bebidaSeleccionada;
 let comidaSeleccionada;
 
 const actualizarPrecio = () => {
-  bebidaSeleccionada = bebida.options[bebida.selectedIndex].value;
-  comidaSeleccionada = comida.options[comida.selectedIndex].value;
+  bebidaSeleccionada = bebida.options[bebida.selectedIndex].id;
+  comidaSeleccionada = comida.options[comida.selectedIndex].id;
   const res = (parseFloat(bebidaSeleccionada) + parseFloat(comidaSeleccionada)) * numero;
-  precio.innerHTML = `$${res}`;
+  precio.value = `$${res}`;
 };
 
 window.addEventListener("load", () => {
@@ -26,13 +26,13 @@ comida.addEventListener("change", actualizarPrecio);
 menos.addEventListener("click", () => {
   if (numero > 1) {
     numero -= 1;
-    contador.innerHTML = numero;
+    contador.value = numero;
     actualizarPrecio();
   }
 });
 
 mas.addEventListener("click", () => {
   numero += 1;
-  contador.innerHTML = numero;
+  contador.value = numero;
   actualizarPrecio();
 });

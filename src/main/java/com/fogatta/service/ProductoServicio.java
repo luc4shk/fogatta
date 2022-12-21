@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.fogatta.model.Producto;
 import com.fogatta.repositorios.ProductoRepositorio;
-import java.util.List;
 
 @Service
 public class ProductoServicio {
@@ -24,11 +23,6 @@ public class ProductoServicio {
         Pageable pageable = PageRequest.of(numeroPagina - 1, 6, sort);
         return repo.findAll(pageable);
     }
-
-    public List<Producto> listAll(){
-        return repo.findAll();
-    }
-
     
     public Producto save(Producto producto){
         return repo.save(producto);

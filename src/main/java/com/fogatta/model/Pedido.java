@@ -50,8 +50,9 @@ public class Pedido {
     private String estado;
 
     private int precioTotal;
-    
-    
+
+    public String cantidad;
+
     /*Constructor*/
     public Pedido() {
     }
@@ -109,6 +110,22 @@ public class Pedido {
 
     public void setPrecioTotal(int precioTotal) {
         this.precioTotal = precioTotal;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
     }
 
     @PrePersist
