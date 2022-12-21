@@ -46,19 +46,24 @@
             <h1 class="tituloTable">Realizar Pedido</h1>
             <form class="form form2" th:action="@{/user/pedidos/agregar}" th:object="${pedido}" method="post">
                 <div class="form_info">
-                    <div class="producto_select" >
+                    <div class="producto_select">
                         <label for="">Comida</label>
-                        <select id="comida" name="">
-                            <th:block th:each="comida : ${listaComida}">
-                                <option th:id="${comida.precio}"  th:text="${comida.nombre}" th:value="${comida.id}"></option>
+                        <select th:field="*{productos}" id="comida" name="">
+                            <option th:id="${0}" text="" th:value="${haodsf}">Ninguno</option>
+                            <th:block th:each="comida : ${listaComida}">                                
+                            <option th:id="${comida.precio}" th:text="${comida.nombre}" th:value="${comida.id}">
+                                </option>
                             </th:block>
+                            
                         </select>
                     </div>
-                    <div class="producto_select" >
+                    <div class="producto_select">
                         <label for="">Bebida</label>
-                        <select id="bebida" name="">
+                        <select th:field="*{productos}" id="bebida" name="">
+                            <option th:id="${0}" text="" th:value="${51655}">Ninguno</option>
                             <th:block th:each="bebida : ${listaBebida}">
-                                <option th:id="${bebida.precio}"  th:text="${bebida.nombre}" th:value="${bebida.id}"></option>
+                                <option th:id="${bebida.precio}" th:text="${bebida.nombre}" th:value="${bebida.id}">
+                                </option>
                             </th:block>
                         </select>
                     </div>
@@ -67,11 +72,12 @@
                 <input id="inputDireccion" th:field="*{direccion}" type="text" name="direccion" placeholder="Dirección">
                 <div class="contador">
                     <button id="menos" type="button">-</button>
-                    <input type="number" th:field="*{cantidad}" id="numeroProducto" th:value="${1}">
+                    <input type="number" th:field="*{cantidad}" id="numeroProducto" readonly>
                     <button id="mas" type="button">+</button>
                 </div>
                 <div id="precioTotal">
-                    Precio Total: <input type="text" th:field="*{precioTotal}" id="precio">
+                    <p>Precio Total:</p>
+                    <input type="text" th:field="*{precioTotal}" id="precio" readonly>
                 </div>
                 <input class="btnPedido" type="submit" value="Pedir">
             </form>

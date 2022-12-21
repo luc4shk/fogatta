@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -38,7 +39,7 @@ public class Pedido {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany( cascade = CascadeType.PERSIST)
     @JoinTable(
         name = "pedido_producto", 
         joinColumns = @JoinColumn(name = "pedido_id"),
@@ -49,7 +50,7 @@ public class Pedido {
     @Column(length = 20)
     private String estado;
 
-    private int precioTotal;
+    private String precioTotal;
 
     public String cantidad;
 
@@ -57,12 +58,21 @@ public class Pedido {
     public Pedido() {
     }
     
-    public Pedido(Integer id, String direccion, LocalDateTime fecha_pedido, Usuario usuario) {
+   
+
+    public Pedido(Integer id, String direccion, LocalDateTime fecha_pedido, Usuario usuario, Set<Producto> productos,
+            String estado, String precioTotal, String cantidad) {
         this.id = id;
         this.direccion = direccion;
         this.fecha_pedido = fecha_pedido;
         this.usuario = usuario;
+        this.productos = productos;
+        this.estado = estado;
+        this.precioTotal = precioTotal;
+        this.cantidad = cantidad;
     }
+
+
 
     public Integer getId() {
         return id;
@@ -104,11 +114,11 @@ public class Pedido {
         this.productos = productos;
     }
 
-    public int getPrecioTotal() {
+    public String getPrecioTotal() {
         return precioTotal;
     }
 
-    public void setPrecioTotal(int precioTotal) {
+    public void setPrecioTotal(String precioTotal) {
         this.precioTotal = precioTotal;
     }
 

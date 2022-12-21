@@ -4,12 +4,13 @@ const contador = document.getElementById("numeroProducto");
 const bebida = document.querySelector("#bebida");
 const comida = document.querySelector("#comida");
 const precio = document.getElementById("precio");
-
+contador.value=1
 let numero = parseFloat(contador.value);
 let bebidaSeleccionada;
 let comidaSeleccionada;
 
 const actualizarPrecio = () => {
+  console.log(numero)
   bebidaSeleccionada = bebida.options[bebida.selectedIndex].id;
   comidaSeleccionada = comida.options[comida.selectedIndex].id;
   const res = (parseFloat(bebidaSeleccionada) + parseFloat(comidaSeleccionada)) * numero;
@@ -32,7 +33,10 @@ menos.addEventListener("click", () => {
 });
 
 mas.addEventListener("click", () => {
-  numero += 1;
+  if (numero < 5) {
+    numero += 1;
   contador.value = numero;
   actualizarPrecio();
+  }
+  
 });

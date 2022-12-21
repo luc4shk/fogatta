@@ -74,7 +74,7 @@ public class PedidoController {
         pedido.setUsuario(userDetails.getUsuario());
         pedidoServicio.guardar(pedido);
 
-        return "redirect:/user/realizarPedidos";
+        return "redirect:/user/pedidos";
 
 
     }
