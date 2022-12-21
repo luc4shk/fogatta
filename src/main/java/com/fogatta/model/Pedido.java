@@ -46,6 +46,8 @@ public class Pedido {
         inverseJoinColumns = @JoinColumn(name = "producto_id")
     )
     private Set<Producto> productos = new HashSet<>();
+    
+    
 
     @Column(length = 20)
     private String estado;

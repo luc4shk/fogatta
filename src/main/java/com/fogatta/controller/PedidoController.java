@@ -16,6 +16,7 @@ import com.fogatta.model.Producto;
 import com.fogatta.service.PedidoServicio;
 import com.fogatta.service.UsuarioServicio;
 import java.util.ArrayList;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class PedidoController {
@@ -78,5 +79,30 @@ public class PedidoController {
 
 
     }
+    
+    /**
+     * Método de controlador encargado de mostrar la vista de pedidos de administrador
+     * @param modelo
+     * @return la plantilla de administrador especificada
+     */
+    @GetMapping("/admin/pedidos")
+    public String viewPedidosAdminPage(Model modelo){
+        List<Pedido> listaPedidos = pedidoServicio.listAll();
+        modelo.addAttribute("listaPedidos", listaPedidos);
+        return "admin/pedidosAdmin";
+    }
+    
+    /**
+     * Método encargado de eliminar por id las pedidos
+     * @param id
+     * @return 
+     */
+    @GetMapping("/admin/pedidos/eliminar/{id}")
+    public String eliminarPedido(@PathVariable(name ="id") Integer id){
+        pedidoServicio.delete(id);
+        return "redirect:/admin/pedidosAdmin";
+    }
+
+    
   
 }

@@ -53,26 +53,12 @@
                         <th>Producto/s</th>
                         <th>Dirección</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Samuel Boada</td>
-                        <td>Activo</td>
-                        <td>16/10/22</td>
-                        <td>Algún lugar de Colombia</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jaider Oliveros</td>
-                        <td>En espera</td>
-                        <td>17/10/22</td>
-                        <td>Algun lugar de Venezuela</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Miguel Cardenas</td>
-                        <td>En espera</td>
-                        <td>25/12/22</td>
-                        <td>Calle 2N #7E - 96 VillaCamila</td>
+                    <tr th:each="pedido : ${listaPedidos}">
+                      <td th:text="${pedido.id}"></td>
+                      <td th:text="${pedido.usuario.nombre}"></td>
+                      <td th:text="${pedido.estado}"></td>
+                      <td th:text="${pedido.productos}"></td>
+                      <td th:text="${pedido.direccion}"></td>
                     </tr>
                 </tbody>
             </table>

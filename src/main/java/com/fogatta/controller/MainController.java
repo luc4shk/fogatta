@@ -128,14 +128,7 @@ public class MainController {
 
     /* Mapeos de administrador */
 
-    /**
-     * Método de controlador encargado de mostrar la vista de pedidos de administrador
-     * @return la plantilla de administrador especificada
-     */
-    @GetMapping("/admin/pedidos")
-    public String viewPedidosAdminPage(){
-        return "admin/pedidosAdmin";
-    }
+    
     
     
     

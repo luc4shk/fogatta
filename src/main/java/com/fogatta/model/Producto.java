@@ -104,5 +104,12 @@ public class Producto {
         return "/product-photos/" + id + "/" + photo;
 
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
+    
+    
     
 }

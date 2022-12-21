@@ -1,4 +1,4 @@
-const btnEliminar = document.getElementById('btnEliminarR');
+const btnEliminar = document.getElementById('btnEliminarP');
 
 function eliminar(id) {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -20,18 +20,18 @@ function eliminar(id) {
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                url: "/admin/reservas/eliminar/" + id
+                url: "/admin/pedidos/eliminar/" + id
 
             });
 
             swalWithBootstrapButtons.fire(
-                    'Eliminada',
-                    'La reserva ha sido eliminada!',
+                    'Eliminado',
+                    'El pedido ha sido eliminado!',
                     'success'
 
                     ).then((result) => {
                 if (result.isConfirmed) {
-                    location.href = "/admin/reservas";
+                    location.href = "/admin/pedidos";
                 }
             })
         } else if (
@@ -41,7 +41,7 @@ function eliminar(id) {
 
             swalWithBootstrapButtons.fire(
                     'Cancelado',
-                    'La reserva esta segura!',
+                    'El pedido esta seguro!',
                     'error'
                     )
         }
