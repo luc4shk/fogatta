@@ -47,7 +47,7 @@
                 <div class="cont_grid">
                     <div class="cont_platos" th:each="producto : ${listProducts}">
                         <div class="plato">
-                            <img class="plato_image" th:src="@{${producto.photosImagePath}}" alt="Foto del producto">
+                            <img class="plato_image" th:src="@{'/images/' + ${producto.photo}}" alt="Foto del producto">
                             <div class="plato_text">
                                 <p class="plato_title" th:text="${producto.nombre}"></p>
                             </div>

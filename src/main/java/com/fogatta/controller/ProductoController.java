@@ -2,7 +2,9 @@ package com.fogatta.controller;
 
 import java.io.IOException;
 import java.util.List;
-
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.query.Param;
@@ -119,17 +121,34 @@ public class ProductoController {
 
 
     @PostMapping("/admin/producto/agregar")
-    public String guardarProducto(@ModelAttribute("producto") Producto producto, @RequestParam("fileImage") MultipartFile multipartFile) throws IOException{
+    public String guardarProducto(@ModelAttribute("producto") Producto producto, @RequestParam("fileImage") MultipartFile imagen) throws IOException{
         
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        producto.setPhoto(fileName);
+        // String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        // producto.setPhoto(fileName);
         
-        Producto savedProduct = servicio.save(producto);
+        // Producto savedProduct = servicio.save(producto);
 
-        String uploadDir = "./product-photos/" + savedProduct.getId();
+        // String uploadDir = "./product-photos/" + savedProduct.getId();
 
-        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+        // FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
 
+        if(!imagen.isEmpty()){
+
+            Path directorioImagenes = Paths.get("src//main//resources//static/images");
+            String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
+
+            try {
+                byte[] bytesImg = imagen.getBytes();
+                Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
+                Files.write(rutaCompleta, bytesImg);
+
+                producto.setPhoto(imagen.getOriginalFilename());
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        servicio.save(producto);
         return "redirect:/admin/home";
     }
 
