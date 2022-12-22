@@ -89,21 +89,13 @@ public class PedidoController {
         modelo.addAttribute("listaComida", listaComida);
         modelo.addAttribute("listaBebida", listaBebida);
 
-        /*for (Producto p : pedido.getProductos()){
+        for (Producto p : pedido.getProductos()){
 
-            if(p != null){
-                pedido.setUsuario(userDetails.getUsuario());
-                pedidoServicio.guardar(pedido);
-                return "redirect:/user/pedidos";
+            if(pedido.getProductos().size() == 1 && p == null){
+                modelo.addAttribute("error", "Debe seleccionar por lo menos un producto.");
+                return "user/formularioPedidos";
             }
 
-        }*/
-
-        Producto [] products = (Producto[]) pedido.getProductos().toArray();
-
-        if( products.length == 1 && products[0] == null ){
-            modelo.addAttribute("error", "Debe seleccionar por lo menos un producto.");
-            return "user/formularioPedidos";
         }
 
         pedido.setUsuario(userDetails.getUsuario());
