@@ -86,7 +86,7 @@ public class MainController {
      */
     @GetMapping("/admin/login")
     public String viewAdminLoginPage(){
-        return "/admin/loginAdmin";
+        return "admin/loginAdmin";
     }
 
     
