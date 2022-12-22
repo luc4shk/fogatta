@@ -101,11 +101,11 @@ public class PedidoController {
         pedido.setUsuario(userDetails.getUsuario());
 
         for(Pedido p : pedidos){
-            if(p.equals(pedido)){
+            if(p.getId() == pedido.getId()){
                 pedido.setUsuario(p.getUsuario());
             }
         }
-
+        pedidoServicio.guardar(pedido);
         return "redirect:/user/pedidos";
         
     }
