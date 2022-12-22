@@ -71,14 +71,37 @@ public class PedidoController {
     }
 
     @PostMapping("/user/pedidos/agregar")
-    public String savePedido(@ModelAttribute("pedido") Pedido pedido, @AuthenticationPrincipal CustomUserDetails userDetails){
+    public String savePedido(@ModelAttribute("pedido") Pedido pedido, @AuthenticationPrincipal CustomUserDetails userDetails, Model modelo){
 
-        pedido.setUsuario(userDetails.getUsuario());
-        pedidoServicio.guardar(pedido);
+        List<Producto> productos = pedidoServicio.listProductos();
+        List<Producto> listaComida = new ArrayList<>();
+        List<Producto> listaBebida = new ArrayList<>();
 
-        return "redirect:/user/pedidos";
+        for(Producto p : productos){
+            if(p.getTipo().equals("comida")){
+                listaComida.add(p);
+            }else{
+                listaBebida.add(p);
+            }
+        }
 
+        modelo.addAttribute("listaComida", listaComida);
+        modelo.addAttribute("listaBebida", listaBebida);
 
+        for (Producto p : pedido.getProductos()){
+
+            if(p != null){
+                pedido.setUsuario(userDetails.getUsuario());
+                pedidoServicio.guardar(pedido);
+                return "redirect:/user/pedidos";
+            }
+
+        }
+
+        modelo.addAttribute("error", "Debe seleccionar por lo menos un producto");
+     
+        return "user/formularioPedidos";
+        
     }
 
     /* ADMIN */
