@@ -421,7 +421,8 @@ margin: 0;
     color:#842029;
     width: 40vw;
     border-radius: 5px;
-    margin-bottom: 15px
+    margin-bottom: 15px;
+    width: 100%;
 }
 
 

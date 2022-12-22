@@ -98,7 +98,7 @@ public class PedidoController {
 
         }
 
-        modelo.addAttribute("error", "Debe seleccionar por lo menos un producto");
+        modelo.addAttribute("error", "Debe seleccionar por lo menos un producto.");
      
         return "user/formularioPedidos";
         

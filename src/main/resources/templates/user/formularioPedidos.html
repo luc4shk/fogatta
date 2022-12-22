@@ -82,7 +82,7 @@
                 <div class="mt-3 gris">Máximo 5 productos, si necesita más por favor contacte directamente con el restaurante, gracias.</div>
                 <input id="btnAñadirPedido" class="btnPedido" type="submit" value="Pedir">
 
-                <div class="containermsg" th:if="${error != null}">
+                <div class="containermsg text-center " th:if="${error != null}">
                     <p id="error">[[${error}]]</p>
                 </div>
             </form>
@@ -90,8 +90,6 @@
     </main>
     <script th:src="@{/js/contadorPedidos.js}"></script>
     <script th:src="@{/js/app2.js}"></script>
-    <script th:src="@{/js/alertAgregarPedido.js}"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
