@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" th:href="@{/css/cartaCliente.css}">
+    <link rel="stylesheet" th:href="@{/css/estilosAdmin.css}">
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Fogatta - Editar Pedido</title>
@@ -44,50 +44,41 @@
     <main class="main">
         <div class="main_cont">
             <h1 class="tituloTable">Realizar Pedido</h1>
-            <form class="form form2" th:action="@{/admin/pedidos/agregar}" th:object="${pedido}" method="post">
+            <form class="form form3" th:action="@{/admin/pedidos/agregar}" th:object="${pedido}" method="post">
+                <div  class="form_info">
+                    <label>Id:</label>
+                    <input id="id" type="text" placeholder="id" th:field="*{id}" readonly="true">
 
-                <div class="form_info">
+                    <label>Nombre:</label>
+                    <input id="nombre" type="text" th:field="*{usuario.nombre}" readonly="true" required>
 
-                    <div class="inputs">
-                        <label>Id:</label>
-                        <input id="id" type="text" placeholder="id" th:field="*{id}" readonly="true">
-                    </div>
-
-                    <div class="inputs">
-                        <label>Nombre:</label>
-                        <input id="nombre" type="text" th:field="*{usuario.nombre}" readonly="true" required>
-                    </div>
-
-                    <div class="producto_select">
-                        <label for="">Comida</label>
-                        <select th:field="*{productos}" id="comida" name="" required>
-                            <option th:id="${0}" text="" th:value="${haodsf}">Ninguno</option>
-                            <th:block th:each="comida : ${listaComida}">                                
+                    <label for="">Comida</label>
+                    <select th:field="*{productos}" id="comida" name="" required>
+                        <option th:id="${0}" text="" th:value="${haodsf}">Ninguno</option>
+                        <th:block th:each="comida : ${listaComida}">
                             <option th:id="${comida.precio}" th:text="${comida.nombre}" th:value="${comida.id}">
-                                </option>
-                            </th:block>
-                            
-                        </select>
-                    </div>
-                    <div class="producto_select">
-                        <label for="">Bebida</label>
-                        <select th:field="*{productos}" id="bebida" name="" required>
-                            <option th:id="${0}" text="" th:value="${51655}">Ninguno</option>
-                            <th:block th:each="bebida : ${listaBebida}">
-                                <option th:id="${bebida.precio}" th:text="${bebida.nombre}" th:value="${bebida.id}">
-                                </option>
-                            </th:block>
-                        </select>
-                    </div>
-                </div>
-                <label id="labelDireccion" for="inputDireccion">Dirección</label>
-                <input id="inputDireccion" th:field="*{direccion}" type="text" name="direccion" placeholder="Dirección" required>
-                <label>Estado:</label>
+                            </option>
+                        </th:block>
+
+                    </select>
+                    <label for="">Bebida</label>
+                    <select th:field="*{productos}" id="bebida" name="" required>
+                        <option th:id="${0}" text="" th:value="${51655}">Ninguno</option>
+                        <th:block th:each="bebida : ${listaBebida}">
+                            <option th:id="${bebida.precio}" th:text="${bebida.nombre}" th:value="${bebida.id}">
+                            </option>
+                        </th:block>
+                    </select>
+                    <label id="labelDireccion" for="inputDireccion">Dirección</label>
+                    <input id="inputDireccion" th:field="*{direccion}" type="text" name="direccion"
+                        placeholder="Dirección" required>
+                    <label>Estado:</label>
                     <select id="estado" th:field="*{estado}" required>
                         <option value="En proceso">En proceso</option>
                         <option value="Enviado">Enviado</option>
                         <option value="Entregado">Entregado</option>
                     </select>
+                </div>
                 <div class="contador">
                     <button id="menos" type="button">-</button>
                     <input type="number" th:field="*{cantidad}" id="numeroProducto" readonly>
@@ -95,10 +86,12 @@
                 </div>
                 <div id="precioTotal">
                     <p>Precio Total:</p>
-                    <input type="text" th:field="*{precioTotal}" id="precio" readonly>
+                    <input type="text" th:field="*{precioTotal}" id="precio2" readonly>
                 </div>
-                <input class="btnPedido" type="submit" value="Guardar Cambios">
+                <div class="btns btns2">
+                <input id="buttonEditar" class="btnPedido btnPedidoAñadir" type="submit" value="Guardar Cambios">
                 <a class="btnPedidoCancelar" th:href="@{/admin/pedidos}">Cancelar</a>
+                </div>
             </form>
         </div>
     </main>

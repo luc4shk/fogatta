@@ -88,6 +88,10 @@
     font-size: 20px;
     cursor:pointer;
 }
+.nav_cont_m > .nav_btn_user:hover{
+    color: white;
+
+}
 
 .botonForm{
     width: 200px;
@@ -107,7 +111,12 @@
     justify-content: center;
     margin: 0 calc(80vw - 75vw) 25px calc(80vw - 72vw);
     cursor:pointer;
+   
     
+}
+
+.nav_btn_user2:hover{
+    color: white;
 }
 /* Main */
 .main_cont{
@@ -116,7 +125,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 5rem;
+    padding: 0 2rem;
 }
 
 .tituloTable{
@@ -182,10 +191,10 @@ button{
 }    
 /*Agregar Pedido*/
 #t_area{
-    margin-top: 30px; 
     width: 100%;
     height: 70px;
 }
+
 
 .btns{
     /* margin-top: 30px; */
@@ -210,11 +219,15 @@ button{
     transition: 0.5s all;
     text-align: center;
     padding: 8px;
+    text-decoration: none;
 
     
 }
 
+
+
 .btnPedidoAñadir[type=submit]:hover, .btnPedidoCancelar:hover{
+        color: white;
         box-shadow: 2px 5px 7px -3px rgba(0,0,0,0.7),0px 10px 15px -3px rgba(0,0,0,0.1);
 }
 
@@ -401,6 +414,95 @@ margin: 0;
 
 input[type=number] { -moz-appearance:textfield; }
 
+.form_logout > input[type=submit]{
+    background-color: transparent;
+    border: 0;
+}
+
+/* Editar pedido */
+.contador{
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+#mas, #menos{
+    width: 2rem;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#numeroProducto{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 3rem;
+    text-align: center;
+}
+
+#precio2{
+    outline: none;
+    width: 4.5rem;
+}
+
+#precioTotal{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    gap: 15px;
+}
+
+#inputDireccion{
+    width: 100%;
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 8px;
+    min-width: 20px;
+    height: 40px;
+}
+
+#comida, #bebida{
+    width: 100%;
+    height: 40px;
+}
+
+.producto_select, .inputs{
+    display: flex; 
+    flex-direction: column;
+}
+
+
+#numeroProducto[type=number]::-webkit-inner-spin-button,
+#numeroProducto[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+#labelDireccion{
+}
+
+.gris{
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    background-color: #e2e3e5;
+    color: #41464b;
+    text-align: center;
+    border: 1px solid #d3d6d8;
+}
+
+.form_info > label{
+    line-height: 40px;
+}
+
+/* Media */
+
+
 @media screen and (max-width:1235px) {
     .reseñas{
         
@@ -422,22 +524,55 @@ input[type=number] { -moz-appearance:textfield; }
     
 }
 
-/* @media screen and (max-width:409px) {
+@media screen and (max-width:402px){
     .form_info{
-        
-        grid-template-columns: 1fr;
-        
-    }
-    .btns{
+        display: flex;
         flex-direction: column;
-        margin-bottom: 20px;
     }
-    .form2{
-        gap:15px;
+
+    #labelDireccion{
+        margin-top: 15px;
+        display: block;
     }
+
+    #inputDireccion{
+        margin-top: 0;
+    }
+
+    #precioTotal{
+        flex-direction: column;
+        align-items: center;
+    }
+
     
+}
+
+@media screen and (max-width:550px){
+    th{
+     font-size: 12px;
+   }
+
+   td{
+    font-size: 10px;
+   }
+
+   .tituloTable{
+    font-size: 25px;
+   }
+
+   .editar, .eliminar{
+    width: 20px;
+    height: 20px;
+   }
     
-} */
+}
+
+@media screen and (max-width:502px){
+    .last, .first{
+     display: none;
+    }
+     
+ }
 
 @media screen and (max-width:525px) {
     .form_info{
@@ -523,6 +658,10 @@ input[type=number] { -moz-appearance:textfield; }
         height: 200px;
         margin: 0;
         
+    }
+
+    .form_logout > input[type=submit]{
+        border-bottom: 2px solid white;
     }
 }
 

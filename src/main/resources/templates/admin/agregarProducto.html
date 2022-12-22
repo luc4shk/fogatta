@@ -8,7 +8,7 @@
     <link rel="stylesheet" th:href="@{/css/estilosAdmin.css}">
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Fogatta - Agregar producto</title>
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.2.js"
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="gris mb-4">El tamaño de la imagen debe ser menor que 300KB.</div>
                 <textarea id="t_area" placeholder="Descripción" th:field="*{descripcion}" required></textarea>
                 <div class="btns btns2">
                     <input id="buttonAñadir" class="btnPedidoAñadir" type="submit" value="Agregar">

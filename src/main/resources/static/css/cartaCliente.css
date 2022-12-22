@@ -151,7 +151,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 5rem;
+    padding: 0 2rem;
 }
 .cont_platos{
     
@@ -166,11 +166,14 @@
 }
 .plato{
     width:400px;
-    height:450px;
+    height:fit-content;
     background-color:white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 5px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .plato_image{
     
@@ -448,9 +451,10 @@ margin: 0;
     text-align: center;
 }
 
-#precio{
+#precio2{
     outline: none;
     width: 4.5rem;
+    border: 0;
 }
 
 #precioTotal{
@@ -477,9 +481,22 @@ margin: 0;
     height: 40px;
 }
 
-.producto_select, .inputs{
+.producto_select{
     display: flex; 
     flex-direction: column;
+}
+
+#parrafoTotal{
+    margin-bottom: 0;
+}
+
+.gris{
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    background-color: #e2e3e5;
+    color: #41464b;
+    text-align: center;
+    border: 1px solid #d3d6d8;
 }
 
 
@@ -525,10 +542,40 @@ margin: 0;
         align-items: center;
     }
 
+    .plato{
+        width: 200px;
+        height: 400px;
+    }
+
+    .plato_image{
+        width: 180px;
+        height: 250px;
+    }
+
     
 }
 
+@media screen and (max-width:502px){
+   .last, .first{
+    display: none;
+   }
+    
+}
 
+@media screen and (max-width:550px){
+    th{
+     font-size: 12px;
+   }
+
+   td{
+    font-size: 10px;
+   }
+
+   .tituloTable{
+    font-size: 25px;
+   }
+    
+}
 
 
 @media screen and (max-width:955px) {

@@ -1,4 +1,4 @@
-#paginacion{
+#paginacion {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -6,60 +6,66 @@
     align-items: center;
 }
 
-.first, .last{
-    padding:8px;
+.first,
+.last {
+    padding: 8px;
     border-radius: 8px;
     border: 1px solid;
-    background-color:black;
-    color:white;
+    background-color: black;
+    color: white;
     transition: 0.5s all;
     cursor: pointer;
 }
 
-.first:hover, .last:hover{
+.first:hover,
+.last:hover {
     background-color: white;
-    color:black;
+    color: black;
     text-decoration: none;
 }
 
 
-.prev, .next{
-    padding:8px;
+.prev,
+.next {
+    padding: 8px;
     border-radius: 8px;
     border: 1px solid;
-    background-color:black;
-    color:white;
+    background-color: black;
+    color: white;
     cursor: pointer;
     transition: 0.5s all;
 }
 
-.prev:hover, .next:hover{
+.prev:hover,
+.next:hover {
     background-color: white;
-    color:black;
+    color: black;
     text-decoration: none;
 }
 
 
-.numero{
-    padding:8px;
+.numero {
+    padding: 8px;
     border-radius: 8px;
     border: 1px solid;
-    background-color:purple;
-    background-color:white;
-    color:black;
+    background-color: purple;
+    background-color: white;
+    color: black;
     font-weight: bold;
     transition: 0.5s all;
     cursor: pointer;
     text-decoration: none;
 }
 
-.now{
-    background-color: #4BC3BF;
-    color:white;
-    border:1px solid black;
+.now {
+    background: rgb(0,0,0);
+background: radial-gradient(circle, rgba(0,0,0,0.605217086834734) 0%, rgba(10,10,10,0.5828081232492996) 100%);
+    color: white;
+    border: 1px solid black;
 }
-.numero:hover{
+
+.numero:hover {
     text-decoration: none;
-    box-shadow: 2px 5px 7px -3px rgba(0,0,0,0.7),0px 10px 15px -3px rgba(0,0,0,0.1);
-    
+    box-shadow: 2px 5px 7px -3px rgba(0, 0, 0, 0.7), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+
 }

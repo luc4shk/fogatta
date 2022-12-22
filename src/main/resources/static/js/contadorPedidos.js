@@ -3,14 +3,13 @@ const mas = document.getElementById("mas");
 const contador = document.getElementById("numeroProducto");
 const bebida = document.querySelector("#bebida");
 const comida = document.querySelector("#comida");
-const precio = document.getElementById("precio");
+const precio = document.getElementById("precio2");
 contador.value=1
 let numero = parseFloat(contador.value);
 let bebidaSeleccionada;
 let comidaSeleccionada;
 
 const actualizarPrecio = () => {
-  console.log(numero)
   bebidaSeleccionada = bebida.options[bebida.selectedIndex].id;
   comidaSeleccionada = comida.options[comida.selectedIndex].id;
   const res = (parseFloat(bebidaSeleccionada) + parseFloat(comidaSeleccionada)) * numero;
