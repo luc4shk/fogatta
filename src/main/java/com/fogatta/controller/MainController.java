@@ -120,9 +120,9 @@ public class MainController {
      * Método encargado de mostrar la vista de reseñas de usuario
      * @return la plantilla de usuario especificada
      */
-    @GetMapping("/user/reseñas")
+    @GetMapping("/user/resenias")
     public String viewReseniasUserPage(){
-        return "user/reseñasCliente";
+        return "user/reseniasCliente";
     }
     
 
@@ -136,9 +136,9 @@ public class MainController {
      * Método de controlador encargado de mostrar la vista de reseñas de administrador
      * @return la plantilla de administrador especificada
      */
-    @GetMapping("/admin/reseñas")
+    @GetMapping("/admin/resenias")
     public String viewReseñasAdminPage(){
-        return "admin/reseñasAdmin";
+        return "admin/reseniasAdmin";
     }
     
     
