@@ -63,16 +63,8 @@
                         <option value="bebida">Bebida</option>
                     </select>
                     <label id="imagen"for="">Imagen:</label>
-                    <div class="formSegundo">
-                        <div class="selectImage">
-                            <label id="labelImagen" for="fileImage" >Seleccionar</label>
-                            <input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg"
-                                required />
-                                <p id="productoImagen">
-                                    <img id="thumbnail" th:src="@{/img/imgIcon.png}" alt="" />
-                                </p>
-                        </div>
-                    </div>
+                    <input type="url" th:field="*{photo}" name="" id="">
+                    
                 </div>
 
                 <textarea id="t_area" placeholder="Descripción" th:field="*{descripcion}" required></textarea>

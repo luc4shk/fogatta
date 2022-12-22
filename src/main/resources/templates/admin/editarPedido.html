@@ -54,7 +54,7 @@
 
                     <label for="">Comida</label>
                     <select th:field="*{productos}" id="comida" name="" required>
-                        <option th:id="${0}" text="" th:value="${haodsf}">Ninguno</option>
+                        <option th:id="${0}" text="" th:value="${-50}">Ninguno</option>
                         <th:block th:each="comida : ${listaComida}">
                             <option th:id="${comida.precio}" th:text="${comida.nombre}" th:value="${comida.id}">
                             </option>
@@ -63,7 +63,7 @@
                     </select>
                     <label for="">Bebida</label>
                     <select th:field="*{productos}" id="bebida" name="" required>
-                        <option th:id="${0}" text="" th:value="${51655}">Ninguno</option>
+                        <option th:id="${0}" text="" th:value="${-50}">Ninguno</option>
                         <th:block th:each="bebida : ${listaBebida}">
                             <option th:id="${bebida.precio}" th:text="${bebida.nombre}" th:value="${bebida.id}">
                             </option>

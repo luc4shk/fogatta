@@ -121,33 +121,7 @@ public class ProductoController {
 
 
     @PostMapping("/admin/producto/agregar")
-    public String guardarProducto(@ModelAttribute("producto") Producto producto, @RequestParam("fileImage") MultipartFile imagen) throws IOException{
-        
-        // String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        // producto.setPhoto(fileName);
-        
-        // Producto savedProduct = servicio.save(producto);
-
-        // String uploadDir = "./product-photos/" + savedProduct.getId();
-
-        // FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-
-        if(!imagen.isEmpty()){
-
-            Path directorioImagenes = Paths.get("src//main//resources//static/images");
-            String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
-
-            try {
-                byte[] bytesImg = imagen.getBytes();
-                Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
-                Files.write(rutaCompleta, bytesImg);
-
-                producto.setPhoto(imagen.getOriginalFilename());
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public String guardarProducto(@ModelAttribute("producto") Producto producto){
         servicio.save(producto);
         return "redirect:/admin/home";
     }

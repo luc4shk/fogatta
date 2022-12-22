@@ -193,6 +193,7 @@ button{
 #t_area{
     width: 100%;
     height: 70px;
+    margin-top: 30px;
 }
 
 
@@ -399,9 +400,7 @@ input[type=file]{
     padding: 8px;
 }
 
-#imagen{
-    line-height: 95px;
-}
+
 #fileImage{
     display: none;
 }

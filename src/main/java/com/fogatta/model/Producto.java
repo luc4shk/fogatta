@@ -94,16 +94,16 @@ public class Producto {
         this.photo = photo;
     }
 
-    @Transient
-    public String getPhotosImagePath(){
+    // @Transient
+    // public String getPhotosImagePath(){
 
-        if(photo == null || id == null){
-            return null;
-        }
+    //     if(photo == null || id == null){
+    //         return null;
+    //     }
 
-        return "/product-photos/" + id + "/" + photo;
+    //     return "/product-photos/" + id + "/" + photo;
 
-    }
+    // }
 
     @Override
     public String toString() {

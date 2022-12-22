@@ -61,17 +61,8 @@
                         <option value="bebida">Bebida</option>
                     </select>
                     <label id="imagen">Imagen:</label>
-                    <div class="formSegundo">
-                        <div class="selectImage">
-                            <label id="labelImagen" for="fileImage">Seleccionar</label>
-                            <input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg" required>
-                            <p id="productoImagen">
-                                <img id="thumbnail" th:src="@{/img/imgIcon.png}" alt="Product preview">
-                            </p>
-                        </div>
-                    </div>
+                    <input type="url" th:field="*{photo}" name="" id="">
                 </div>
-                <div class="gris mb-4">El tamaño de la imagen debe ser menor que 300KB.</div>
                 <textarea id="t_area" placeholder="Descripción" th:field="*{descripcion}" required></textarea>
                 <div class="btns btns2">
                     <input id="buttonAñadir" class="btnPedidoAñadir" type="submit" value="Agregar">
