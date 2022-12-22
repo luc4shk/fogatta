@@ -29,13 +29,14 @@ public class ReservaController {
 
     @Autowired
     private UsuarioServicio userServicio;
-    
+
     /**
      * Método encargado de mostrar la vista de reservas de usuario
+     * 
      * @return la plantilla de usuario especificada
      */
     @GetMapping("/user/reservas")
-    public String viewReservasUserPage(Model modelo, @AuthenticationPrincipal CustomUserDetails userDetails){
+    public String viewReservasUserPage(Model modelo, @AuthenticationPrincipal CustomUserDetails userDetails) {
         List<Reserva> listaReservas = userServicio.obtenerReservas(userDetails.getUsername());
         modelo.addAttribute("listaReservas", listaReservas);
         return "user/realizarReservas";
@@ -43,10 +44,11 @@ public class ReservaController {
 
     /**
      * Método encargado de mostrar la vista de el para realizar las reservas
+     * 
      * @return la plantilla de usuario especificada
      */
     @GetMapping("/user/realizar-reservas")
-    public String viewRealizarReservasUserPage(Model modelo){
+    public String viewRealizarReservasUserPage(Model modelo) {
 
         List<Horario> listaHorarios = servicio.listHoras();
         List<Mesa> listaMesas = servicio.listMesas();
@@ -59,8 +61,8 @@ public class ReservaController {
     }
 
     @PostMapping("/user/reservas/agregar")
-    public String saveReserva(@ModelAttribute("reserva") Reserva reserva, @AuthenticationPrincipal CustomUserDetails userDetails, Model modelo){
-
+    public String saveReserva(@ModelAttribute("reserva") Reserva reserva,
+            @AuthenticationPrincipal CustomUserDetails userDetails, Model modelo) {
 
         List<Horario> listaHorarios = servicio.listHoras();
         List<Mesa> listaMesas = servicio.listMesas();
@@ -69,40 +71,43 @@ public class ReservaController {
         modelo.addAttribute("listaHorarios", listaHorarios);
 
         List<Reserva> reservasActivas = servicio.listAll();
-
-        for(Reserva reserve : reservasActivas){
-
-            if(reserve.getEstado().equals("Agendada") && reserve.getMesa().getId() == reserva.getMesa().getId() && reserve.getHorario().getId() == reserva.getHorario().getId()){
-                modelo.addAttribute("error", "La mesa seleccionada no se encuentra disponible para el horario solicitado.");
+        reserva.setUsuario(userDetails.getUsuario());
+        for (Reserva reserve : reservasActivas) {
+            if (reserve.getId() == reserva.getId()) {
+                reserva.setUsuario(reserve.getUsuario());
+            }
+            if (reserve.getEstado().equals("Agendada") && reserve.getMesa().getId() == reserva.getMesa().getId()
+                    && reserve.getHorario().getId() == reserva.getHorario().getId()) {
+                modelo.addAttribute("error",
+                        "La mesa seleccionada no se encuentra disponible para el horario solicitado.");
                 return "user/formularioReservas";
             }
 
         }
 
-        reserva.setUsuario(userDetails.getUsuario());
         servicio.guardar(reserva);
 
         return "redirect:/user/reservas";
 
-    } 
-    
+    }
+
     /* ADMINISTRADOR */
-    
+
     /**
      * Método encargado de mostrar la vista de reservas de administrador
+     * 
      * @param modelo
      * @return la plantilla de administrador especificada
      */
     @GetMapping("/admin/reservas")
-    public String viewReservasAdminPage(Model modelo){
+    public String viewReservasAdminPage(Model modelo) {
         return listByPageAdmin(modelo, 1, "fecha", "asc");
     }
-
 
     @GetMapping("/admin/reservas/page/{pageNumber}")
     public String listByPageAdmin(Model modelo, @PathVariable("pageNumber") int paginaActual,
             @Param("sortField") String sortField,
-            @Param("sortDir") String sortDir){
+            @Param("sortDir") String sortDir) {
 
         Page<Reserva> page = servicio.listByPage(paginaActual, sortField, sortDir);
         long totalItems = page.getTotalElements();
@@ -124,10 +129,9 @@ public class ReservaController {
 
     }
 
-
     @PostMapping("/admin/reservas/agregar")
-    public String saveReservaAdmin(@ModelAttribute("reserva") Reserva reserva, @AuthenticationPrincipal CustomUserDetails userDetails, Model modelo){
-
+    public String saveReservaAdmin(@ModelAttribute("reserva") Reserva reserva,
+            @AuthenticationPrincipal CustomUserDetails userDetails, Model modelo) {
 
         List<Horario> listaHorarios = servicio.listHoras();
         List<Mesa> listaMesas = servicio.listMesas();
@@ -137,17 +141,18 @@ public class ReservaController {
 
         List<Reserva> reservasActivas = servicio.listAll();
 
-        for(Reserva reserve : reservasActivas){
+        for (Reserva reserve : reservasActivas) {
 
-            if(reserve.getId() != reserva.getId()){
+            if (reserve.getId() != reserva.getId()) {
 
-                if(reserve.getEstado().equals("Agendada") && reserve.getMesa().getId() == reserva.getMesa().getId() && reserve.getHorario().getId() == reserva.getHorario().getId()){
-                    modelo.addAttribute("error", "La mesa seleccionada no se encuentra disponible para el horario solicitado.");
+                if (reserve.getEstado().equals("Agendada") && reserve.getMesa().getId() == reserva.getMesa().getId()
+                        && reserve.getHorario().getId() == reserva.getHorario().getId()) {
+                    modelo.addAttribute("error",
+                            "La mesa seleccionada no se encuentra disponible para el horario solicitado.");
                     return "admin/editarReserva";
                 }
 
-            }
-            else{
+            } else {
                 reserva.setFecha_reserva(reserve.getFecha_reserva());
             }
 
@@ -158,16 +163,16 @@ public class ReservaController {
 
         return "redirect:/admin/reservas";
 
-    } 
-    
+    }
 
     /**
      * Método de permite editar una reserva
+     * 
      * @param id
-     * @return 
+     * @return
      */
     @GetMapping("/admin/reservas/editar/{id}")
-    public ModelAndView viewEditarReservaAdminPage(@PathVariable(name ="id") Integer id){
+    public ModelAndView viewEditarReservaAdminPage(@PathVariable(name = "id") Integer id) {
         ModelAndView modelo = new ModelAndView("admin/editarReserva");
         modelo.addObject("reserva", servicio.getById(id));
 
@@ -180,17 +185,16 @@ public class ReservaController {
         return modelo;
     }
 
-
     /**
      * Método encargado de eliminar por id las reservaciones
+     * 
      * @param id
-     * @return 
+     * @return
      */
     @GetMapping("/admin/reservas/eliminar/{id}")
-    public String eliminarReserva(@PathVariable(name ="id") Integer id){
+    public String eliminarReserva(@PathVariable(name = "id") Integer id) {
         servicio.delete(id);
         return "redirect:/admin/reservas";
     }
 
 }
-

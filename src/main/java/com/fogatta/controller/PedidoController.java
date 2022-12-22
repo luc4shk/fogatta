@@ -76,6 +76,7 @@ public class PedidoController {
         List<Producto> productos = pedidoServicio.listProductos();
         List<Producto> listaComida = new ArrayList<>();
         List<Producto> listaBebida = new ArrayList<>();
+        List<Pedido> pedidos = pedidoServicio.listAll();
 
         for(Producto p : productos){
             if(p.getTipo().equals("comida")){
@@ -88,7 +89,7 @@ public class PedidoController {
         modelo.addAttribute("listaComida", listaComida);
         modelo.addAttribute("listaBebida", listaBebida);
 
-        for (Producto p : pedido.getProductos()){
+        /*for (Producto p : pedido.getProductos()){
 
             if(p != null){
                 pedido.setUsuario(userDetails.getUsuario());
@@ -96,11 +97,24 @@ public class PedidoController {
                 return "redirect:/user/pedidos";
             }
 
+        }*/
+
+        Producto [] products = (Producto[]) pedido.getProductos().toArray();
+
+        if( products.length == 1 && products[0] == null ){
+            modelo.addAttribute("error", "Debe seleccionar por lo menos un producto.");
+            return "user/formularioPedidos";
         }
 
-        modelo.addAttribute("error", "Debe seleccionar por lo menos un producto.");
-     
-        return "user/formularioPedidos";
+        pedido.setUsuario(userDetails.getUsuario());
+
+        for(Pedido p : pedidos){
+            if(p.equals(pedido)){
+                pedido.setUsuario(p.getUsuario());
+            }
+        }
+
+        return "redirect:/user/pedidos";
         
     }
 
