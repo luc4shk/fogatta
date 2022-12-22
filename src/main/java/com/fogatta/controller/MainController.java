@@ -86,14 +86,7 @@ public class MainController {
      */
     @GetMapping("/admin/login")
     public String viewAdminLoginPage(){
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-            return "admin/loginAdmin";
-        }
- 
-        return "/admin/productosAdmin";
-
+        return "/admin/loginAdmin";
     }
 
     
